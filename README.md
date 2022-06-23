@@ -32,12 +32,12 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - poetry install
     - poetry shell
     - poetry add django django-filter djangorestframework Markdown
-    - django-admin startproject [project]
-    - cd [project]
+    - django-admin startproject [tadreebi]
+    - cd [tadreebi]
     - python manage.py migrate
     - python manage.py createsuperuser
     - python manage.py startapp [app]
-    - Add [app] to INSTALLED_APPS list in [project]/settings.py
+    - Add [app] to INSTALLED_APPS list in [tadreebi]/settings.py
 
 2. Create your models
     - Add models construction in [app]/models.py
@@ -48,17 +48,17 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - python manage.py migrate
 
 4. Do REST API configs
-    - Add "rest_framework" to INSTALLED_APPS list in [project]/settings.py
-    - Add default rest configs in tail of [project]/settings.py
+    - Add "rest_framework" to INSTALLED_APPS list in [tadreebi]/settings.py
+    - Add default rest configs in tail of [tadreebi]/settings.py
             REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
     - Create [app]/api/serializers.py & link models
     - Create [app]/api/viewset.py & link models & serializers
     - Create urls.py in [app] directory
-    - Link created urls.py to [project]/urls.py
+    - Link created urls.py to [tadreebi]/urls.py
     - Add API URLs to [app]/urls.py
 
 5. Add Permissions
-    - Adjust REST_FRAMEWORK list of [project]/settings.py to...
+    - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
             rest_framework.permissions.IsAuthenticated
     - Create [app]/api/permissions.py
     - Link created permissions to views of [app]/api/viewset.py
@@ -70,4 +70,4 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 7. Replace SQLite3 with PG database
     - Build a Docker container for database
     - Run CLI command of "poetry add psycopg2-binary" to add PG package
-    - Update DATABASES list in [project]/settings.py
+    - Update DATABASES list in [tadreebi]/settings.py
