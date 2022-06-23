@@ -9,6 +9,21 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - Complete the setup process of pg database
 - Split given feature into tasks n populate tasks of github project to-dos
 
+## Development Instructions & Notes
+
+- Clone repo to local machine
+- Do the first-time setup steps of...
+        poetry install
+
+        poetry shell
+        
+        python manage.py migrate
+        
+        python manage.py createsuperuser
+- To make a new branch for each task of the to-do list
+- Branch is to be made out of the dev branch using the command
+        git checkout -b branch_name dev
+
 ## Django API App Building Steps
 
 1. Run following CLI commands
