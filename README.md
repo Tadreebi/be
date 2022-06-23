@@ -7,7 +7,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 ## Pre Development Steps
 
 - Complete the setup process of pg database
-- Split given feature into tasks n populate tasks of github project to-dos
+- Split given feature into tasks n populate tasks of github [Project Mgmt Page](https://github.com/Tadreebi/be/projects/1)
 
 ## Development Instructions & Notes
 
