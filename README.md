@@ -13,6 +13,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 
 - Clone repo to local machine
 - Do the first-time setup steps of...
+
         poetry install
 
         poetry shell
