@@ -70,12 +70,16 @@ class AppUser(AbstractBaseUser):
     ]
 
     email = models.EmailField(max_length=64, unique=True)
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
-    phone = PhoneNumberField(unique=True)
-    address = models.CharField(help_text="city", max_length=32, choices=CITIES)
-    GPA = models.DecimalField(help_text="out of 4.00", max_digits=4, decimal_places=2)
-    major = models.CharField(max_length=32, choices=MAJORS)
+    first_name = models.CharField(max_length=64, null=True, blank=True)
+    last_name = models.CharField(max_length=64, null=True, blank=True)
+    phone = PhoneNumberField(unique=True, null=True, blank=True)
+    address = models.CharField(
+        help_text="city", max_length=32, choices=CITIES, null=True, blank=True
+    )
+    GPA = models.DecimalField(
+        help_text="out of 4.00", max_digits=4, decimal_places=2, null=True, blank=True
+    )
+    major = models.CharField(max_length=32, choices=MAJORS, null=True, blank=True)
 
     objects = MyUserManager()
 
