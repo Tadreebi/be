@@ -1,14 +1,13 @@
-from models import StudentReportAchievements, StudentReports, StudentReportSkills
+from app.models import StudentReportAchievement, StudentReport, StudentReportSkill
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
-    RetrieveUpdateDestroyAPIView,
     RetrieveAPIView,
     RetrieveUpdateAPIView,
     RetrieveDestroyAPIView,
 )
 
-from .serializers import (
+from app.api.serializers import (
     StudentReportAchievementsSerializer,
     StudentReportSkillsSerializer,
     StudentReportsSerializer,
@@ -16,77 +15,77 @@ from .serializers import (
 
 # Student Reports #########################################################
 class StudentReportsList(ListAPIView):
-    queryset = StudentReports.objects.all()
+    queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
 
 
 class StudentReportsCreate(ListCreateAPIView):
-    queryset = StudentReports.objects.all()
+    queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
 
 
 class StudentReportsDetail(RetrieveAPIView):
-    queryset = StudentReports.objects.all()
+    queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
 
 
 class StudentReportsUpdate(RetrieveUpdateAPIView):
-    queryset = StudentReports.objects.all()
+    queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
 
 
 class StudentReportsDelete(RetrieveDestroyAPIView):
-    queryset = StudentReports.objects.all()
+    queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
 
 
 # Student Report Skills ###################################################
 class StudentReportSkillsList(ListAPIView):
-    queryset = StudentReportSkills.objects.all()
+    queryset = StudentReportSkill.objects.all()
     serializer_class = StudentReportSkillsSerializer
 
 
 class StudentReportSkillsCreate(ListCreateAPIView):
-    queryset = StudentReportSkills.objects.all()
+    queryset = StudentReportSkill.objects.all()
     serializer_class = StudentReportSkillsSerializer
 
 
 class StudentReportSkillsDetail(RetrieveAPIView):
-    queryset = StudentReportSkills.objects.all()
+    queryset = StudentReportSkill.objects.all()
     serializer_class = StudentReportSkillsSerializer
 
 
 class StudentReportSkillsUpdate(RetrieveUpdateAPIView):
-    queryset = StudentReportSkills.objects.all()
+    queryset = StudentReportSkill.objects.all()
     serializer_class = StudentReportSkillsSerializer
 
 
 class StudentReportSkillsDelete(RetrieveDestroyAPIView):
-    queryset = StudentReportSkills.objects.all()
+    queryset = StudentReportSkill.objects.all()
     serializer_class = StudentReportSkillsSerializer
 
 
 # Student Report Achievements #############################################
 class StudentReportAchievementsList(ListAPIView):
-    queryset = StudentReportAchievements.objects.all()
+    queryset = StudentReportAchievement.objects.all()
     serializer_class = StudentReportAchievementsSerializer
 
 
 class StudentReportAchievementsCreate(ListCreateAPIView):
-    queryset = StudentReportAchievements.objects.all()
+    queryset = StudentReportAchievement.objects.all()
     serializer_class = StudentReportAchievementsSerializer
 
 
 class StudentReportAchievementsDetail(RetrieveAPIView):
-    queryset = StudentReportAchievements.objects.all()
+    queryset = StudentReportAchievement.objects.all()
     serializer_class = StudentReportAchievementsSerializer
 
 
 class StudentReportAchievementsUpdate(RetrieveUpdateAPIView):
-    queryset = StudentReportAchievements.objects.all()
+    queryset = StudentReportAchievement.objects.all()
     serializer_class = StudentReportAchievementsSerializer
 
 
 class StudentReportAchievementsDelete(RetrieveDestroyAPIView):
-    queryset = StudentReportAchievements.objects.all()
+    queryset = StudentReportAchievement.objects.all()
     serializer_class = StudentReportAchievementsSerializer

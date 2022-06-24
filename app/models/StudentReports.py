@@ -1,13 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-choices = ["Weekly", "Monthly", "Final"]
+choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 
 
-class StudentReports(models.Model):
+class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
-    type = models.CharField(choices=choices)
+    type = models.CharField(max_length=256, choices=choices)
     # Start & end of period covered by the report
     startDate = models.DateField()
     endDate = models.DateField()
@@ -21,9 +21,9 @@ class StudentReports(models.Model):
         return self.title
 
 
-class StudentReportSkills(models.Model):
+class StudentReportSkill(models.Model):
     title = models.CharField(max_length=256)
-    report = models.ForeignKey(StudentReports, on_delete=models.CASCADE)
+    report = models.ForeignKey(StudentReport, on_delete=models.CASCADE)
     details = models.TextField(null=True, blank=True)
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
@@ -34,9 +34,9 @@ class StudentReportSkills(models.Model):
         return self.title
 
 
-class StudentReportAchievements(models.Model):
+class StudentReportAchievement(models.Model):
     title = models.CharField(max_length=256)
-    report = models.ForeignKey(StudentReports, on_delete=models.CASCADE)
+    report = models.ForeignKey(StudentReport, on_delete=models.CASCADE)
     details = models.TextField(null=True, blank=True)
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
