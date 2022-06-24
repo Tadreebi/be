@@ -39,10 +39,10 @@ class AppUser(AbstractBaseUser):
     )
     date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
     last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
-    is_admin = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=True)
-    is_staff = models.BooleanField(default=False)
-    is_superuser = models.BooleanField(default=False)  # editable=False
+    is_admin = models.BooleanField(default=False, editable=False)
+    is_active = models.BooleanField(default=True, editable=False)
+    is_staff = models.BooleanField(verbose_name="University staff", default=False)
+    is_superuser = models.BooleanField(default=False, editable=False)
 
     CITIES = [
         ("Amman", "Amman"),
@@ -69,6 +69,7 @@ class AppUser(AbstractBaseUser):
         ("Letreture", "Letreture"),
     ]
 
+    is_company = models.BooleanField(verbose_name="Company account", default=False)
     email = models.EmailField(max_length=64, unique=True)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
