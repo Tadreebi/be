@@ -1,3 +1,6 @@
 from django.contrib import admin
+from app.models import StudentReport, StudentReportSkill, StudentReportAchievement
 
-# Register your models here.
+admin.site.register(StudentReport)
+admin.site.register(StudentReportSkill)
+admin.site.register(StudentReportAchievement)

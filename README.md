@@ -55,8 +55,8 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Create [app]/api/serializers.py & link models
     - Create [app]/api/viewset.py & link models & serializers
     - Create urls.py in [app] directory
-    - Link created urls.py to [tadreebi]/urls.py
     - Add API URLs to [app]/urls.py
+    - Link created urls.py to [tadreebi]/urls.py
 
 5. Add Permissions
     - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
@@ -72,3 +72,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Build a Docker container for database
     - Run CLI command of "poetry add psycopg2-binary" to add PG package
     - Update DATABASES list in [tadreebi]/settings.py
+
+## How to start
+
+- python manage.py runserver
