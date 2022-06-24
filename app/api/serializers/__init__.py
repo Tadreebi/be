@@ -3,3 +3,6 @@ from .StudentReports import (
     StudentReportSkillsSerializer,
     StudentReportAchievementsSerializer,
 )
+from .StudentProfile import (
+    StudentProfileSerializer,
+)
