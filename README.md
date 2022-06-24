@@ -72,3 +72,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Build a Docker container for database
     - Run CLI command of "poetry add psycopg2-binary" to add PG package
     - Update DATABASES list in [tadreebi]/settings.py
+
+## How to start
+
+- python manage.py runserver
