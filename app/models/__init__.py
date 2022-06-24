@@ -5,5 +5,5 @@ from .StudentReports import (
 )
 
 from .StudentProfile import (
-    StudenProfile,
+    StudentProfile,
 )

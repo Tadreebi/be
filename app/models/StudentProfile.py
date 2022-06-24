@@ -15,9 +15,9 @@ contacts = {
 }
 
 
-class StudenProfile(models.Model):
+class StudentProfile(models.Model):
     full_name = models.CharField(max_length=256, null=True, blank=True)
-    student = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    student = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, unique=True)
     intro = models.TextField(null=True, blank=True)
     image = models.CharField(max_length=256, null=True, blank=True)
     job_title = models.CharField(max_length=256, null=True, blank=True)

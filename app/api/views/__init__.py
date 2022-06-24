@@ -16,9 +16,9 @@ from .StudentReports import (
     StudentReportAchievementsDelete,
 )
 from .StudentProfile import (
-    StudentProfilesList,
-    StudentProfilesCreate,
-    StudentProfilesDetail,
-    StudentProfilesUpdate,
-    StudentProfilesDelete,
+    StudentProfileList,
+    StudentProfileCreate,
+    StudentProfileDetail,
+    StudentProfileUpdate,
+    StudentProfileDelete,
 )
