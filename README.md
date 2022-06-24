@@ -41,7 +41,8 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Add [app] to INSTALLED_APPS list in [tadreebi]/settings.py
 
 2. Create your models
-    - Add models construction in [app]/models.py
+    - Add your feature models construction in [app]/models/feature_name.py
+    - Import the models in [app]/models/__init__.py
     - Register model in [app]/admin.py
 
 3. Run following CLI commands
@@ -54,10 +55,12 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
             REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
 
 5. Do REST API configs (for each model)
-    - Create [app]/api/serializers.py & link models
-    - Create [app]/api/viewset.py & link models & serializers
-    - Create urls.py in [app] directory
-    - Add API URLs to [app]/urls.py
+    - Create feature's serializer file in [app]/api/serializers & link relevant models
+    - Import created serializers in [app]/api/serializers/__init__.py
+    - Create feature's viewsets file in [app]/api/views & link relevant models & serializers
+    - Import created serializers in [app]/api/views/__init__.py
+    - Create feature API's urls file in [app]/urls directory
+    - Add feature API URLs to created urls file
     - Link created urls.py to [tadreebi]/urls.py
 
 6. Add Permissions
