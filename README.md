@@ -63,7 +63,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Add feature API URLs to created urls file
     - Link created urls.py to [tadreebi]/urls.py
 
-6. Add Permissions
+6. Add Permissions (Could skip it for the moment)
     - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
             rest_framework.permissions.IsAuthenticated
     - Create [app]/api/permissions.py

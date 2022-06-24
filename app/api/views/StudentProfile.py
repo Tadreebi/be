@@ -1,4 +1,4 @@
-from app.models import StudentProfile
+from app.models import StudenProfile
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
@@ -13,25 +13,25 @@ from app.api.serializers import (
 
 
 class StudentProfilesList(ListAPIView):
-    queryset = StudentProfile.objects.all()
+    queryset = StudenProfile.objects.all()
     serializer_class = StudentProfileSerializer
 
 
 class StudentProfilesCreate(ListCreateAPIView):
-    queryset = StudentProfile.objects.all()
+    queryset = StudenProfile.objects.all()
     serializer_class = StudentProfileSerializer
 
 
 class StudentProfilesDetail(RetrieveAPIView):
-    queryset = StudentProfile.objects.all()
+    queryset = StudenProfile.objects.all()
     serializer_class = StudentProfileSerializer
 
 
 class StudentProfilesUpdate(RetrieveUpdateAPIView):
-    queryset = StudentProfile.objects.all()
+    queryset = StudenProfile.objects.all()
     serializer_class = StudentProfileSerializer
 
 
 class StudentProfilesDelete(RetrieveDestroyAPIView):
-    queryset = StudentProfile.objects.all()
+    queryset = StudenProfile.objects.all()
     serializer_class = StudentProfileSerializer
