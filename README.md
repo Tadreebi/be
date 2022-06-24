@@ -48,17 +48,19 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - python manage.py makemigrations
     - python manage.py migrate
 
-4. Do REST API configs
+4. Do REST API configs (first-time only)
     - Add "rest_framework" to INSTALLED_APPS list in [tadreebi]/settings.py
     - Add default rest configs in tail of [tadreebi]/settings.py
             REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
+
+5. Do REST API configs (for each model)
     - Create [app]/api/serializers.py & link models
     - Create [app]/api/viewset.py & link models & serializers
     - Create urls.py in [app] directory
     - Add API URLs to [app]/urls.py
     - Link created urls.py to [tadreebi]/urls.py
 
-5. Add Permissions
+6. Add Permissions
     - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
             rest_framework.permissions.IsAuthenticated
     - Create [app]/api/permissions.py
@@ -66,9 +68,9 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Build permission tests in [app]/tests.py
     - Run CLI command of "python manage.py test" to test permissions functionality
 
-6. Build Docker initial files of "docker-compose.yml" & "Dockerfile" & "requirements.txt"
+7. Build Docker initial files of "docker-compose.yml" & "Dockerfile" & "requirements.txt"
 
-7. Replace SQLite3 with PG database
+8. Replace SQLite3 with PG database
     - Build a Docker container for database
     - Run CLI command of "poetry add psycopg2-binary" to add PG package
     - Update DATABASES list in [tadreebi]/settings.py
