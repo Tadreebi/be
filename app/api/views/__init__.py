@@ -15,3 +15,10 @@ from .StudentReports import (
     StudentReportAchievementsUpdate,
     StudentReportAchievementsDelete,
 )
+from .StudentProfile import (
+    StudentProfileList,
+    StudentProfileCreate,
+    StudentProfileDetail,
+    StudentProfileUpdate,
+    StudentProfileDelete,
+)

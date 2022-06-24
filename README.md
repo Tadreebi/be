@@ -41,24 +41,29 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Add [app] to INSTALLED_APPS list in [tadreebi]/settings.py
 
 2. Create your models
-    - Add models construction in [app]/models.py
+    - Add your feature models construction in [app]/models/feature_name.py
+    - Import the models in [app]/models/__init__.py
     - Register model in [app]/admin.py
 
 3. Run following CLI commands
     - python manage.py makemigrations
     - python manage.py migrate
 
-4. Do REST API configs
+4. Do REST API configs (first-time only)
     - Add "rest_framework" to INSTALLED_APPS list in [tadreebi]/settings.py
     - Add default rest configs in tail of [tadreebi]/settings.py
             REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
-    - Create [app]/api/serializers.py & link models
-    - Create [app]/api/viewset.py & link models & serializers
-    - Create urls.py in [app] directory
-    - Add API URLs to [app]/urls.py
+
+5. Do REST API configs (for each model)
+    - Create feature's serializer file in [app]/api/serializers & link relevant models
+    - Import created serializers in [app]/api/serializers/__init__.py
+    - Create feature's viewsets file in [app]/api/views & link relevant models & serializers
+    - Import created serializers in [app]/api/views/__init__.py
+    - Create feature API's urls file in [app]/urls directory
+    - Add feature API URLs to created urls file
     - Link created urls.py to [tadreebi]/urls.py
 
-5. Add Permissions
+6. Add Permissions (Could skip it for the moment)
     - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
             rest_framework.permissions.IsAuthenticated
     - Create [app]/api/permissions.py
@@ -66,9 +71,9 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Build permission tests in [app]/tests.py
     - Run CLI command of "python manage.py test" to test permissions functionality
 
-6. Build Docker initial files of "docker-compose.yml" & "Dockerfile" & "requirements.txt"
+7. Build Docker initial files of "docker-compose.yml" & "Dockerfile" & "requirements.txt"
 
-7. Replace SQLite3 with PG database
+8. Replace SQLite3 with PG database
     - Build a Docker container for database
     - Run CLI command of "poetry add psycopg2-binary" to add PG package
     - Update DATABASES list in [tadreebi]/settings.py

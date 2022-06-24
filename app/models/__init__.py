@@ -3,3 +3,7 @@ from .StudentReports import (
     StudentReportSkill,
     StudentReportAchievement,
 )
+
+from .StudentProfile import (
+    StudentProfile,
+)
