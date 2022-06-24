@@ -146,3 +146,11 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ],
 }
+
+# To change the default redirection after login/logout
+# LOGIN_REDIRECT_URL =
+# LOGOUT_REDIRECT_URL =
+
+# To save the sent emails in the database
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
