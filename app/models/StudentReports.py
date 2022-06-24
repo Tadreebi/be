@@ -14,6 +14,10 @@ class StudentReport(models.Model):
     # Report intro & conclusion paragraphs
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
+    # Supervisor notes
+    remarks = models.TextField(null=True, blank=True)
+    accepted = models.BooleanField(default=True)
+    # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -27,6 +31,7 @@ class StudentReportSkill(models.Model):
     details = models.TextField(null=True, blank=True)
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
+    # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -40,6 +45,7 @@ class StudentReportAchievement(models.Model):
     details = models.TextField(null=True, blank=True)
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
+    # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
