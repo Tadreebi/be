@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import StudentUser, CompanyUser, UniversityEmployeeUser
+from .additional_models.uni_stu_feedback import UniStuFeedback
 
 
 @admin.register(UniversityEmployeeUser)
@@ -45,3 +46,6 @@ class AdminAppUser(admin.ModelAdmin):
     list_filter = ("is_admin", "is_active", "is_staff", "is_superuser")
     search_fields = ("username", "email")
     ordering = ("username",)
+
+
+admin.site.register(UniStuFeedback)
