@@ -93,6 +93,7 @@ class AppUser(AbstractBaseUser):
         unique=True,
     )
     email = models.EmailField(max_length=64, unique=True)
+    password = models.CharField(max_length=128)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
     type = models.CharField(
