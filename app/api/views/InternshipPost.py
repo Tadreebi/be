@@ -1,12 +1,9 @@
 from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status, filters
+from rest_framework import viewsets
 from app.models.InternshipPost import PostInternship
 from app.api.serializers.InternshipPost import PostSerializer
-from django.http import Http404
 from rest_framework.generics import (
     ListCreateAPIView,
-    RetrieveAPIView,
     RetrieveUpdateDestroyAPIView,
 )
 
@@ -20,6 +17,13 @@ class PostInternshipList(ListCreateAPIView):
 class PostInternshipRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = PostInternship.objects.all()
     serializer_class = PostSerializer
+
+# ViewSets
+class PostsViewSets(viewsets.ModelViewSet):
+    queryset = PostInternship.objects.all()
+    serializer_class = PostSerializer  
+
+
 
 
 # # List and Create == GET and POST

@@ -1,9 +1,14 @@
 from app.api.views.InternshipPost import (
     PostInternshipList,
     PostInternshipRetrieveUpdateDestroy,
-
+    PostsViewSets,
 )
-from django.urls import path
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+
+# Viewsets Route
+router = DefaultRouter()
+router.register('posts', PostsViewSets)
 
 urlpatterns = [
     # Post
@@ -12,10 +17,17 @@ urlpatterns = [
         PostInternshipList.as_view(),
         name="Internship Posts List",
     ),
+
     # Get Put Delete
     path(
         "<int:pk>",
         PostInternshipRetrieveUpdateDestroy.as_view(),
         name="Internship Posts Delete Update Get",
+    ),
+
+    # Viewsets
+    path(
+    "",
+    include(router.urls),
     ),
 ]
