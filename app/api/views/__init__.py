@@ -22,3 +22,10 @@ from .StudentProfile import (
     StudentProfileUpdate,
     StudentProfileDelete,
 )
+from .UniversityTips import (
+    UniversityTipsList,
+    UniversityTipsCreate,
+    UniversityTipsDetail,
+    UniversityTipsUpdate,
+    UniversityTipsDelete,
+)

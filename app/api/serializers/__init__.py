@@ -6,3 +6,5 @@ from .StudentReports import (
 from .StudentProfile import (
     StudentProfileSerializer,
 )
+
+from .UniversityTips import UniversityTipsSerializer
