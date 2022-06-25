@@ -45,6 +45,8 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Import the models in [app]/models/__init__.py
     - Register model in [app]/admin.py
 
+    - Don't forget that model name should be singular not plural
+
 3. Run following CLI commands
     - python manage.py makemigrations
     - python manage.py migrate
