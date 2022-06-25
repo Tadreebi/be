@@ -1,6 +1,6 @@
 from app.api.views.InternshipPost import (
     PostInternshipList,
-    PostInternshipDetail,
+    PostInternshipRetrieveUpdateDestroy,
 
 )
 from django.urls import path
@@ -15,7 +15,7 @@ urlpatterns = [
     # Get Put Delete
     path(
         "<int:pk>",
-        PostInternshipDetail.as_view(),
-        name="Internship Posts List",
+        PostInternshipRetrieveUpdateDestroy.as_view(),
+        name="Internship Posts Delete Update Get",
     ),
 ]
