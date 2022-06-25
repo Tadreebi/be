@@ -8,4 +8,4 @@ from .StudentProfile import (
     StudentProfile,
 )
 
-from .Users import StudentUser, CompanyUser, UniversityEmployeeUser
+from .Users import StudentUser, CompanyUser, UniversityEmployeeUser, AppUser
