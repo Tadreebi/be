@@ -20,5 +20,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("students/", include("app.urls.studentReports")),
     path("profile/", include("app.urls.studentProfile")),
-    path("", include("app.urls.Users")),
+    path("api/token/", include("app.urls.Users")),
 ]
