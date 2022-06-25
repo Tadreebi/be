@@ -22,3 +22,16 @@ from .StudentProfile import (
     StudentProfileUpdate,
     StudentProfileDelete,
 )
+
+from .StudentGoals import (
+    StudentGoalsList,
+    StudentGoalsCreate,
+    StudentGoalsDetail,
+    StudentGoalsUpdate,
+    StudentGoalsDelete,
+    StudentGoalIndicatorsList,
+    StudentGoalIndicatorsCreate,
+    StudentGoalIndicatorsDetail,
+    StudentGoalIndicatorsUpdate,
+    StudentGoalIndicatorsDelete,
+)
