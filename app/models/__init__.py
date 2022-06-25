@@ -7,3 +7,5 @@ from .StudentReports import (
 from .StudentProfile import (
     StudentProfile,
 )
+
+from .StudentGoals import StudentGoal, StudentGoalIndicator
