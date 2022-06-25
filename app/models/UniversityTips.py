@@ -4,6 +4,7 @@ topics = [
     ("Motivational", "Motivational"),
     ("Skill References", "Skill References"),
     ("Interview References", "Interview References"),
+    ("Use the Internship Opportunity", "Use the Internship Opportunity"),
 ]
 
 types = [
