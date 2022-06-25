@@ -1,6 +1,10 @@
 from rest_framework import generics, permissions
-from .models import StudentUser, UniversityEmployeeUser, CompanyUser
-from .serializers import StudentSerializer, UniversitySerializer, CompanySerializer
+from ...models.users_model import StudentUser, UniversityEmployeeUser, CompanyUser
+from ..serializers.users_serializers import (
+    StudentSerializer,
+    UniversitySerializer,
+    CompanySerializer,
+)
 
 
 class StudentSignUpView(generics.ListCreateAPIView):
