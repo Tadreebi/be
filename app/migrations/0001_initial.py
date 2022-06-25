@@ -8,64 +8,120 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AppUser',
+            name="AppUser",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('username', models.CharField(help_text='If your (student/university Employee) use the university ID number', max_length=64, unique=True)),
-                ('email', models.EmailField(max_length=64, unique=True)),
-                ('first_name', models.CharField(blank=True, max_length=64, null=True)),
-                ('last_name', models.CharField(blank=True, max_length=64, null=True)),
-                ('type', models.CharField(choices=[('STUDENT', 'Student'), ('UNIVERSITY_EMPLOYEE', 'University Employee'), ('COMPANY', 'Company')], default='STUDENT', max_length=50, verbose_name='Type')),
-                ('date_joined', models.DateTimeField(auto_now_add=True, verbose_name='date joined')),
-                ('last_login', models.DateTimeField(auto_now=True, verbose_name='last login')),
-                ('is_superuser', models.BooleanField(default=False, editable=False)),
-                ('is_active', models.BooleanField(default=True, editable=False)),
-                ('is_admin', models.BooleanField(default=False, editable=False)),
-                ('is_staff', models.BooleanField(default=False, editable=False)),
-                ('phone', phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=128, null=True, region=None, unique=True)),
-                ('address', models.CharField(blank=True, choices=[('Amman', 'Amman'), ('Aqaba', 'Aqaba'), ('Irbid', 'Irbid'), ('Jarash', 'Jarash'), ('Mafraq', 'Mafraq'), ('Madaba', 'Madaba'), ('Zarqa', 'Zarqa'), ('Tafilah', 'Tafilah'), ('Salt', 'Salt'), ('Maan', 'Maan'), ('Karak', 'Karak'), ('Ajloun', 'Ajloun')], help_text='city', max_length=32, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("password", models.CharField(max_length=128, verbose_name="password")),
+                (
+                    "username",
+                    models.CharField(
+                        help_text="If your (student/university Employee) use the university ID number",
+                        max_length=64,
+                        unique=True,
+                    ),
+                ),
+                ("email", models.EmailField(max_length=64, unique=True)),
+                ("first_name", models.CharField(blank=True, max_length=64, null=True)),
+                ("last_name", models.CharField(blank=True, max_length=64, null=True)),
+                (
+                    "type",
+                    models.CharField(
+                        choices=[
+                            ("STUDENT", "Student"),
+                            ("UNIVERSITY_EMPLOYEE", "University Employee"),
+                            ("COMPANY", "Company"),
+                        ],
+                        default="STUDENT",
+                        max_length=50,
+                        verbose_name="Type",
+                    ),
+                ),
+                (
+                    "date_joined",
+                    models.DateTimeField(auto_now_add=True, verbose_name="date joined"),
+                ),
+                (
+                    "last_login",
+                    models.DateTimeField(auto_now=True, verbose_name="last login"),
+                ),
+                ("is_superuser", models.BooleanField(default=False, editable=False)),
+                ("is_active", models.BooleanField(default=True, editable=False)),
+                ("is_admin", models.BooleanField(default=False, editable=False)),
+                ("is_staff", models.BooleanField(default=False, editable=False)),
+                (
+                    "phone",
+                    phonenumber_field.modelfields.PhoneNumberField(
+                        blank=True, max_length=128, null=True, region=None, unique=True
+                    ),
+                ),
+                (
+                    "address",
+                    models.CharField(
+                        blank=True,
+                        choices=[
+                            ("Amman", "Amman"),
+                            ("Aqaba", "Aqaba"),
+                            ("Irbid", "Irbid"),
+                            ("Jarash", "Jarash"),
+                            ("Mafraq", "Mafraq"),
+                            ("Madaba", "Madaba"),
+                            ("Zarqa", "Zarqa"),
+                            ("Tafilah", "Tafilah"),
+                            ("Salt", "Salt"),
+                            ("Maan", "Maan"),
+                            ("Karak", "Karak"),
+                            ("Ajloun", "Ajloun"),
+                        ],
+                        help_text="city",
+                        max_length=32,
+                        null=True,
+                    ),
+                ),
             ],
             options={
-                'abstract': False,
+                "abstract": False,
             },
         ),
         migrations.CreateModel(
-            name='Company',
-            fields=[
-            ],
+            name="Company",
+            fields=[],
             options={
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
             },
-            bases=('app.appuser',),
+            bases=("app.appuser",),
         ),
         migrations.CreateModel(
-            name='Student',
-            fields=[
-            ],
+            name="Student",
+            fields=[],
             options={
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
             },
-            bases=('app.appuser',),
+            bases=("app.appuser",),
         ),
         migrations.CreateModel(
-            name='UniversityEmployee',
-            fields=[
-            ],
+            name="UniversityEmployee",
+            fields=[],
             options={
-                'proxy': True,
-                'indexes': [],
-                'constraints': [],
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
             },
-            bases=('app.appuser',),
+            bases=("app.appuser",),
         ),
     ]
