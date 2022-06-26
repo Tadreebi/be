@@ -18,7 +18,7 @@ class CompUniFeedback(models.Model):
     feedback = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(choices=RATING_MARKS)
-    type = models.CharField(choices=TYPES)
+    type = models.CharField(max_length=64, default="PERIODICAL_REPORT", choices=TYPES)
 
     def __str__(self):
         return self.student_username.username

@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from ...additional_models.comp_uni_feedback import (
+from ...models.comp_uni_feedback import (
     CompUniFeedback as CompUniFeedbackModel,
 )
 from ..serializers.comp_uni_feedback import CompUniFeedback

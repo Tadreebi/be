@@ -1,7 +1,7 @@
 from django.contrib import admin
-from .models import StudentUser, CompanyUser, UniversityEmployeeUser
-from .additional_models.uni_stu_feedback import UniStuFeedback
-from .additional_models.comp_uni_feedback import CompUniFeedback
+from .models.user_model import StudentUser, CompanyUser, UniversityEmployeeUser
+from .models.uni_stu_feedback import UniStuFeedback
+from .models.comp_uni_feedback import CompUniFeedback
 
 
 @admin.register(UniversityEmployeeUser)

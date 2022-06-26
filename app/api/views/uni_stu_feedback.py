@@ -1,5 +1,5 @@
 from rest_framework import generics, permissions
-from ...additional_models.uni_stu_feedback import UniStuFeedback as UniStuFeedbackModel
+from ...models.uni_stu_feedback import UniStuFeedback as UniStuFeedbackModel
 from ..serializers.uni_stu_feedback import UniStuFeedback
 
 
