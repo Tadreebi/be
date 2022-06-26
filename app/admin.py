@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import StudentUser, CompanyUser, UniversityEmployeeUser
 from .additional_models.uni_stu_feedback import UniStuFeedback
+from .additional_models.comp_uni_feedback import CompUniFeedback
 
 
 @admin.register(UniversityEmployeeUser)
@@ -49,3 +50,4 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 admin.site.register(UniStuFeedback)
+admin.site.register(CompUniFeedback)
