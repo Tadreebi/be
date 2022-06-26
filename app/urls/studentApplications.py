@@ -8,7 +8,7 @@ from rest_framework.routers import DefaultRouter
 
 # Viewsets Route
 router = DefaultRouter()
-router.register('posts', ApplicationsViewSets)
+router.register('applied', ApplicationsViewSets)
 
 urlpatterns = [
     # Post
