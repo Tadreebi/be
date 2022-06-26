@@ -15,4 +15,4 @@ class CompUniFeedback(models.Model):
     rating = models.IntegerField(choices=RATING_MARKS)
 
     def __str__(self):
-        return self.student_username + " " + self.rating
+        return self.student_username.username
