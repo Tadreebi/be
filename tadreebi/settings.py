@@ -126,3 +126,7 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
 'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']}
+
+# Resumes
+MEDIA_URL = "app/assets/resumes_images/"
+MEDIA_ROOT = BASE_DIR / 'app/assets/resumes_images/'
