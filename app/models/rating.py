@@ -20,6 +20,7 @@ class Rating(models.Model):
     student_allowed=models.SmallIntegerField(max_length=10, default= 5)
     support=models.SmallIntegerField(max_length=10, default= 5)
     recomended=models.SmallIntegerField(max_length=10, default= 5)
+    comments=models.TextField(max_length=480,blank=True, null=True)
     student = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, unique=True, blank=True, null=True)
 
 
