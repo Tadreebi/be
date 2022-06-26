@@ -66,6 +66,6 @@ class PostInternship(models.Model):
     location = models.TextField(max_length=255, null=True)
     positions = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
-    last_date = models.DateTimeField(auto_now_add=True)
+    last_date = models.DateTimeField(auto_now_add=False)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
