@@ -57,3 +57,13 @@ from .CompanyReport import (
     CompanyReportUpdate,
     CompanyReportDelete,
 )
+
+
+from .InternshipPost import (
+    InternshipPostList,
+    InternshipPostRetrieveUpdateDestroy,
+    InternshipPostsViewSets,
+    InternshipPostRequirementsList,
+    InternshipPostRequirementsRetrieveUpdateDestroy,
+    InternshipPostRequirementsViewSets,
+)

@@ -26,3 +26,5 @@ from .ComapnyRating import (
 from .CompanyReport import (
     CompanyReportSerializer,
 )
+
+from .InternshipPost import InternshipPostSerializer, InternshipRequirementsSerializer

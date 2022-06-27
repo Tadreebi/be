@@ -195,6 +195,7 @@ class UniversityEmployeeUser(AppUser):
 
 
 class CompanyUser(AppUser):
+    # Add company intro / description as an optional field / key
     objects = CompanyManager()
 
     class Meta:
