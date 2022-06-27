@@ -136,6 +136,7 @@ STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+
 AUTH_USER_MODEL = "app.AppUser"
 
 REST_FRAMEWORK = {
@@ -154,3 +155,5 @@ REST_FRAMEWORK = {
 # To save the sent emails in the database
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
