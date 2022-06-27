@@ -4,10 +4,38 @@ Backend Django App of TADREEBI
 
 You may find full app documantation on [Introductory Repo](https://github.com/Tadreebi/app)
 
-## Pre Development Steps
+## Testing Steps
 
-- Complete the setup process of pg database
-- Split given feature into tasks n populate tasks of github [Project Mgmt Page](https://github.com/Tadreebi/be/projects/1)
+- Switch to dev branch with following CLI command
+
+        git checkout dev
+- Fetch latest version of dev branch
+        git Fetch
+- Delete SQLite3 database file.
+- Do following CLI command
+
+        python manage.py makemigrations
+- Do following CLI command
+
+        python manage.py migrate
+- Do following CLI command
+
+        python manage.py cretesuperuse
+- Start by testing the CRUD of each endpoint of own modules'...
+  - Admin panel form
+  - URL links
+- If possible, it's recommended to test others' work as well.
+- When an error found, branch out of dev to fix the error with following CLI command
+        git checkout -b new_branch_name dev
+
+## Minor Fixes to Do
+
+- Add permissions to api/views.
+- Redirect landing page.
+- Redirect all modules' URLs.
+- Unify naming conventions of files, classes and properties.
+- Give clearer and more meaningful names to files, classes, properties and URLs.
+- Option lists into independent models.
 
 ## Development Instructions & Notes
 
