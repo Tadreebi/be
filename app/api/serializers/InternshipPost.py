@@ -1,7 +1,14 @@
 from rest_framework import serializers
-from app.models.InternshipPost import PostInternship
+from app.models import InternshipPost, InternshipRequirements
 
-class PostSerializer(serializers.ModelSerializer):
+
+class InternshipPostSerializer(serializers.ModelSerializer):
     class Meta:
-        model = PostInternship
+        model = InternshipPost
+        fields = "__all__"
+
+
+class InternshipRequirementsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InternshipRequirements
         fields = "__all__"
