@@ -1,10 +1,10 @@
 from rest_framework import serializers
-from app.models import UniStuFeedback
+from app.models import CompUniFeedback
 
 
-class UniStuFeedback(serializers.ModelSerializer):
+class CompUniFeedback(serializers.ModelSerializer):
     class Meta:
-        model = UniStuFeedback
+        model = CompUniFeedback
         fields = (
             "id",
             "student_username",
