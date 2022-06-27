@@ -15,6 +15,11 @@ from .CompanyReport import (
 from .StudentExperience import (
     StudentExperience,
 )
+
+
+from .UniversityTips import (
+    UniversityTip,
+)
 from .StudentProposal import (
     StudentUniProposal,
 )

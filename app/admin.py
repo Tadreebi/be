@@ -11,6 +11,7 @@ from app.models import (
     StudentReportSkill,
     StudentReportAchievement,
     StudentProfile,
+    UniversityTip,
     StudentGoal,
     StudentGoalIndicator,
     StudentExperience,
@@ -75,6 +76,7 @@ admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
+admin.site.register(UniversityTip)
 admin.site.register(StudentGoal)
 admin.site.register(StudentGoalIndicator)
 admin.site.register(InternshipPost)

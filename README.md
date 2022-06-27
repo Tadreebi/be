@@ -44,10 +44,12 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Add your feature models construction in [app]/models/feature_name.py
     - Import the models in [app]/models/__init__.py
     - Register model in [app]/admin.py
+    - Don't forget that model name should be singular not plural
 
 3. Run following CLI commands (every time a model is added)
     - python manage.py makemigrations
     - python manage.py migrate
+    - Once you've done this, please test the model in admin panel
 
 4. Do REST API configs (first-time only)
     - Add "rest_framework" to INSTALLED_APPS list in [tadreebi]/settings.py
@@ -62,6 +64,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Create feature API's urls file in [app]/urls directory
     - Add feature API URLs to created urls file
     - Link created urls.py to [tadreebi]/urls.py
+    - Once you've done this, please test the model with created api URLs
 
 6. Add Permissions (Could skip it for the moment)
     - Adjust REST_FRAMEWORK list of [tadreebi]/settings.py to...
