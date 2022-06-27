@@ -11,6 +11,7 @@ django-filter = "^22.1"
 djangorestframework = "^3.13.1"
 Markdown = "^3.3.7"
 django-phonenumber-field = {extras = ["phonenumbers"], version = "^6.3.0"}
+djangorestframework-simplejwt = "^5.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
