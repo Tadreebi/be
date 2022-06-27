@@ -46,7 +46,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Register model in [app]/admin.py
     - Don't forget that model name should be singular not plural
 
-3. Run following CLI commands
+3. Run following CLI commands (every time a model is added)
     - python manage.py makemigrations
     - python manage.py migrate
     - Once you've done this, please test the model in admin panel
