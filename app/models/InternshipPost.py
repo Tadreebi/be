@@ -9,6 +9,10 @@ from .Users import StudentUser, CompanyUser
 class InternshipType(models.TextChoices):
     Full_Time = "Full Time"
     Part_Time = "Part Time"
+
+
+class Location(models.TextChoices):
+    On_Site = "On Site"
     Remote = "Remote"
 
 
@@ -47,6 +51,9 @@ class InternshipPost(models.Model):
     position = models.CharField(max_length=255, null=True)
     type = models.CharField(
         max_length=50, choices=InternshipType.choices, default=InternshipType.Full_Time
+    )
+    location = models.CharField(
+        max_length=50, choices=Location.choices, default=Location.On_Site
     )
     education = models.CharField(
         max_length=50, choices=Education.choices, default=Education.Bachelors

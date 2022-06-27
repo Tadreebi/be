@@ -28,3 +28,4 @@ from .CompanyReport import (
 )
 
 from .InternshipPost import InternshipPostSerializer, InternshipRequirementsSerializer
+from .StudentApplications import StudentApplicationSerializer

@@ -22,3 +22,4 @@ from .ComapnyRating import (
     ComapnyRating,
 )
 from .InternshipPost import InternshipPost, InternshipRequirements
+from .StudentApplications import StudentApplications
