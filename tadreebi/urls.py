@@ -21,6 +21,7 @@ urlpatterns = [
     path("api-auth/", include("rest_framework.urls")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("students/", include("app.urls.studentReports")),
+    path("proposal/",include("app.urls.StudentProposal")),
     path("profile/", include("app.urls.studentProfile")),
     path("api/token/", include("app.urls.Users")),
 ]

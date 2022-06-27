@@ -11,3 +11,7 @@ from .StudentReports import (
 from .StudentProfile import (
     StudentProfile,
 )
+
+from .StudentProposal import(
+    StudentUniProposal,
+)
