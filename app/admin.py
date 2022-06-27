@@ -1,13 +1,12 @@
 from django.contrib import admin
 
 from app.models import (
+    AppUser,
     StudentProfile,
     StudentReport,
     StudentReportAchievement,
     StudentReportSkill,
 )
-
-from app.models import AppUser
 
 
 @admin.register(AppUser)
