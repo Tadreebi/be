@@ -34,6 +34,18 @@ from .StudentProfile import (
     StudentProfileDelete,
 )
 
+from .StudentGoals import (
+    StudentGoalsList,
+    StudentGoalsCreate,
+    StudentGoalsDetail,
+    StudentGoalsUpdate,
+    StudentGoalsDelete,
+    StudentGoalIndicatorsList,
+    StudentGoalIndicatorsCreate,
+    StudentGoalIndicatorsDetail,
+    StudentGoalIndicatorsUpdate,
+    StudentGoalIndicatorsDelete,
+)
 from .StudentExperience import (
     StudentExperienceCreate,
     StudentExperienceDelete,

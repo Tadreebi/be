@@ -15,6 +15,7 @@ from .StudentProfile import (
     StudentProfileSerializer,
 )
 
+from .StudentGoals import StudentGoalsSerializer, StudentGoalIndicatorsSerializer
 from .StudentExperience import (
     StudentExperienceSerializer,
 )

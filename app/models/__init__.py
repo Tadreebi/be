@@ -21,5 +21,7 @@ from .StudentProposal import (
 from .ComapnyRating import (
     ComapnyRating,
 )
+
+from .StudentGoals import StudentGoal, StudentGoalIndicator
 from .InternshipPost import InternshipPost, InternshipRequirements
 from .StudentApplications import StudentApplications
