@@ -4,6 +4,7 @@ from .StudentReports import (
     StudentReportAchievement,
 )
 
-from .StudentProfile import (
-    StudentProfile,
+from .attendance import (
+    Attendance,
+
 )
