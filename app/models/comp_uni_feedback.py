@@ -7,7 +7,6 @@ class CompUniFeedback(models.Model):
     TYPES = [
         ("PERIODICAL_REPORT", "periodical report"),
         ("COMPLAIN", "Complain"),
-        ("FEEDBACK", "Feedback"),
     ]
 
     student_username = models.ForeignKey(
