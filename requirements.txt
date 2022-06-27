@@ -1,11 +1,10 @@
-asgiref==3.5.2; python_version >= "3.8" \
-django-filter==21.1; python_version >= "3.6" \
-django==4.0.4; python_version >= "3.8" \
-djangorestframework==3.13.1; python_version >= "3.6" \
-importlib-metadata==4.11.4; python_version < "3.10" and python_version >= "3.7" \
-markdown==3.3.7; python_version >= "3.6" \
-psycopg2-binary==2.9.3; python_version >= "3.6" \
-pytz==2022.1; python_version >= "3.6" \
-sqlparse==0.4.2; python_version >= "3.8" \
-tzdata==2022.1; sys_platform == "win32" and python_version >= "3.8" \
-zipp==3.8.0; python_version < "3.10" and python_version >= "3.7" \
+asgiref==3.5.2; python_version >= "3.8"
+django-filter==22.1; python_version >= "3.7"
+django-phonenumber-field==6.3.0; python_version >= "3.7"
+django==4.0.5; python_version >= "3.8"
+djangorestframework==3.13.1; python_version >= "3.6"
+markdown==3.3.7; python_version >= "3.6"
+phonenumbers==8.12.50; python_version >= "3.7"
+pytz==2022.1; python_version >= "3.6"
+sqlparse==0.4.2; python_version >= "3.8"
+tzdata==2022.1; sys_platform == "win32" and python_version >= "3.8"
