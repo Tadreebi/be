@@ -9,7 +9,6 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 # from rest_framework.filters import SearchFilter, OrderingFilter
@@ -29,6 +28,23 @@ def filterInternships(request):
 class InternshipPostList(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+
+    def list(self, request, *args, **kw):
+        queries = request.query_params
+
+        list_queries = {
+            f"{query}": queries.get(query).upper()
+            for query in queries
+            if (query in ("education", "industry", "experience"))
+        }
+
+        queryset = (
+            InternshipPost.objects.filter(**list_queries)
+            if list_queries
+            else InternshipPost.objects.all()
+        )
+
+        return Response({queryset.values()})
 
 
 # GET DELETE PUT

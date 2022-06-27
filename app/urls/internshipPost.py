@@ -8,11 +8,12 @@ from app.api.views import (
 )
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from app.api.views import FilterPosts
+
 # Viewsets Route
 router = DefaultRouter()
 router.register("posts", InternshipPostsViewSets)
 router.register("requirements", InternshipPostRequirementsViewSets)
+
 
 urlpatterns = [
     # Post
