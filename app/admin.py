@@ -11,6 +11,7 @@ from app.models import (
     StudentReportSkill,
     StudentReportAchievement,
     StudentProfile,
+    report
     StudentExperience,
     StudentUniProposal,
     ComapnyRating,
@@ -68,6 +69,7 @@ admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
+admin.site.register(report.Report)
 admin.site.register(ComapnyRating)
 admin.site.register(StudentExperience)
 admin.site.register(StudentUniProposal)
