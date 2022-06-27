@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from django.conf import settings
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -31,15 +33,21 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Build-in apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "app",
+    # Location in the Post Internship Model
+    "location_field.apps.DefaultConfig",
+    # Third-party apps
     "rest_framework",
-    'django_filters',
+    "django_filters",
+    "phonenumber_field",
+    # Local apps
+    "app",
 ]
 
 MIDDLEWARE = [
@@ -102,6 +110,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = [
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.Argon2PasswordHasher",
+    "django.contrib.auth.hashers.BCryptSHA256PasswordHasher",
+    "django.contrib.auth.hashers.ScryptPasswordHasher",
+]
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -124,5 +140,52 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"],
-'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']}
+
+LOCATION_FIELD_PATH = settings.STATIC_URL + "location_field"
+LOCATION_FIELD = {
+    "map.provider": "google",
+    "map.zoom": 13,
+    "search.provider": "google",
+    "search.suffix": "",
+    # Google
+    "provider.google.api": "//maps.google.com/maps/api/js?sensor=false",
+    "provider.google.api_key": "",
+    "provider.google.api_libraries": "",
+    "provider.google.map.type": "ROADMAP",
+    # Mapbox
+    "provider.mapbox.access_token": "",
+    "provider.mapbox.max_zoom": 18,
+    "provider.mapbox.id": "mapbox.streets",
+    # OpenStreetMap
+    "provider.openstreetmap.max_zoom": 18,
+    # misc
+    "resources.root_path": LOCATION_FIELD_PATH,
+    "resources.media": {
+        "js": (LOCATION_FIELD_PATH + "/js/form.js",),
+    },
+}
+
+LOCATION_FIELD = {
+    "map.provider": "openstreetmap",
+    "search.provider": "nominatim",
+}
+
+
+AUTH_USER_MODEL = "app.AppUser"
+
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.BasicAuthentication",
+    ],
+}
+
+# To change the default redirection after login/logout
+# LOGIN_REDIRECT_URL =
+# LOGOUT_REDIRECT_URL =
+
+# To save the sent emails in the database
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = BASE_DIR / "sent_emails"

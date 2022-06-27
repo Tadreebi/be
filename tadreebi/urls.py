@@ -18,7 +18,16 @@ from django.urls import path, include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    path("api-auth/", include("rest_framework.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
     path("students/", include("app.urls.studentReports")),
+    path("proposal/", include("app.urls.StudentProposal")),
     path("profile/", include("app.urls.studentProfile")),
     path("post/", include("app.urls.internshipPost")),
+    path("companyReport/", include("app.urls.CompanyReport")),
+    path("comapnyRating/", include("app.urls.ComapnyRating")),
+    path("experience/", include("app.urls.studentExperience")),
+    path("comp-uni-feedback/", include("app.urls.comp_uni_urls")),
+    path("uni-stu-feedback/", include("app.urls.uni_stu_urls")),
+    path("/", include("app.urls.Users")),
 ]
