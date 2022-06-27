@@ -15,9 +15,10 @@ from app.models import (
     StudentUniProposal,
     ComapnyRating,
     CompanyReport,
-)
-from app.models.InternshipPost import (
     InternshipPost,
+)
+from app.models.StudentApplications import (
+    StudentApplications,
 )
 
 
@@ -72,6 +73,8 @@ admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
+admin.site.register(InternshipPost)
+admin.site.register(StudentApplications)
 admin.site.register(InternshipPost)
 admin.site.register(CompanyReport)
 admin.site.register(ComapnyRating)

@@ -67,3 +67,10 @@ from .InternshipPost import (
     InternshipPostRequirementsRetrieveUpdateDestroy,
     InternshipPostRequirementsViewSets,
 )
+
+
+from .StudentApplications import (
+    StudentApplicationsList,
+    StudentApplicationsRetrieveUpdateDestroy,
+    ApplicationsViewSets,
+)
