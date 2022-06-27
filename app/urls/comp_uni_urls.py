@@ -1,5 +1,5 @@
 from django.urls import path
-from ..api.views.comp_uni_feedback import (
+from app.api.views import (
     CompUniFeedbackListView,
     CompUniFeedbackDetailsView,
 )

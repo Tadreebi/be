@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ...models.comp_uni_feedback import CompUniFeedback
+from app.models import CompUniFeedback
 
 
 class CompUniFeedback(serializers.ModelSerializer):

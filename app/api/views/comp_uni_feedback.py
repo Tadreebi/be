@@ -1,8 +1,6 @@
 from rest_framework import generics, permissions
-from ...models.comp_uni_feedback import (
-    CompUniFeedback as CompUniFeedbackModel,
-)
-from ..serializers.comp_uni_feedback import CompUniFeedback
+from app.models import CompUniFeedback as CompUniFeedbackModel
+from app.api.serializers import CompUniFeedback
 
 
 class CompUniFeedbackListView(generics.ListCreateAPIView):

@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from ...models.uni_stu_feedback import UniStuFeedback
+from app.models import UniStuFeedback
 
 
 class UniStuFeedback(serializers.ModelSerializer):

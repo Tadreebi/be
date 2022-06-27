@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
-from ...models.user_model import StudentUser, UniversityEmployeeUser, CompanyUser
-from ..serializers.users_serializers import (
+from app.models import StudentUser, UniversityEmployeeUser, CompanyUser
+from app.api.serializers import (
     StudentSerializer,
     UniversitySerializer,
     CompanySerializer,

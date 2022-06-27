@@ -1,6 +1,6 @@
 from django.urls import path
 from rest_framework_simplejwt import views as jwt_views
-from ..api.views.users_views import (
+from app.api.views import (
     StudentSignUpView,
     UniversitySignUpView,
     CompanySignUpView,
