@@ -25,5 +25,7 @@ urlpatterns = [
     path("profile/", include("app.urls.studentProfile")),
     path("ComapnyRating/", include("app.urls.ComapnyRating")),
     path("experience/", include("app.urls.studentExperience")),
-    path("api/token/", include("app.urls.Users")),
+    path("comp-uni-feedback/", include("app.urls.comp_uni_urls")),
+    path("uni-stu-feedback/", include("app.urls.uni_stu_urls")),
+    path("/", include("app.urls.Users")),
 ]

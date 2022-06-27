@@ -3,7 +3,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class Rating(models.Model):
+class ComapnyRating(models.Model):
     student = models.ForeignKey(
         StudentUser,
         on_delete=models.CASCADE,

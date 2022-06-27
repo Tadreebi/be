@@ -9,12 +9,12 @@ from app.api.views.StudentProposal import (
 
 urlpatterns = [
     path(
-        "proposals_list",
+        "",
         Proposal_List_View.as_view(),
         name="Student proposal List",
     ),
     path(
-        "proposals_create",
+        "create",
         proposal_create.as_view(),
         name="Student proposal create",
     ),
@@ -24,12 +24,12 @@ urlpatterns = [
         name="Student Proposal Detail",
     ),
     path(
-        "proposals_update/<int:pk>",
+        "update/<int:pk>",
         proposal_Update.as_view(),
         name="Student proposal update",
     ),
     path(
-        "proposals_delete/<int:pk>",
+        "delete/<int:pk>",
         proposal_delete.as_view(),
         name="Student proposal update",
     ),

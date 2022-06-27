@@ -18,3 +18,7 @@ from .StudentProfile import (
 from .StudentExperience import (
     StudentExperienceSerializer,
 )
+
+from .ComapnyRating import (
+    ComapnyRatingSerializer,
+)

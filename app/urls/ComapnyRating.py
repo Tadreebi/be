@@ -1,4 +1,4 @@
-from app.api.views.ComapnyRating import (
+from app.api.views import (
     ComapnyRatingList,
     ComapnyRatingCreate,
     ComapnyRatingDetail,

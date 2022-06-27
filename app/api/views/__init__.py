@@ -41,3 +41,11 @@ from .StudentExperience import (
     StudentExperienceList,
     StudentExperienceUpdate,
 )
+
+from .ComapnyRating import (
+    ComapnyRatingList,
+    ComapnyRatingCreate,
+    ComapnyRatingDetail,
+    ComapnyRatingUpdate,
+    ComapnyRatingDelete,
+)

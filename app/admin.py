@@ -1,21 +1,20 @@
 from django.contrib import admin
 
 from app.models import (
+    AppUser,
     StudentUser,
-    CompanyUser,
     UniversityEmployeeUser,
+    CompanyUser,
     UniStuFeedback,
     CompUniFeedback,
-    AppUser,
-    StudentProfile,
     StudentReport,
+    StudentReportSkill,
     StudentReportAchievement,
     StudentProfile,
     StudentExperience,
     StudentUniProposal,
-    StudentReportSkill,
+    ComapnyRating,
 )
-from app.models.ComapnyRating import ComapnyRating
 
 
 @admin.register(UniversityEmployeeUser)
@@ -64,10 +63,7 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 admin.site.register(UniStuFeedback)
-
 admin.site.register(CompUniFeedback)
-
-
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)

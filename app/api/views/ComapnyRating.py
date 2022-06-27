@@ -7,7 +7,7 @@ from rest_framework.generics import (
     RetrieveDestroyAPIView,
 )
 
-from app.api.serializers.ComapnyRating import (
+from app.api.serializers import (
     ComapnyRatingSerializer,
 )
 
