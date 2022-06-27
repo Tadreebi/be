@@ -1,5 +1,5 @@
-from rest_framework.response import Response
 from rest_framework import viewsets
+from .FilterPosts import InternshipsFilter
 from app.models import InternshipPost, InternshipRequirements
 from app.api.serializers import (
     InternshipPostSerializer,
@@ -9,6 +9,19 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+# from rest_framework.filters import SearchFilter, OrderingFilter
+
+# # Filtered Posts
+@api_view(["GET"])
+def filterInternships(request):
+    filterset = InternshipsFilter(
+        request.GET, queryset=InternshipPost.objects.all().order_by("id")
+    )
+    serializer = InternshipPostSerializer(filterset.qs, many=True)
+    return Response(serializer.data)
 
 
 # Internship Post #########################################################

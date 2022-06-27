@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 from django.conf import settings
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
     "location_field.apps.DefaultConfig",
     # Third-party apps
     "rest_framework",
+    "django_filters",
     "phonenumber_field",
     # Local apps
     "app",
@@ -134,13 +136,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOCATION_FIELD_PATH = settings.STATIC_URL + "location_field"
+# Resumes
+MEDIA_URL = "app/assets/resumes_images/"
+MEDIA_ROOT = BASE_DIR / "app/assets/resumes_images/"
+
+LOCATION_FIELD_PATH = STATIC_URL + "location_field"
 LOCATION_FIELD = {
     "map.provider": "google",
     "map.zoom": 13,

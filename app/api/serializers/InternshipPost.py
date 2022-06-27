@@ -12,14 +12,3 @@ class InternshipRequirementsSerializer(serializers.ModelSerializer):
     class Meta:
         model = InternshipRequirements
         fields = "__all__"
-
-
-# class ApplySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = StudentApplication
-#         fields = "__all__"
-
-# class BrowseSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = BrowsePostsInternships
-#         fields = "__all__"
