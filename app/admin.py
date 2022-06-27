@@ -11,12 +11,11 @@ from app.models import (
     StudentReport,
     StudentReportAchievement,
     StudentProfile,
-    
     StudentExperience,
     StudentUniProposal,
     StudentReportSkill,
 )
-from app.models.rating import Rating
+from app.models.ComapnyRating import ComapnyRating
 
 
 @admin.register(UniversityEmployeeUser)
@@ -73,6 +72,6 @@ admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
-admin.site.register(Rating)
+admin.site.register(ComapnyRating)
 admin.site.register(StudentExperience)
 admin.site.register(StudentUniProposal)

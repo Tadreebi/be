@@ -18,3 +18,6 @@ from .StudentExperience import (
 from .StudentProposal import (
     StudentUniProposal,
 )
+from .ComapnyRating import (
+    ComapnyRating,
+)
