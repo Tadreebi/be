@@ -1,4 +1,3 @@
-
 from .users_serializers import (
     StudentSerializer,
     UniversitySerializer,
@@ -16,3 +15,6 @@ from .StudentProfile import (
     StudentProfileSerializer,
 )
 
+from .StudentExperience import (
+    StudentExperienceSerializer,
+)

@@ -1,4 +1,3 @@
-
 from .users_views import (
     StudentSignUpView,
     UniversitySignUpView,
@@ -35,3 +34,10 @@ from .StudentProfile import (
     StudentProfileDelete,
 )
 
+from .StudentExperience import (
+    StudentExperienceCreate,
+    StudentExperienceDelete,
+    StudentExperienceDetail,
+    StudentExperienceList,
+    StudentExperienceUpdate,
+)

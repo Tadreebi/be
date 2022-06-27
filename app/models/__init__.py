@@ -12,6 +12,9 @@ from .StudentProfile import (
     StudentProfile,
 )
 
-from .StudentProposal import(
+from .StudentExperience import (
+    StudentExperience,
+)
+from .StudentProposal import (
     StudentUniProposal,
 )
