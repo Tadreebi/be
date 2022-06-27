@@ -41,7 +41,7 @@ class PostInternship(models.Model):
     title = models.CharField(max_length=255, null=True)
     position = models.TextField()
     description = models.TextField(max_length=500, null=True)
-    min_requirements = models.TextField(max_length=500, null=True)
+    minimum_requirements = models.TextField(max_length=500, null=True)
     email = models.EmailField(null=True)
     schedule = models.CharField(
         max_length=50,
