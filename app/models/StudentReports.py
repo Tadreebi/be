@@ -1,12 +1,12 @@
 from django.db import models
-from .Users import AppUser
+from .Users import StudentUser
 
 choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 
 
 class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
-    student = models.ForeignKey(AppUser, on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentUser, on_delete=models.CASCADE)
     type = models.CharField(max_length=256, choices=choices)
     # Start & end of period covered by the report
     startDate = models.DateField()

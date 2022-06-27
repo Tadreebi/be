@@ -14,7 +14,4 @@ from .StudentProfile import (
     StudentProfile,
 )
 
-
-from .Users import (
-    AppUser,
-)
+from .Users import StudentUser, CompanyUser, UniversityEmployeeUser, AppUser
