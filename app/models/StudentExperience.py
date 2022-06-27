@@ -8,5 +8,7 @@ class StudentExperience(models.Model):
     time = models.DateTimeField(auto_now_add=True)
     recommend = models.BooleanField(null=True,blank=True)
     detail_experience= models.TextField(max_length=256,null=True,blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
 
 

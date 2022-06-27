@@ -1,10 +1,10 @@
 from django.contrib import admin
-from app.models.StudentExperience import StudentExperience
 from app.models import (
     StudentReport,
     StudentReportSkill,
     StudentReportAchievement,
     StudentProfile,
+    StudentExperience
 
 )
 

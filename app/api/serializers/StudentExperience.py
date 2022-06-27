@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app.models.StudentExperience import StudentExperience
+from app.models import StudentExperience
 
 
 class StudentExperienceSerializer(serializers.ModelSerializer):
