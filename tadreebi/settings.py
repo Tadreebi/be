@@ -31,18 +31,26 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+<<<<<<< HEAD
     # Build-in apps
+=======
+>>>>>>> 99ee2d0dd31454e4ad4838b37bf2c8fe4e84a51d
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+<<<<<<< HEAD
     # Third-party apps
     "rest_framework",
     "phonenumber_field",
     # Local apps
     "app",
+=======
+    "app",
+    "rest_framework",
+>>>>>>> 99ee2d0dd31454e4ad4838b37bf2c8fe4e84a51d
 ]
 
 MIDDLEWARE = [
@@ -154,3 +162,5 @@ REST_FRAMEWORK = {
 # To save the sent emails in the database
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.AllowAny"]}
