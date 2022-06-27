@@ -17,11 +17,6 @@ urlpatterns = [
         PostInternshipList.as_view(), 
         name="Internship Posts List",
     ),
-    # path(
-    #     "",
-    #     InternshipsFilter,
-    #     name="Filter Internships",
-    # ),
     # Get Put Delete
     path(
         "<int:pk>",
@@ -34,7 +29,4 @@ urlpatterns = [
     "",
     include(router.urls),
     ),
-
-    # # Filter
-    # path("", FilterPosts.InternshipsFilter, name='filter')
 ]
