@@ -5,19 +5,23 @@ from app.api.views.InternshipPost import (
 )
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from app.api.views import FilterPosts
 # Viewsets Route
 router = DefaultRouter()
 router.register('posts', PostsViewSets)
+
 
 urlpatterns = [
     # Post
     path(
         "",
-        PostInternshipList.as_view(),
+        PostInternshipList.as_view(), 
         name="Internship Posts List",
     ),
-
+    # path(
+    #     "",
+    #     InternshipsFilter,
+    #     name="Filter Internships",
+    # ),
     # Get Put Delete
     path(
         "<int:pk>",
@@ -31,6 +35,6 @@ urlpatterns = [
     include(router.urls),
     ),
 
-    # Filter
-    path("", FilterPosts.InternshipsFilter, name='filter')
+    # # Filter
+    # path("", FilterPosts.InternshipsFilter, name='filter')
 ]
