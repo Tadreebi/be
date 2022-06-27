@@ -22,3 +22,7 @@ from .StudentExperience import (
 from .ComapnyRating import (
     ComapnyRatingSerializer,
 )
+
+from .CompanyReport import (
+    CompanyReportSerializer,
+)

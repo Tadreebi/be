@@ -8,8 +8,8 @@ from .StudentReports import (
     StudentReportAchievement,
 )
 
-from .report import (
-    Report,
+from .CompanyReport import (
+    CompanyReport,
 )
 
 from .StudentExperience import (

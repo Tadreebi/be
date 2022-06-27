@@ -49,3 +49,11 @@ from .ComapnyRating import (
     ComapnyRatingUpdate,
     ComapnyRatingDelete,
 )
+
+from .CompanyReport import (
+    CompanyReportList,
+    CompanyReportCreate,
+    CompanyReportDetail,
+    CompanyReportUpdate,
+    CompanyReportDelete,
+)

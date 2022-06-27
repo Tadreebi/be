@@ -23,7 +23,7 @@ urlpatterns = [
     path("students/", include("app.urls.studentReports")),
     path("proposal/", include("app.urls.StudentProposal")),
     path("profile/", include("app.urls.studentProfile")),
-    path("report/", include("app.urls.report")),
+    path("CompanyReport/", include("app.urls.CompanyReport")),
     path("ComapnyRating/", include("app.urls.ComapnyRating")),
     path("experience/", include("app.urls.studentExperience")),
     path("comp-uni-feedback/", include("app.urls.comp_uni_urls")),

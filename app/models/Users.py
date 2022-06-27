@@ -100,6 +100,7 @@ class AppUser(AbstractBaseUser):
         ("Law", "Law"),
         ("Letreture", "Letreture"),
     ]
+    # Split to own model, and include required internship duration (faculty not major)
 
     username = UserNameField(
         help_text="If you are a (student/university Employee) use the university ID number. If you are a company use the comapany name and replace the spaces with dash (-)",
