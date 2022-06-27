@@ -1,4 +1,6 @@
+from datetime import *
 from django.db import models
+from location_field.models.plain import PlainLocationField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 
@@ -31,6 +33,9 @@ class InternshipSalary(models.TextChoices):
     Paid = 'Paid'
     UnPaid = 'UnPaid Internship'
 
+def return_date_time():
+    now = datetime.now()
+    return now + timedelta(days=10)
 class PostInternship(models.Model):
     company_name = models.CharField(max_length=150, null=True)
     title = models.CharField(max_length=255, null=True)
@@ -65,9 +70,10 @@ class PostInternship(models.Model):
     )
 
     salary = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10000000)])
-    location = models.TextField(max_length=255, null=True)
+    city = models.CharField(max_length=255, null=True)
+    location = PlainLocationField(based_fields=['city'], zoom=7, null=True)
     positions = models.IntegerField(default=1)
     created_at = models.DateTimeField(auto_now_add=True)
-    last_date = models.DateTimeField(auto_now_add=False, null=True)
+    last_date = models.DateTimeField(default=return_date_time)
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
