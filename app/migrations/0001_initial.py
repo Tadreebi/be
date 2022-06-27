@@ -8,32 +8,86 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AppUser',
+            name="AppUser",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('username', models.CharField(max_length=64, unique=True, verbose_name='ID number (univesity ID)')),
-                ('date_joined', models.DateTimeField(auto_now_add=True, verbose_name='date joined')),
-                ('last_login', models.DateTimeField(auto_now=True, verbose_name='last login')),
-                ('is_admin', models.BooleanField(default=False)),
-                ('is_active', models.BooleanField(default=True)),
-                ('is_staff', models.BooleanField(default=False)),
-                ('is_superuser', models.BooleanField(default=False)),
-                ('email', models.EmailField(max_length=64, unique=True)),
-                ('first_name', models.CharField(blank=True, max_length=64, null=True)),
-                ('last_name', models.CharField(blank=True, max_length=64, null=True)),
-                ('phone', phonenumber_field.modelfields.PhoneNumberField(blank=True, max_length=128, null=True, region=None, unique=True)),
-                ('address', models.CharField(blank=True, choices=[('Amman', 'Amman'), ('Aqaba', 'Aqaba'), ('Irbid', 'Irbid'), ('Jarash', 'Jarash'), ('Mafraq', 'Mafraq'), ('Madaba', 'Madaba'), ('Zarqa', 'Zarqa'), ('Tafilah', 'Tafilah'), ('Salt', 'Salt'), ('Maan', 'Maan'), ('Karak', 'Karak'), ('Ajloun', 'Ajloun')], help_text='city', max_length=32, null=True)),
-                ('GPA', models.DecimalField(blank=True, decimal_places=2, help_text='out of 4.00', max_digits=4, null=True)),
-                ('major', models.CharField(blank=True, choices=[('IT', 'IT'), ('Engineering', 'Engineering'), ('Science', 'Science'), ('Business', 'Business'), ('Medicine', 'Medicine'), ('Law', 'Law'), ('Letreture', 'Letreture')], max_length=32, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("full_name", models.CharField(blank=True, max_length=256, null=True)),
+                ("intro", models.TextField(blank=True, null=True)),
+                ("image", models.CharField(blank=True, max_length=256, null=True)),
+                ("job_title", models.CharField(blank=True, max_length=256, null=True)),
+                ("experiences", models.JSONField(blank=True, default=[])),
+                ("skills", models.JSONField(blank=True, default=[])),
+                ("educations", models.JSONField(blank=True, default=[])),
+                ("languages", models.JSONField(blank=True, default=[])),
+                (
+                    "contacts",
+                    models.JSONField(
+                        blank=True,
+                        default={
+                            "email": "",
+                            "facebook": "",
+                            "instagram": "",
+                            "linkedin": "",
+                            "more": {},
+                            "phone_no": "",
+                            "telegram": "",
+                            "twitter": "",
+                            "website": "",
+                            "whatsapp": "",
+                        },
+                    ),
+                ),
+                ("timestamp", models.DateTimeField(auto_now_add=True)),
+                ("updated", models.DateTimeField(auto_now=True)),
+                (
+                    "student",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                        unique=True,
+                    ),
+                ),
             ],
+        ),
+        migrations.CreateModel(
+            name="CompanyUser",
+            fields=[],
             options={
-                'abstract': False,
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
+            },
+            bases=("app.appuser",),
+        ),
+        migrations.CreateModel(
+            name="StudentUser",
+            fields=[],
+            options={
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
+            },
+            bases=("app.appuser",),
+        ),
+        migrations.CreateModel(
+            name="UniversityEmployeeUser",
+            fields=[],
+            options={
+                "proxy": True,
+                "indexes": [],
+                "constraints": [],
             },
         ),
     ]
