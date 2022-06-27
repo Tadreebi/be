@@ -16,6 +16,9 @@ from app.models import (
     ComapnyRating,
     CompanyReport,
 )
+from app.models.InternshipPost import (
+    PostInternship,
+)
 
 
 @admin.register(UniversityEmployeeUser)
@@ -69,6 +72,7 @@ admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
+admin.site.register(PostInternship)
 admin.site.register(CompanyReport)
 admin.site.register(ComapnyRating)
 admin.site.register(StudentExperience)
