@@ -5,8 +5,11 @@ from app.models import (
     UniversityEmployeeUser,
     UniStuFeedback,
     CompUniFeedback,
+    StudentReport,
+    StudentReportSkill,
+    StudentReportAchievement,
+    StudentProfile,
 )
-
 
 @admin.register(UniversityEmployeeUser)
 class AdminAppUser(admin.ModelAdmin):
@@ -55,3 +58,11 @@ class AdminAppUser(admin.ModelAdmin):
 
 admin.site.register(UniStuFeedback)
 admin.site.register(CompUniFeedback)
+
+
+
+admin.site.register(StudentReport)
+admin.site.register(StudentReportSkill)
+admin.site.register(StudentReportAchievement)
+admin.site.register(StudentProfile)
+
