@@ -20,7 +20,7 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path(
-        "reports",
+        "reports/",
         StudentReportsList.as_view(),
         name="Student Reports List",
     ),
@@ -45,7 +45,7 @@ urlpatterns = [
         name="Student Reports Delete",
     ),
     path(
-        "skills",
+        "skills/",
         StudentReportSkillsList.as_view(),
         name="Student Report Skills List",
     ),
@@ -70,7 +70,7 @@ urlpatterns = [
         name="Student Report Skills Delete",
     ),
     path(
-        "achievements",
+        "achievements/",
         StudentReportAchievementsList.as_view(),
         name="Student Report Achievements List",
     ),
