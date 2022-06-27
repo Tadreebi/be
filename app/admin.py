@@ -1,7 +1,10 @@
 from django.contrib import admin
-from .models import StudentUser, CompanyUser, UniversityEmployeeUser
-
 from app.models import (
+    StudentUser,
+    CompanyUser,
+    UniversityEmployeeUser,
+    UniStuFeedback,
+    CompUniFeedback,
     AppUser,
     StudentProfile,
     StudentReport,
@@ -53,6 +56,10 @@ class AdminAppUser(admin.ModelAdmin):
     list_filter = ("is_admin", "is_active", "is_staff", "is_superuser")
     search_fields = ("username", "email")
     ordering = ("username",)
+
+
+admin.site.register(UniStuFeedback)
+admin.site.register(CompUniFeedback)
 
 
 admin.site.register(StudentReport)

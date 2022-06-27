@@ -1,8 +1,6 @@
-from .Users import (
-    StudentUser,
-    CompanyUser,
-    UniversityEmployeeUser,
-)
+from .user_model import AppUser, StudentUser, UniversityEmployeeUser, CompanyUser
+from .uni_stu_feedback import UniStuFeedback
+from .comp_uni_feedback import CompUniFeedback
 
 from .StudentReports import (
     StudentReport,
@@ -14,10 +12,4 @@ from .StudentProfile import (
     StudentProfile,
 )
 
-from .users_model import (
-    AppUser,
-    StudentUser,
-    UniversityEmployeeUser,
-    CompanyUser,
-)
 from .Users import StudentUser, CompanyUser, UniversityEmployeeUser, AppUser
