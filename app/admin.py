@@ -1,10 +1,12 @@
 from django.contrib import admin
 from .models import StudentUser, CompanyUser, UniversityEmployeeUser
+
 from app.models import (
-    StudentReport,
-    StudentReportSkill,
-    StudentReportAchievement,
+    AppUser,
     StudentProfile,
+    StudentReport,
+    StudentReportAchievement,
+    StudentReportSkill,
 )
 
 

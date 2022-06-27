@@ -13,3 +13,8 @@ from .StudentReports import (
 from .StudentProfile import (
     StudentProfile,
 )
+
+
+from .Users import (
+    AppUser,
+)

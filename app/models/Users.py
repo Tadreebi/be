@@ -61,6 +61,18 @@ class AppUser(AbstractBaseUser):
 
     objects = MyUserManager()
 
+
+class AppUser(AbstractBaseUser):
+    username = models.CharField(
+        verbose_name="ID number (univesity ID)", max_length=64, unique=True
+    )
+    date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
+    last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
+    is_admin = models.BooleanField(default=False, editable=False)
+    is_active = models.BooleanField(default=True, editable=False)
+    is_staff = models.BooleanField(verbose_name="University staff", default=False)
+    is_superuser = models.BooleanField(default=False, editable=False)
+
     CITIES = [
         ("Amman", "Amman"),
         ("Aqaba", "Aqaba"),
@@ -104,6 +116,10 @@ class AppUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True, editable=False)
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
+    is_company = models.BooleanField(verbose_name="Company account", default=False)
+    email = models.EmailField(max_length=64, unique=True)
+    first_name = models.CharField(max_length=64, null=True, blank=True)
+    last_name = models.CharField(max_length=64, null=True, blank=True)
     phone = PhoneNumberField(unique=True, null=True, blank=True)
     address = models.CharField(
         help_text="city", max_length=32, choices=CITIES, null=True, blank=True
@@ -118,6 +134,9 @@ class AppUser(AbstractBaseUser):
     major = models.CharField(
         max_length=32, choices=MAJORS, default="NOT_A_STUDENT", null=True, blank=True
     )
+    major = models.CharField(max_length=32, choices=MAJORS, null=True, blank=True)
+
+    objects = MyUserManager()
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"
