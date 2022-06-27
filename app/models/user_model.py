@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from django.urls import reverse
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -58,6 +59,14 @@ class CompanyManager(MyUserManager):
         return super().get_queryset(*args, **kwargs).filter(type=AppUser.Types.company)
 
 
+class UserNameField(models.SlugField):
+    def __init__(self, *args, **kwargs):
+        super(UserNameField, self).__init__(*args, **kwargs)
+
+    def get_prep_value(self, value):
+        return str(value).lower()
+
+
 class AppUser(AbstractBaseUser):
     class Types(models.TextChoices):
         student = "STUDENT", "Student"
@@ -92,8 +101,8 @@ class AppUser(AbstractBaseUser):
         ("Letreture", "Letreture"),
     ]
 
-    username = models.CharField(
-        help_text="If you are a (student/university Employee) use the university ID number",
+    username = UserNameField(
+        help_text="If you are a (student/university Employee) use the university ID number. If you are a company use the comapany name and replace the spaces with dash (-)",
         max_length=64,
         unique=True,
     )
@@ -110,7 +119,9 @@ class AppUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True, editable=False)
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
-    phone = PhoneNumberField(unique=True, null=True, blank=True)
+    phone = PhoneNumberField(
+        unique=True, help_text="+962*********", null=True, blank=True
+    )
     address = models.CharField(
         help_text="city", max_length=32, choices=CITIES, null=True, blank=True
     )
@@ -156,6 +167,9 @@ class StudentUser(AppUser):
     def __str__(self):
         return self.username
 
+    def get_absolute_url(self):
+        return reverse("student_detail", kwargs={"slug": self.username})
+
 
 class UniversityEmployeeUser(AppUser):
     objects = UneversityEmployManager()
@@ -175,6 +189,9 @@ class UniversityEmployeeUser(AppUser):
     def __str__(self):
         return self.username
 
+    def get_absolute_url(self):
+        return reverse("university_detail", kwargs={"slug": self.username})
+
 
 class CompanyUser(AppUser):
     objects = CompanyManager()
@@ -191,3 +208,6 @@ class CompanyUser(AppUser):
 
     def __str__(self):
         return self.username
+
+    def get_absolute_url(self):
+        return reverse("company_detail", kwargs={"slug": self.username})

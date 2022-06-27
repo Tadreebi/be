@@ -25,17 +25,17 @@ urlpatterns = [
     ),
     path("accounts/signup/company", CompanySignUpView.as_view(), name="company_signup"),
     path(
-        "accounts/student/<int:pk>/",
+        "accounts/student/<str:username>/",
         StudentSignUpDetail.as_view(),
         name="student_detail",
     ),
     path(
-        "accounts/university/<int:pk>/",
+        "accounts/university/<str:username>/",
         UniversitySignUpDetail.as_view(),
         name="university_detail",
     ),
     path(
-        "accounts/company/<int:pk>/",
+        "accounts/company/<str:username>/",
         CompanySignUpDetail.as_view(),
         name="company_detail",
     ),
