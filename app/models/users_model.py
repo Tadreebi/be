@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -12,6 +13,15 @@ class MyUserManager(BaseUserManager):
         if not username:
             raise ValueError("Users must have a username")
 
+        if not password:
+            raise ValueError("Users must have a password")
+
+        user = self.model(
+            email=self.normalize_email(email),
+            username=username,
+            password=password,
+        )
+        # user.set_password(password)
         user = self.model(
             email=self.normalize_email(email),
             username=username,
@@ -29,7 +39,7 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
-        user.type = "university_employee"
+        user.type = "UNIVERSITY_EMPLOYEE"
         user.save(using=self._db)
         return user
 
@@ -144,6 +154,7 @@ class StudentUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
+        self.password = make_password(self.password)
         self.type = AppUser.Types.student
         return super().save(*args, **kwargs)
 
@@ -158,6 +169,7 @@ class UniversityEmployeeUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
+        self.password = make_password(self.password)
         self.type = AppUser.Types.university_employee
         self.is_staff = True
         self.is_admin = True
@@ -176,6 +188,7 @@ class CompanyUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
+        self.password = make_password(self.password)
         self.type = AppUser.Types.company
         self.major = "NOT_A_STUDENT"
         self.GPA = None
