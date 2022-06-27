@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions
-from ...models.uni_stu_feedback import UniStuFeedback as UniStuFeedbackModel
-from ..serializers.uni_stu_feedback import UniStuFeedback
+from app.models import UniStuFeedback as UniStuFeedbackModel
+from app.api.serializers import UniStuFeedback
 
 
 class UniStuFeedbackListView(generics.ListCreateAPIView):

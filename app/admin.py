@@ -1,13 +1,18 @@
 from django.contrib import admin
-from .models.user_model import StudentUser, CompanyUser, UniversityEmployeeUser
-from .models.uni_stu_feedback import UniStuFeedback
-from .models.comp_uni_feedback import CompUniFeedback
+
 from app.models import (
-    StudentReport,
-    StudentReportSkill,
-    StudentReportAchievement,
+    StudentUser,
+    CompanyUser,
+    UniversityEmployeeUser,
+    UniStuFeedback,
+    CompUniFeedback,
+    AppUser,
     StudentProfile,
+    StudentReport,
+    StudentReportAchievement,
+    StudentReportSkill,
 )
+
 
 @admin.register(UniversityEmployeeUser)
 class AdminAppUser(admin.ModelAdmin):
@@ -55,12 +60,11 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 admin.site.register(UniStuFeedback)
-admin.site.register(CompUniFeedback)
 
+admin.site.register(CompUniFeedback)
 
 
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(StudentProfile)
-
