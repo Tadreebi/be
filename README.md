@@ -10,6 +10,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 
         git checkout dev
 - Fetch latest version of dev branch
+
         git Fetch
 - Delete SQLite3 database file.
 - Do following CLI command
@@ -20,14 +21,15 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
         python manage.py migrate
 - Do following CLI command
 
-        python manage.py cretesuperuse
-- Start by testing the CRUD of each endpoint of own modules'...
+        python manage.py cretesuperuser
+- Start by testing the CRUD of each endpoint of own models'...
   - Admin panel form
   - URL links
 - If possible, it's recommended to test others' work as well.
 - When an error found, branch out of dev to fix the error with following CLI command
+
         git checkout -b new_branch_name dev
-- There is probably an error that will occur, which is resulted by not adding permissions to models' views.
+- There is probably an error that will occur, which is resulted by not adding permissions to models' views, so you might wanna start with that fix.
 
 ## Minor Fixes to Do
 
