@@ -27,9 +27,9 @@ class InternshipPostList(ListCreateAPIView):
         }
 
         queryset = (
-            PostInternship.objects.filter(**list_queries)
+            InternshipPost.objects.filter(**list_queries)
             if list_queries
-            else PostInternship.objects.all()
+            else InternshipPost.objects.all()
         )
 
         return Response({queryset.values()})
