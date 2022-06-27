@@ -1,32 +1,31 @@
 from rest_framework import viewsets
 from app.models.InternshipPost import PostInternship
 from app.api.serializers.InternshipPost import PostSerializer
-from .FilterPosts import InternshipsFilter
 from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
 )
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
-# from rest_framework.filters import SearchFilter, OrderingFilter
 
-# # Filtered Posts
-@api_view(['GET'])
-def filterInternships(request):
-    filterset = InternshipsFilter(request.GET, queryset=PostInternship.objects.all().order_by('id'))
-    serializer = PostSerializer(filterset.qs, many=True)
-    return Response(serializer.data)
-
-# GET
-# class PostInternshipList(ListAPIView):
-#     queryset = PostInternship.objects.all()
-#     serializer_class = PostSerializer
 
 
 # GET and POST
 class PostInternshipList(ListCreateAPIView):
-    queryset = PostInternship.objects.all()
+
+    queryset =  PostInternship.objects.all()
     serializer_class = PostSerializer
+
+
+    def list(self, request, *args, **kw):
+        queries = request.query_params
+
+        list_queries = {f'{query}': queries.get(query).upper() for query in queries if (query in ("education", "industry", "experience"))}
+
+        queryset =  PostInternship.objects.filter (**list_queries) if list_queries else  PostInternship.objects.all()
+
+        return Response({queryset.values()})
+  
+
 
 # GET DELETE PUT
 class PostInternshipRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
