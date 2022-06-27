@@ -1,3 +1,9 @@
+from .Users import (
+    StudentUser,
+    CompanyUser,
+    UniversityEmployeeUser,
+)
+
 from .StudentReports import (
     StudentReport,
     StudentReportSkill,
@@ -14,3 +20,4 @@ from .users_model import (
     UniversityEmployeeUser,
     CompanyUser,
 )
+from .Users import StudentUser, CompanyUser, UniversityEmployeeUser, AppUser

@@ -1,6 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django.contrib.auth.hashers import make_password
 
 from phonenumber_field.modelfields import PhoneNumberField
 
@@ -13,15 +12,6 @@ class MyUserManager(BaseUserManager):
         if not username:
             raise ValueError("Users must have a username")
 
-        if not password:
-            raise ValueError("Users must have a password")
-
-        user = self.model(
-            email=self.normalize_email(email),
-            username=username,
-            password=password,
-        )
-        # user.set_password(password)
         user = self.model(
             email=self.normalize_email(email),
             username=username,
@@ -39,7 +29,7 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
-        user.type = "UNIVERSITY_EMPLOYEE"
+        user.type = "university_employee"
         user.save(using=self._db)
         return user
 
@@ -70,6 +60,18 @@ class AppUser(AbstractBaseUser):
         company = "COMPANY", "Company"
 
     objects = MyUserManager()
+
+
+class AppUser(AbstractBaseUser):
+    username = models.CharField(
+        verbose_name="ID number (univesity ID)", max_length=64, unique=True
+    )
+    date_joined = models.DateTimeField(verbose_name="date joined", auto_now_add=True)
+    last_login = models.DateTimeField(verbose_name="last login", auto_now=True)
+    is_admin = models.BooleanField(default=False, editable=False)
+    is_active = models.BooleanField(default=True, editable=False)
+    is_staff = models.BooleanField(verbose_name="University staff", default=False)
+    is_superuser = models.BooleanField(default=False, editable=False)
 
     CITIES = [
         ("Amman", "Amman"),
@@ -103,7 +105,6 @@ class AppUser(AbstractBaseUser):
         unique=True,
     )
     email = models.EmailField(max_length=64, unique=True)
-    password = models.CharField(max_length=128)
     first_name = models.CharField(max_length=64, null=True, blank=True)
     last_name = models.CharField(max_length=64, null=True, blank=True)
     type = models.CharField(
@@ -115,6 +116,10 @@ class AppUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True, editable=False)
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
+    is_company = models.BooleanField(verbose_name="Company account", default=False)
+    email = models.EmailField(max_length=64, unique=True)
+    first_name = models.CharField(max_length=64, null=True, blank=True)
+    last_name = models.CharField(max_length=64, null=True, blank=True)
     phone = PhoneNumberField(unique=True, null=True, blank=True)
     address = models.CharField(
         help_text="city", max_length=32, choices=CITIES, null=True, blank=True
@@ -129,6 +134,9 @@ class AppUser(AbstractBaseUser):
     major = models.CharField(
         max_length=32, choices=MAJORS, default="NOT_A_STUDENT", null=True, blank=True
     )
+    major = models.CharField(max_length=32, choices=MAJORS, null=True, blank=True)
+
+    objects = MyUserManager()
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"
@@ -154,7 +162,6 @@ class StudentUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
         self.type = AppUser.Types.student
         return super().save(*args, **kwargs)
 
@@ -169,7 +176,6 @@ class UniversityEmployeeUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
         self.type = AppUser.Types.university_employee
         self.is_staff = True
         self.is_admin = True
@@ -188,7 +194,6 @@ class CompanyUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
         self.type = AppUser.Types.company
         self.major = "NOT_A_STUDENT"
         self.GPA = None
