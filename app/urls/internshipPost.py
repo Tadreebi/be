@@ -30,7 +30,4 @@ urlpatterns = [
     "",
     include(router.urls),
     ),
-
-    # Filter
-    path("", FilterPosts.InternshipsFilter, name='filter')
 ]
