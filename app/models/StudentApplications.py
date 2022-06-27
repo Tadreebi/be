@@ -55,6 +55,3 @@ class StudentApplications(models.Model):
     what_can_you_bring_to_the_company = models.TextField(max_length=500, null=True)
     resume= models.ImageField(blank=True, upload_to='resumes_images')
     applied_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        self.full_name
