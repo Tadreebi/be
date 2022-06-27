@@ -45,7 +45,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
     - Import the models in [app]/models/__init__.py
     - Register model in [app]/admin.py
 
-3. Run following CLI commands
+3. Run following CLI commands (every time a model is added)
     - python manage.py makemigrations
     - python manage.py migrate
 
