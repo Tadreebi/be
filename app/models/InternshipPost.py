@@ -47,7 +47,7 @@ def return_date_time():
 class InternshipPost(models.Model):
     company = models.ForeignKey(
         CompanyUser,
-        on_delete=models.CASCADE, related_name="company_id"
+        on_delete=models.CASCADE, related_name="company_idInternshipPost"
     )
     position = models.CharField(max_length=255, null=True)
     type = models.CharField(

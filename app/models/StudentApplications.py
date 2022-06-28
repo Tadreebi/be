@@ -31,7 +31,7 @@ class Gpa(models.TextChoices):
 
 class StudentApplications(models.Model):
     student = models.ForeignKey(
-        StudentUser, related_name="student_id",  on_delete=models.SET_NULL, null=True)
+        StudentUser, related_name="student_idStudentApplications",  on_delete=models.SET_NULL, null=True)
     homeFullAddress = models.CharField(max_length=500, null=True)
     internship = models.ForeignKey(InternshipPost, on_delete=models.CASCADE)
     type = models.CharField(

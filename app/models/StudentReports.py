@@ -7,7 +7,7 @@ choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(
-        StudentUser, related_name="student_id",  on_delete=models.CASCADE)
+        StudentUser, related_name="student_idStudentReport",  on_delete=models.CASCADE)
     type = models.CharField(max_length=256, choices=choices)
     # Start & end of period covered by the report
     startDate = models.DateField()

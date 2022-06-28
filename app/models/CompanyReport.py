@@ -13,14 +13,12 @@ TYPES = [
 class CompanyReport(models.Model):
     student = models.ForeignKey(
         StudentUser,
-        related_name="student_id",
-        verbose_name="Student ID (University ID)",
+        related_name="student_idCompanyReport",
         on_delete=models.CASCADE,
     )
     company = models.ForeignKey(
         CompanyUser,
-        related_name="company_id",
-        verbose_name="Student ID (University ID)",
+        related_name="company_idCompanyReport",
         on_delete=models.CASCADE,
     )
     type = models.CharField(

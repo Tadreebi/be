@@ -5,11 +5,10 @@ from .Users import StudentUser, CompanyUser
 
 class StudentExperience(models.Model):
     student = models.ForeignKey(StudentUser,
-                                related_name="student_id",
-                                on_delete=models.CASCADE, related_name="student_id"
+                                on_delete=models.CASCADE, related_name="student_idStudentExperience"
                                 )
     company = models.ForeignKey(
-        CompanyUser, on_delete=models.CASCADE, related_name="company_id"
+        CompanyUser, on_delete=models.CASCADE, related_name="company_idStudentExperience"
     )
     # ForeignKey to student application to oppertunity ##################
     improved_aspects = models.TextField(max_length=5000, null=True, blank=True)

@@ -13,8 +13,7 @@ class CompUniFeedback(models.Model):
 
     student = models.ForeignKey(
         StudentUser,
-        related_name="student_id",
-        verbose_name="Student ID (University ID)",
+        related_name="student_idCompUniFeedback",
         on_delete=models.CASCADE,
     )
     feedback = models.TextField()

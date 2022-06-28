@@ -18,7 +18,7 @@ contacts = {
 class StudentProfile(models.Model):
     student = models.ForeignKey(
         StudentUser,
-        related_name="student_id",
+        related_name="student_idStudentProfile",
         on_delete=models.CASCADE
     )  # Switch one-to-one
     intro = models.TextField(null=True, blank=True)

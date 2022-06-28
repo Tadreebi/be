@@ -10,14 +10,14 @@ class ComapnyRating(models.Model):
         unique=True,
         blank=True,
         null=True,
-        related_name="student_id",
+        related_name="student_idComapnyRating",
     )
     company = models.ForeignKey(
         CompanyUser,
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name="company_id",
+        related_name="company_idComapnyRating",
     )
 
     score = models.IntegerField(
