@@ -5,10 +5,4 @@ from app.models import UniStuFeedback
 class UniStuFeedback(serializers.ModelSerializer):
     class Meta:
         model = UniStuFeedback
-        fields = (
-            "id",
-            "student_username",
-            "feedback",
-            "date",
-            "rating",
-        )
+        fields = "__all__"

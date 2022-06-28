@@ -10,6 +10,7 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
 )
 from rest_framework.response import Response
+from rest_framework import generics, permissions
 
 # from rest_framework.filters import SearchFilter, OrderingFilter
 
@@ -51,12 +52,14 @@ class InternshipPostList(ListCreateAPIView):
 class InternshipPostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 # ViewSets
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 # Internship Post Requirements  #########################################################
@@ -64,15 +67,18 @@ class InternshipPostsViewSets(viewsets.ModelViewSet):
 class InternshipPostRequirementsList(ListCreateAPIView):
     queryset = InternshipRequirements.objects.all()
     serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 # GET DELETE PUT
 class InternshipPostRequirementsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = InternshipRequirements.objects.all()
     serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.IsAuthenticated]
 
 
 # ViewSets
 class InternshipPostRequirementsViewSets(viewsets.ModelViewSet):
     queryset = InternshipRequirements.objects.all()
     serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.IsAuthenticated]
