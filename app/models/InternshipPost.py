@@ -17,9 +17,9 @@ class Location(models.TextChoices):
 
 
 class Education(models.TextChoices):
-    Bachelors = "Bachelors"
-    Masters = "Masters"
-    Phd = "Phd"
+    Bachelors = "BACHELORS"
+    Masters = "MASTERS"
+    Phd = "PHD"
 
 
 class Experience(models.TextChoices):
@@ -30,13 +30,13 @@ class Experience(models.TextChoices):
 
 
 class Industry(models.TextChoices):
-    Business = "Business"
+    Business = "BUSINESS"
     IT = "IT"
-    Banking = "Banking"
-    Education = "Education"
-    Engineering = "Engineering"
-    Medical = "Medical"
-    Others = "Others"
+    Banking = "BANKING"
+    Education = "EDUCATION"
+    Engineering = "ENGINEERING"
+    Medical = "MEDICAL"
+    Others = "OTHERS"
 
 
 def return_date_time():
