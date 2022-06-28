@@ -194,3 +194,8 @@ REST_FRAMEWORK = {
 # To save the sent emails in the database
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
 EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+
+
+# SWAGGER_SETTINGS = {
+#     "VALIDATOR_URL": "http://localhost:8000",
+# }
