@@ -37,17 +37,17 @@ urlpatterns = [
     path(
         "requirements/",
         InternshipPostRequirementsList.as_view(),
-        name="Internship Posts List",
+        name="Internship Post Requirements List",
     ),
     # Get Put Delete
     path(
         "requirements/<int:pk>",
         InternshipPostRequirementsRetrieveUpdateDestroy.as_view(),
-        name="Internship Posts Delete Update Get",
+        name="Internship Post Requirements Delete Update Get",
     ),
     # Viewsets
     path(
-        "requirements",
+        "requirements/",
         include(router.urls),
     ),
 ]
