@@ -12,7 +12,8 @@ class UniStuFeedback(models.Model):
         on_delete=models.CASCADE,
     )
     feedback = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
+    timestamp = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True)
     rating = models.IntegerField(choices=RATING_MARKS)
 
     def __str__(self):
