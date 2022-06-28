@@ -1,5 +1,6 @@
 asgiref==3.5.2; python_version >= "3.8"
 django-filter==22.1; python_version >= "3.7"
+django-location-field==2.1.0
 django-phonenumber-field==6.3.0; python_version >= "3.7"
 django==4.0.5; python_version >= "3.8"
 djangorestframework-simplejwt==5.2.0; python_version >= "3.7"
@@ -8,5 +9,6 @@ markdown==3.3.7; python_version >= "3.6"
 phonenumbers==8.12.50; python_version >= "3.7"
 pyjwt==2.4.0; python_version >= "3.7"
 pytz==2022.1; python_version >= "3.7"
+six==1.16.0; python_version >= "2.7" and python_full_version < "3.0.0" or python_full_version >= "3.3.0"
 sqlparse==0.4.2; python_version >= "3.8"
 tzdata==2022.1; sys_platform == "win32" and python_version >= "3.8"

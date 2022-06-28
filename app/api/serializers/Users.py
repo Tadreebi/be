@@ -5,16 +5,49 @@ from app.models import StudentUser, UniversityEmployeeUser, CompanyUser
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentUser
-        fields = "__all__"
+        fields = (
+            "id",
+            "username",
+            "email",
+            "password",
+            # "first_name",
+            # "last_name",
+            "name",
+            "phone",
+            "address",
+            "GPA",
+            "major",
+        )
 
 
 class UniversitySerializer(serializers.ModelSerializer):
     class Meta:
         model = UniversityEmployeeUser
-        fields = "__all__"
+        fields = (
+            "id",
+            "username",
+            "email",
+            "password",
+            # "first_name",
+            # "last_name",
+            "name",
+            "phone",
+            "address",
+        )
 
 
 class CompanySerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyUser
-        fields = "__all__"
+        fields = (
+            "id",
+            "username",
+            "email",
+            "password",
+            # "first_name",
+            # "last_name",
+            "name",
+            "phone",
+            "address",
+            "about",
+        )

@@ -1,4 +1,5 @@
 from django.db import models
+from app.models import StudentUser
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
@@ -6,7 +7,7 @@ RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 class UniStuFeedback(models.Model):
 
     student = models.ForeignKey(
-        "StudentUser",
+        StudentUser,
         verbose_name="Student ID (University ID)",
         on_delete=models.CASCADE,
     )
