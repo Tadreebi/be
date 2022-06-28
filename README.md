@@ -43,6 +43,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - Do the one-to-many relations.
 - Update "how to build" documentation (split into first-time, branching, module addition, push to deployment).
 - Update the features list [here](https://github.com/Tadreebi/app)
+- Update the technical & future technical features lists [below](https://github.com/Tadreebi/be#technical-features)
 - Update class diagram
 - Update general 3D diagram
 - Create per-module diagram
@@ -122,3 +123,12 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 ## How to start
 
 - python manage.py runserver
+
+## Technical Features
+
+- Landing page of API documentation.
+- Data CRUD through admin panel or API calls.
+
+## Future Techincal Features to Add
+
+Soon...
