@@ -1,9 +1,9 @@
-from app.api.views.StudentExperience import(
+from app.api.views import (
     StudentExperienceCreate,
     StudentExperienceDelete,
     StudentExperienceDetail,
     StudentExperienceList,
-    StudentExperienceUpdate
+    StudentExperienceUpdate,
 )
 from django.urls import path
 

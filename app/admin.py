@@ -19,8 +19,6 @@ from app.models import (
     ComapnyRating,
     CompanyReport,
     InternshipPost,
-)
-from app.models.StudentApplications import (
     StudentApplications,
 )
 
