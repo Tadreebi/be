@@ -15,6 +15,8 @@ from rest_framework import generics, permissions
 # from rest_framework.filters import SearchFilter, OrderingFilter
 
 # # Filtered Posts
+
+
 @api_view(["GET"])
 def filterInternships(request):
     filterset = InternshipsFilter(
