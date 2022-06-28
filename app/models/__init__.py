@@ -3,7 +3,6 @@ from .comp_uni_feedback import CompUniFeedback
 from .CompanyReport import CompanyReport
 from .InternshipPost import InternshipPost, InternshipRequirements
 from .StudentApplications import StudentApplications
-from .Faculties import FacultiesChoices
 from .StudentExperience import StudentExperience
 from .StudentGoals import StudentGoal, StudentGoalIndicator
 from .StudentProfile import StudentProfile
@@ -12,3 +11,6 @@ from .StudentReports import StudentReport, StudentReportAchievement, StudentRepo
 from .uni_stu_feedback import UniStuFeedback
 from .UniversityTips import UniversityTip
 from .Users import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
+
+# from .Faculties import FacultiesChoices
+# from .Faculties import Faculty

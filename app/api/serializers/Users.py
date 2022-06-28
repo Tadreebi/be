@@ -10,13 +10,11 @@ class StudentSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            # "first_name",
-            # "last_name",
             "name",
             "phone",
             "address",
             "GPA",
-            "major",
+            "faculty",
         )
 
 
@@ -28,8 +26,6 @@ class UniversitySerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            # "first_name",
-            # "last_name",
             "name",
             "phone",
             "address",
@@ -44,8 +40,6 @@ class CompanySerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
-            # "first_name",
-            # "last_name",
             "name",
             "phone",
             "address",

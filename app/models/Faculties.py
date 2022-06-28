@@ -17,4 +17,14 @@ class FacultiesChoices(models.TextChoices):
     religions = "Religions", "Religions"
 
 
-# keep those choices and give the ability to add more #################################
+# MONTHS = [(1, 1), (3, 3), (6, 6), (9, 9), (12, 12), ("more", "more")]
+
+
+# class Faculty(models.Model):
+#     faculty_name = models.CharField(max_length=50)
+#     training_duration = models.CharField(
+#         help_text="months", max_length=10, choices=MONTHS
+#     )
+
+#     def __str__(self):
+#         return self.faculty

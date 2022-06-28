@@ -3,7 +3,9 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
-from .Faculties import FacultiesChoices
+
+# from .Faculties import FacultiesChoices
+# from .Faculties import Faculty
 
 
 class MyUserManager(BaseUserManager):
@@ -90,17 +92,21 @@ class AppUser(AbstractBaseUser):
         ("Ajloun", "Ajloun"),
     ]
 
-    # MAJORS = [
-    #     ("Not a Student", "Not a Student"),
-    #     ("IT", "IT"),
-    #     ("Engineering", "Engineering"),
-    #     ("Science", "Science"),
-    #     ("Business", "Business"),
-    #     ("Medicine", "Medicine"),
-    #     ("Law", "Law"),
-    #     ("Letreture", "Letreture"),
-    # ]
-    # Split to own model, and include required internship duration (faculty not major)
+    FACULTIES = [
+        ("Not a Student", "Not a Student"),
+        ("IT", "IT"),
+        ("Engineering", "Engineering"),
+        ("Science", "Science"),
+        ("Business", "Business"),
+        ("Medicine", "Medicine"),
+        ("Nursing", "Nursing"),
+        ("Pharmacy", "Pharmacy"),
+        ("Law", "Law"),
+        ("Letreture", "Letreture"),
+        ("Arts", "Arts"),
+        ("Humanities", "Humanities"),
+        ("Religions", "Religions"),
+    ]
 
     username = UserNameField(
         help_text="If you are a (student/university Employee) use the university ID number. If you are a company use the comapany name and replace the spaces with dash (-)",
@@ -109,8 +115,6 @@ class AppUser(AbstractBaseUser):
     )
     email = models.EmailField(max_length=64, unique=True)
     password = models.CharField(max_length=128)
-    # first_name = models.CharField(max_length=64, null=True, blank=True)
-    # last_name = models.CharField(max_length=64, null=True, blank=True)
     name = models.CharField(max_length=64, null=True, blank=True)
     type = models.CharField(
         ("Type"), max_length=50, choices=Types.choices, default=Types.student
@@ -134,15 +138,18 @@ class AppUser(AbstractBaseUser):
         null=True,
         blank=True,
     )
-    faculty = models.CharField(
-        ("Faculties"),
-        max_length=64,
-        choices=FacultiesChoices.choices,
-        default=FacultiesChoices.not_a_student,
-    )
-    # major = models.CharField(
-    #     max_length=32, choices=MAJORS, default="Not a Student", null=True, blank=True
+    # faculty = models.ForeignKey(
+    #     Faculty, on_delete=models.CASCADE, null=True, blank=True
     # )
+    # faculty = models.CharField(
+    #     ("Faculty"),
+    #     max_length=64,
+    #     choices=FacultiesChoices.choices,
+    #     default=FacultiesChoices.not_a_student,
+    # )
+    faculty = models.CharField(
+        max_length=50, choices=FACULTIES, default="Not a Student", null=True, blank=True
+    )
     about = models.TextField(default=None, null=True, blank=True)
 
     # to specify which field is used for login
@@ -192,7 +199,7 @@ class UniversityEmployeeUser(AppUser):
         self.type = AppUser.Types.university_employee
         self.is_staff = True
         self.is_admin = True
-        self.major = "Not a Student"
+        self.faculty = "Not a Student"
         self.GPA = None
         return super().save(*args, **kwargs)
 
@@ -204,7 +211,6 @@ class UniversityEmployeeUser(AppUser):
 
 
 class CompanyUser(AppUser):
-    # Add company intro / description as an optional field / key
     objects = CompanyManager()
 
     class Meta:
@@ -213,7 +219,7 @@ class CompanyUser(AppUser):
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)
         self.type = AppUser.Types.company
-        self.major = "Not a Student"
+        self.faculty = "Not a Student"
         self.GPA = None
         return super().save(*args, **kwargs)
 
