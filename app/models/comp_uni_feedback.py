@@ -17,11 +17,8 @@ class CompUniFeedback(models.Model):
         on_delete=models.CASCADE,
     )
     feedback = models.TextField()
-    date = models.DateTimeField(auto_now_add=True)
     rating = models.IntegerField(choices=RATING_MARKS)
-    type = models.CharField(
-        max_length=64, default="periodical report", choices=TYPES)
-    # Timestamps
+    type = models.CharField(max_length=64, default="periodical report", choices=TYPES)
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)
 
