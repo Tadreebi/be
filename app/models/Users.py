@@ -20,7 +20,7 @@ class MyUserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             username=username,
-            password=make_password(password),
+            password=password,
         )
         # user.set_password(password)
         user.save(using=self._db)
@@ -170,7 +170,7 @@ class StudentUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        # self.password = make_password(self.password)
+        self.password = make_password(self.password)
         self.type = AppUser.Types.student
         return super().save(*args, **kwargs)
 
@@ -188,7 +188,7 @@ class UniversityEmployeeUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        # self.password = make_password(self.password)
+        self.password = make_password(self.password)
         self.type = AppUser.Types.university_employee
         self.is_staff = True
         self.is_admin = True
@@ -211,7 +211,7 @@ class CompanyUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        # self.password = make_password(self.password)
+        self.password = make_password(self.password)
         self.type = AppUser.Types.company
         self.major = "Not a Student"
         self.GPA = None
