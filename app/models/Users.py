@@ -2,8 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
-
 from phonenumber_field.modelfields import PhoneNumberField
+from app.models import Faculties
 
 
 class MyUserManager(BaseUserManager):
@@ -20,7 +20,7 @@ class MyUserManager(BaseUserManager):
         user = self.model(
             email=self.normalize_email(email),
             username=username,
-            password=password,
+            password=make_password(password),
         )
         # user.set_password(password)
         user.save(using=self._db)
@@ -90,16 +90,16 @@ class AppUser(AbstractBaseUser):
         ("Ajloun", "Ajloun"),
     ]
 
-    MAJORS = [
-        ("NOT_A_STUDENT", "Not a Student"),
-        ("IT", "IT"),
-        ("Engineering", "Engineering"),
-        ("Science", "Science"),
-        ("Business", "Business"),
-        ("Medicine", "Medicine"),
-        ("Law", "Law"),
-        ("Letreture", "Letreture"),
-    ]
+    # MAJORS = [
+    #     ("Not a Student", "Not a Student"),
+    #     ("IT", "IT"),
+    #     ("Engineering", "Engineering"),
+    #     ("Science", "Science"),
+    #     ("Business", "Business"),
+    #     ("Medicine", "Medicine"),
+    #     ("Law", "Law"),
+    #     ("Letreture", "Letreture"),
+    # ]
     # Split to own model, and include required internship duration (faculty not major)
 
     username = UserNameField(
@@ -109,8 +109,9 @@ class AppUser(AbstractBaseUser):
     )
     email = models.EmailField(max_length=64, unique=True)
     password = models.CharField(max_length=128)
-    first_name = models.CharField(max_length=64, null=True, blank=True)
-    last_name = models.CharField(max_length=64, null=True, blank=True)
+    # first_name = models.CharField(max_length=64, null=True, blank=True)
+    # last_name = models.CharField(max_length=64, null=True, blank=True)
+    name = models.CharField(max_length=64, null=True, blank=True)
     type = models.CharField(
         ("Type"), max_length=50, choices=Types.choices, default=Types.student
     )
@@ -133,13 +134,21 @@ class AppUser(AbstractBaseUser):
         null=True,
         blank=True,
     )
-    major = models.CharField(
-        max_length=32, choices=MAJORS, default="NOT_A_STUDENT", null=True, blank=True
+    faculty = models.CharField(
+        ("Faculties"),
+        max_length=64,
+        choices=Faculties.FacultiesChoices.choices,
+        default=Faculties.FacultiesChoices.not_a_student,
     )
+    # major = models.CharField(
+    #     max_length=32, choices=MAJORS, default="Not a Student", null=True, blank=True
+    # )
+    about = models.TextField(default=None, null=True, blank=True)
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"
 
+    # additional required fields (username, password)
     REQUIRED_FIELDS = [
         "email",
     ]
@@ -161,7 +170,7 @@ class StudentUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
+        # self.password = make_password(self.password)
         self.type = AppUser.Types.student
         return super().save(*args, **kwargs)
 
@@ -179,11 +188,11 @@ class UniversityEmployeeUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
+        # self.password = make_password(self.password)
         self.type = AppUser.Types.university_employee
         self.is_staff = True
         self.is_admin = True
-        self.major = "NOT_A_STUDENT"
+        self.major = "Not a Student"
         self.GPA = None
         return super().save(*args, **kwargs)
 
@@ -202,9 +211,9 @@ class CompanyUser(AppUser):
         proxy = True
 
     def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
+        # self.password = make_password(self.password)
         self.type = AppUser.Types.company
-        self.major = "NOT_A_STUDENT"
+        self.major = "Not a Student"
         self.GPA = None
         return super().save(*args, **kwargs)
 

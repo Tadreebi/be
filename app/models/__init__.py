@@ -30,3 +30,4 @@ from .ComapnyRating import (
 from .StudentGoals import StudentGoal, StudentGoalIndicator
 from .InternshipPost import InternshipPost, InternshipRequirements
 from .StudentApplications import StudentApplications
+from app.models import Faculties
