@@ -25,7 +25,7 @@ urlpatterns = [
         name="Student Reports List",
     ),
     path(
-        "reports/create",
+        "reports/create/",
         StudentReportsCreate.as_view(),
         name="Student Reports Create",
     ),
@@ -50,7 +50,7 @@ urlpatterns = [
         name="Student Report Skills List",
     ),
     path(
-        "skills/create",
+        "skills/create/",
         StudentReportSkillsCreate.as_view(),
         name="Student Report Skills Create",
     ),
@@ -75,7 +75,7 @@ urlpatterns = [
         name="Student Report Achievements List",
     ),
     path(
-        "achievements/create",
+        "achievements/create/",
         StudentReportAchievementsCreate.as_view(),
         name="Student Report Achievements Create",
     ),

@@ -1,5 +1,5 @@
 from django.urls import path
-from app.api.views.StudentProposal import (
+from app.api.views import (
     Proposal_List_View,
     proposal_Update,
     proposal_create,
@@ -14,7 +14,7 @@ urlpatterns = [
         name="Student proposal List",
     ),
     path(
-        "create",
+        "create/",
         proposal_create.as_view(),
         name="Student proposal create",
     ),

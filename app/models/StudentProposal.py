@@ -1,5 +1,5 @@
 from pickle import FALSE
-from .Users import StudentUser, CompanyUser, UniversityEmployeeUser
+from . import StudentUser, CompanyUser, UniversityEmployeeUser, StudentApplications
 from django.db import models
 
 
@@ -9,13 +9,11 @@ class StudentUniProposal(models.Model):
     )
     company = models.ForeignKey(
         CompanyUser, on_delete=models.CASCADE, related_name="company_id", default=1
-    )  # DOuble check of default neccssaty
-    # Move supervisor data to opeertunity post data ##################
-    supervisor_Name = models.CharField(max_length=256)
-    supervisor_phone_number = models.CharField(max_length=256)
-    subervisor_position = models.CharField(max_length=256)
-    # ForeignKey to student application to oppertunity ##################
-    # Supervisor notes
+    )
+    internship_application = models.ForeignKey(
+        StudentApplications, on_delete=models.CASCADE, related_name="post_id", default=1
+    )  # Double check of default neccssaty
+    # Uni Supervisor notes
     remarks = models.TextField(null=True, blank=True)
     accepted = models.BooleanField(default=False)
     # Timestamps
@@ -23,4 +21,4 @@ class StudentUniProposal(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.company_Name
+        return self.student.username

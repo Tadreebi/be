@@ -18,3 +18,6 @@ class StudentExperience(models.Model):
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.student.username

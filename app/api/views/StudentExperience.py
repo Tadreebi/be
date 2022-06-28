@@ -8,35 +8,41 @@ from rest_framework.generics import (
     RetrieveDestroyAPIView,
 )
 
-from app.api.serializers.StudentExperience import (
+from app.api.serializers import (
     StudentExperienceSerializer,
 )
+from rest_framework import generics, permissions
+
 
 class StudentExperienceList(ListAPIView):
     queryset = StudentExperience.objects.all()
     serializer_class = StudentExperienceSerializer
-    permission_classes= IsAuthenticatedOrReadOnly
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class StudentExperienceCreate(ListCreateAPIView):
     queryset = StudentExperience.objects.all()
     serializer_class = StudentExperienceSerializer
-    permission_classes= IsAuthenticatedOrReadOnly
+
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class StudentExperienceDetail(RetrieveAPIView):
     queryset = StudentExperience.objects.all()
     serializer_class = StudentExperienceSerializer
-    permission_classes= IsAuthenticatedOrReadOnly
+
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class StudentExperienceUpdate(RetrieveUpdateAPIView):
     queryset = StudentExperience.objects.all()
     serializer_class = StudentExperienceSerializer
-    permission_classes= IsAuthenticatedOrReadOnly
+
+    permission_classes = [permissions.IsAuthenticated]
 
 
 class StudentExperienceDelete(RetrieveDestroyAPIView):
     queryset = StudentExperience.objects.all()
     serializer_class = StudentExperienceSerializer
-    permission_classes= IsAuthenticatedOrReadOnly
+
+    permission_classes = [permissions.IsAuthenticated]

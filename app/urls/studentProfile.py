@@ -14,7 +14,7 @@ urlpatterns = [
         name="Student Profile List",
     ),
     path(
-        "create",
+        "create/",
         StudentProfileCreate.as_view(),
         name="Student Profile Create",
     ),

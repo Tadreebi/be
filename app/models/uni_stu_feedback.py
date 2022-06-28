@@ -1,10 +1,10 @@
 from django.db import models
 from app.models import StudentUser
 
+RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
+
 
 class UniStuFeedback(models.Model):
-
-    RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
     student = models.ForeignKey(
         StudentUser,

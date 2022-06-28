@@ -20,7 +20,7 @@ urlpatterns = [
         name="Student Goals List",
     ),
     path(
-        "create",
+        "create/",
         StudentGoalsCreate.as_view(),
         name="Student Goals Create",
     ),
@@ -45,7 +45,7 @@ urlpatterns = [
         name="Student Goal Indicators List",
     ),
     path(
-        "indicators/create",
+        "indicators/create/",
         StudentGoalIndicatorsCreate.as_view(),
         name="Student Goal Indicators Create",
     ),

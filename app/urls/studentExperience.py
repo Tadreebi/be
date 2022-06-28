@@ -1,9 +1,9 @@
-from app.api.views.StudentExperience import(
+from app.api.views import (
     StudentExperienceCreate,
     StudentExperienceDelete,
     StudentExperienceDetail,
     StudentExperienceList,
-    StudentExperienceUpdate
+    StudentExperienceUpdate,
 )
 from django.urls import path
 
@@ -15,7 +15,7 @@ urlpatterns = [
         name="Student Experience List",
     ),
     path(
-        "create",
+        "create/",
         StudentExperienceCreate.as_view(),
         name="Student Experience Create",
     ),

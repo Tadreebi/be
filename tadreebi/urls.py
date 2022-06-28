@@ -20,22 +20,23 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("api-auth/", include("rest_framework.urls")),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("comapny-ratings/", include("app.urls.ComapnyRating")),
+    path("comapny-feedbacks/", include("app.urls.comp_uni_urls")),
+    path("company-reports/", include("app.urls.CompanyReport")),
+    path("opportunity-posts/", include("app.urls.internshipPost")),
+    path("opportunity-applications/", include("app.urls.studentApplications")),
+    path("students/experiences/", include("app.urls.studentExperience")),
+    path("students/goals/", include("app.urls.studentGoals")),
+    path("students/profile/", include("app.urls.studentProfile")),
+    path("students/proposals/", include("app.urls.StudentProposal")),
     path("students/", include("app.urls.studentReports")),
-    path("proposal/", include("app.urls.StudentProposal")),
-    path("profile/", include("app.urls.studentProfile")),
-    path("tips/", include("app.urls.universityTips")),
-    path("goals/", include("app.urls.studentGoals")),
-    path("post/", include("app.urls.internshipPost")),
-    path("apply/", include("app.urls.studentApplications")),
-    path("companyReport/", include("app.urls.CompanyReport")),
-    path("comapnyRating/", include("app.urls.ComapnyRating")),
-    path("experience/", include("app.urls.studentExperience")),
-    path("comp-uni-feedback/", include("app.urls.comp_uni_urls")),
-    path("uni-stu-feedback/", include("app.urls.uni_stu_urls")),
+    path("univeristy-feedbacks/", include("app.urls.uni_stu_urls")),
+    path("univeristy-tips/", include("app.urls.universityTips")),
+    path("accounts/", include("django.contrib.auth.urls")),
+    path("api-auth/", include("rest_framework.urls")),
     path("/", include("app.urls.Users")),
 ]
 # Students Resumes
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

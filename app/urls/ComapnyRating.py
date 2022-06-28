@@ -14,7 +14,7 @@ urlpatterns = [
         name="ComapnyRating Profile List",
     ),
     path(
-        "create",
+        "create/",
         ComapnyRatingCreate.as_view(),
         name="ComapnyRating Profile Create",
     ),
