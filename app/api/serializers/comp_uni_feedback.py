@@ -7,8 +7,9 @@ class CompUniFeedback(serializers.ModelSerializer):
         model = CompUniFeedback
         fields = (
             "id",
-            "student_username",
+            "student",
             "feedback",
             "date",
             "rating",
+            "type",
         )

@@ -34,9 +34,8 @@ urlpatterns = [
     path("univeristy-tips/", include("app.urls.universityTips")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
-    path("/", include("app.urls.Users")),
+    path("", include("app.urls.Users")),
 ]
 # Students Resumes
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,
-                          document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

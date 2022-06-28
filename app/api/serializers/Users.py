@@ -16,7 +16,7 @@ class StudentSerializer(serializers.ModelSerializer):
             "phone",
             "address",
             "GPA",
-            "major",
+            "faculty",
         )
 
 
