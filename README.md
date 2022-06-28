@@ -43,6 +43,9 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - Do the one-to-many relations.
 - Update "how to build" documentation (split into first-time, branching, module addition, push to deployment).
 - Update the features list [here](https://github.com/Tadreebi/app)
+- Update class diagram
+- Update general 3D diagram
+- Create per-module diagram
 
 ## Development Instructions & Notes
 
