@@ -1,32 +1,12 @@
-from .Users import AppUser, StudentUser, UniversityEmployeeUser, CompanyUser
-from .uni_stu_feedback import UniStuFeedback
+from .ComapnyRating import ComapnyRating
 from .comp_uni_feedback import CompUniFeedback
-
-from .StudentReports import (
-    StudentReport,
-    StudentReportSkill,
-    StudentReportAchievement,
-)
-
-from .CompanyReport import (
-    CompanyReport,
-)
-
-from .StudentExperience import (
-    StudentExperience,
-)
-
-
-from .UniversityTips import (
-    UniversityTip,
-)
-from .StudentProposal import (
-    StudentUniProposal,
-)
-from .ComapnyRating import (
-    ComapnyRating,
-)
-
-from .StudentGoals import StudentGoal, StudentGoalIndicator
+from .CompanyReport import CompanyReport
 from .InternshipPost import InternshipPost, InternshipRequirements
 from .StudentApplications import StudentApplications
+from .StudentExperience import StudentExperience
+from .StudentGoals import StudentGoal, StudentGoalIndicator
+from .StudentProposal import StudentUniProposal
+from .StudentReports import StudentReport, StudentReportAchievement, StudentReportSkill
+from .uni_stu_feedback import UniStuFeedback
+from .UniversityTips import UniversityTip
+from .Users import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser

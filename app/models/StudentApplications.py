@@ -48,4 +48,4 @@ class StudentApplications(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        self.student.name
+        return self.student.username

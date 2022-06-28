@@ -16,7 +16,6 @@ contacts = {
 
 
 class StudentProfile(models.Model):
-    full_name = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(
         StudentUser, on_delete=models.CASCADE
     )  # Switch one-to-one
@@ -33,4 +32,4 @@ class StudentProfile(models.Model):
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.full_name
+        return self.student.username
