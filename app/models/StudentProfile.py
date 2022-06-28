@@ -22,7 +22,7 @@ class StudentProfile(models.Model):
         on_delete=models.CASCADE
     )  # Switch one-to-one
     intro = models.TextField(null=True, blank=True)
-    image = models.CharField(max_length=256, null=True, blank=True)
+    image = models.ImageField(blank=True, upload_to="students_picture", null=True)
     job_title = models.CharField(max_length=256, null=True, blank=True)
     experiences = models.JSONField(default=[], blank=True)
     skills = models.JSONField(default=[], blank=True)

@@ -18,14 +18,14 @@ from rest_framework import generics, permissions
 class InternshipPostList(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-
+    permission_classes = [permissions.IsAuthenticated]
     def list(self, request, *args, **kw):
         queries = request.query_params
 
         list_queries = {
             f"{query}": queries.get(query).upper()
             for query in queries
-            if (query in ("education", "industry", "experience"))
+            if (query in ("education", "industry"))
         }
 
         queryset = (
