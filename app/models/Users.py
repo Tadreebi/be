@@ -115,8 +115,6 @@ class AppUser(AbstractBaseUser):
     )
     email = models.EmailField(max_length=64, unique=True)
     password = models.CharField(max_length=128)
-    # first_name = models.CharField(max_length=64, null=True, blank=True)
-    # last_name = models.CharField(max_length=64, null=True, blank=True)
     name = models.CharField(max_length=64, null=True, blank=True)
     type = models.CharField(
         ("Type"), max_length=50, choices=Types.choices, default=Types.student
@@ -213,7 +211,6 @@ class UniversityEmployeeUser(AppUser):
 
 
 class CompanyUser(AppUser):
-    # Add company intro / description as an optional field / key
     objects = CompanyManager()
 
     class Meta:
