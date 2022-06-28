@@ -41,6 +41,8 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - Give clearer and more meaningful names to files, classes, properties and URLs.
 - Option lists into independent models.
 - Do the one-to-many relations.
+- Update "how to build" documentation (split into first-time, branching, module addition, push to deployment).
+- Update the features list [here](https://github.com/Tadreebi/app)
 
 ## Development Instructions & Notes
 
