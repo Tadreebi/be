@@ -8,7 +8,7 @@ from rest_framework.generics import (
     RetrieveDestroyAPIView,
 )
 
-from app.api.serializers.StudentExperience import (
+from app.api.serializers import (
     StudentExperienceSerializer,
 )
 from rest_framework import generics, permissions

@@ -29,6 +29,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - When an error found, branch out of dev to fix the error with following CLI command
 
         git checkout -b new_branch_name dev
+- Remember to create a to-do card for the fix to be done, so no one try to do what you're doing n have double works.
 - There is probably an error that will occur, which is resulted by not adding permissions to models' views, so you might wanna start with that fix.
 
 ## Minor Fixes to Do
