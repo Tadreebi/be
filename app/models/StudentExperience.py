@@ -4,9 +4,10 @@ from .Users import StudentUser, CompanyUser
 
 
 class StudentExperience(models.Model):
-    student = models.ForeignKey(
-        StudentUser, on_delete=models.CASCADE, related_name="student_id"
-    )
+    student = models.ForeignKey(StudentUser,
+                                related_name="student_id",
+                                on_delete=models.CASCADE, related_name="student_id"
+                                )
     company = models.ForeignKey(
         CompanyUser, on_delete=models.CASCADE, related_name="company_id"
     )

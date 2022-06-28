@@ -6,7 +6,8 @@ from django.db import models
 
 class StudentUniProposal(models.Model):
     student = models.ForeignKey(
-        StudentUser, on_delete=models.CASCADE, related_name="student_id", default=1
+        StudentUser,
+        on_delete=models.CASCADE, related_name="student_id", default=1
     )
     company = models.ForeignKey(
         CompanyUser, on_delete=models.CASCADE, related_name="company_id", default=1

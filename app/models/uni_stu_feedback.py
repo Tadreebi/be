@@ -8,6 +8,8 @@ class UniStuFeedback(models.Model):
 
     student = models.ForeignKey(
         StudentUser,
+        related_name="student_id",
+
         verbose_name="Student ID (University ID)",
         on_delete=models.CASCADE,
     )

@@ -1,10 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.db import models
+from .Users import StudentUser
 
 
 class StudentGoal(models.Model):
     title = models.CharField(max_length=256)
-    student = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    student = models.ForeignKey(StudentUser,
+                                related_name="student_id",  on_delete=models.CASCADE)
     describtion = models.TextField(null=True, blank=True)
     done = models.BooleanField(default=False)
 
