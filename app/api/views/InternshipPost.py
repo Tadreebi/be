@@ -12,19 +12,6 @@ from rest_framework.generics import (
 from rest_framework.response import Response
 from rest_framework import generics, permissions
 
-# from rest_framework.filters import SearchFilter, OrderingFilter
-
-# # Filtered Posts
-
-
-@api_view(["GET"])
-def filterInternships(request):
-    filterset = InternshipsFilter(
-        request.GET, queryset=InternshipPost.objects.all().order_by("id")
-    )
-    serializer = InternshipPostSerializer(filterset.qs, many=True)
-    return Response(serializer.data)
-
 
 # Internship Post #########################################################
 # GET and POST

@@ -3,7 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
-from app.models import Faculties
+from .Faculties import FacultiesChoices
 
 
 class MyUserManager(BaseUserManager):
@@ -35,7 +35,7 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
-        user.type = "UNIVERSITY_EMPLOYEE"
+        user.type = "University Employee"
         user.save(using=self._db)
         return user
 
@@ -70,7 +70,7 @@ class UserNameField(models.SlugField):
 class AppUser(AbstractBaseUser):
     class Types(models.TextChoices):
         student = "STUDENT", "Student"
-        university_employee = "UNIVERSITY_EMPLOYEE", "University Employee"
+        university_employee = "University Employee", "University Employee"
         company = "COMPANY", "Company"
 
     objects = MyUserManager()
@@ -137,8 +137,8 @@ class AppUser(AbstractBaseUser):
     faculty = models.CharField(
         ("Faculties"),
         max_length=64,
-        choices=Faculties.FacultiesChoices.choices,
-        default=Faculties.FacultiesChoices.not_a_student,
+        choices=FacultiesChoices.choices,
+        default=FacultiesChoices.not_a_student,
     )
     # major = models.CharField(
     #     max_length=32, choices=MAJORS, default="Not a Student", null=True, blank=True

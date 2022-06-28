@@ -1,5 +1,6 @@
 from pickle import FALSE
-from . import StudentUser, CompanyUser, UniversityEmployeeUser, StudentApplications
+from .Users import StudentUser, CompanyUser, UniversityEmployeeUser
+from .StudentApplications import StudentApplications
 from django.db import models
 
 
