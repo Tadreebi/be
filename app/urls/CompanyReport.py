@@ -14,7 +14,7 @@ urlpatterns = [
         name="Report List",
     ),
     path(
-        "create",
+        "create/",
         CompanyReportCreate.as_view(),
         name="Report Create",
     ),

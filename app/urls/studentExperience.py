@@ -15,7 +15,7 @@ urlpatterns = [
         name="Student Experience List",
     ),
     path(
-        "create",
+        "create/",
         StudentExperienceCreate.as_view(),
         name="Student Experience Create",
     ),

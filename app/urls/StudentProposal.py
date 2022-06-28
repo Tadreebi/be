@@ -14,7 +14,7 @@ urlpatterns = [
         name="Student proposal List",
     ),
     path(
-        "create",
+        "create/",
         proposal_create.as_view(),
         name="Student proposal create",
     ),
