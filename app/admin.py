@@ -2,24 +2,24 @@ from django.contrib import admin
 
 from app.models import (
     AppUser,
-    StudentUser,
-    UniversityEmployeeUser,
-    CompanyUser,
-    UniStuFeedback,
-    CompUniFeedback,
-    StudentReport,
-    StudentReportSkill,
-    StudentReportAchievement,
-    StudentProfile,
-    UniversityTip,
-    StudentGoal,
-    StudentGoalIndicator,
-    StudentExperience,
-    StudentUniProposal,
     ComapnyRating,
+    CompUniFeedback,
     CompanyReport,
     InternshipPost,
     StudentApplications,
+    StudentExperience,
+    StudentGoal,
+    StudentGoalIndicator,
+    StudentProfile,
+    StudentUniProposal,
+    StudentReport,
+    StudentReportSkill,
+    StudentReportAchievement,
+    UniStuFeedback,
+    UniversityTip,
+    StudentUser,
+    CompanyUser,
+    UniversityEmployeeUser,
 )
 
 
@@ -68,18 +68,18 @@ class AdminAppUser(admin.ModelAdmin):
     ordering = ("username",)
 
 
-admin.site.register(UniStuFeedback)
+admin.site.register(ComapnyRating)
 admin.site.register(CompUniFeedback)
+admin.site.register(CompanyReport)
+admin.site.register(InternshipPost)
+admin.site.register(StudentApplications)
+admin.site.register(StudentExperience)
+admin.site.register(StudentGoal)
+admin.site.register(StudentGoalIndicator)
+admin.site.register(StudentProfile)
+admin.site.register(StudentUniProposal)
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
-admin.site.register(StudentProfile)
+admin.site.register(UniStuFeedback)
 admin.site.register(UniversityTip)
-admin.site.register(StudentGoal)
-admin.site.register(StudentGoalIndicator)
-admin.site.register(InternshipPost)
-admin.site.register(StudentApplications)
-admin.site.register(CompanyReport)
-admin.site.register(ComapnyRating)
-admin.site.register(StudentExperience)
-admin.site.register(StudentUniProposal)
