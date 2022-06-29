@@ -118,3 +118,6 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 ## Future Techincal Features to Add
 
 Soon...
+
+## Libraries Used
+- Django
