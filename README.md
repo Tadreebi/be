@@ -8,6 +8,10 @@ Deployed App (Soon...)
 
 ## [Minor Fixes to Do](https://github.com/Tadreebi/be/projects/2)
 
+## To Rebuild on your own...
+
+[Check This Manual](./Djnago-Manual.md)
+
 ## Development Instructions & Notes
 
 - Clone repo to local machine
