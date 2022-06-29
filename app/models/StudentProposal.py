@@ -1,19 +1,27 @@
 from pickle import FALSE
-from .Users import StudentUser, CompanyUser, UniversityEmployeeUser
-from .StudentApplications import StudentApplications
+from .User import StudentUser, CompanyUser, UniversityEmployeeUser
+from .StudentApplication import StudentApplication
 from django.db import models
 
 
 class StudentUniProposal(models.Model):
     student = models.ForeignKey(
         StudentUser,
-        on_delete=models.CASCADE, related_name="student_idStudentUniProposal", default=1
+        on_delete=models.CASCADE,
+        related_name="student_idStudentUniProposal",
+        default=1,
     )
     company = models.ForeignKey(
-        CompanyUser, on_delete=models.CASCADE, related_name="company_idStudentUniProposal", default=1
+        CompanyUser,
+        on_delete=models.CASCADE,
+        related_name="company_idStudentUniProposal",
+        default=1,
     )
     internship_application = models.ForeignKey(
-        StudentApplications, on_delete=models.CASCADE, related_name="post_idStudentUniProposal", default=1
+        StudentApplication,
+        on_delete=models.CASCADE,
+        related_name="post_idStudentUniProposal",
+        default=1,
     )  # Double check of default neccssaty
     # Uni Supervisor notes
     remarks = models.TextField(null=True, blank=True)

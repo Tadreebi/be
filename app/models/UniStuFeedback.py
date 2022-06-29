@@ -1,5 +1,5 @@
 from django.db import models
-from .Users import StudentUser
+from .User import StudentUser
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-from .Users import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 TYPES = [
@@ -21,8 +21,7 @@ class CompanyReport(models.Model):
         related_name="company_idCompanyReport",
         on_delete=models.CASCADE,
     )
-    type = models.CharField(
-        max_length=64, default="Periodical Report", choices=TYPES)
+    type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
     report = models.TextField()
     attendace = models.IntegerField(
         validators=[

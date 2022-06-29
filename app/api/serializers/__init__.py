@@ -2,20 +2,18 @@ from .ComapnyRating import (
     ComapnyRatingSerializer,
 )
 
-from .comp_uni_feedback import CompUniFeedback
-
 from .CompanyReport import (
     CompanyReportSerializer,
 )
 
 from .InternshipPost import InternshipPostSerializer, InternshipRequirementsSerializer
 
-from .StudentApplications import StudentApplicationSerializer
+from .StudentApplication import StudentApplicationSerializer
 
 from .StudentExperience import (
     StudentExperienceSerializer,
 )
-from .StudentGoals import StudentGoalsSerializer, StudentGoalIndicatorsSerializer
+from .StudentGoal import StudentGoalsSerializer, StudentGoalIndicatorsSerializer
 from .StudentProfile import (
     StudentProfileSerializer,
 )
@@ -23,15 +21,15 @@ from .StudentProposal import (
     StudentprposalSerializer,
 )
 
-from .StudentReports import (
+from .StudentReport import (
     StudentReportsSerializer,
     StudentReportSkillsSerializer,
     StudentReportAchievementsSerializer,
 )
-from .uni_stu_feedback import UniStuFeedback
-from .UniversityTips import UniversityTipsSerializer
+from .UniStuFeedback import UniStuFeedback
+from .UniversityTip import UniversityTipsSerializer
 
-from .Users import (
+from .User import (
     StudentSerializer,
     UniversitySerializer,
     CompanySerializer,

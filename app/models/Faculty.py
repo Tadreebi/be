@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class FacultiesChoices(models.TextChoices):
+class FacultyChoices(models.TextChoices):
     not_a_student = "Not a Student", "Not a Student"
     it = "IT", "IT"
     engineering = "Engineering", "Engineering"

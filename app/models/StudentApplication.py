@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from app.models import InternshipPost
 from django.core.validators import RegexValidator
-from .Users import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser
 
 
 class InternshipType(models.TextChoices):
@@ -29,9 +29,13 @@ class Gpa(models.TextChoices):
     Excellent = "Excellent"
 
 
-class StudentApplications(models.Model):
+class StudentApplication(models.Model):
     student = models.ForeignKey(
-        StudentUser, related_name="student_idStudentApplications",  on_delete=models.SET_NULL, null=True)
+        StudentUser,
+        related_name="student_idStudentApplication",
+        on_delete=models.SET_NULL,
+        null=True,
+    )
     homeFullAddress = models.CharField(max_length=500, null=True)
     internship = models.ForeignKey(InternshipPost, on_delete=models.CASCADE)
     type = models.CharField(

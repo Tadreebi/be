@@ -144,8 +144,8 @@ class AppUser(AbstractBaseUser):
     # faculty = models.CharField(
     #     ("Faculty"),
     #     max_length=64,
-    #     choices=FacultiesChoices.choices,
-    #     default=FacultiesChoices.not_a_student,
+    #     choices=FacultyChoices.choices,
+    #     default=FacultyChoices.not_a_student,
     # )
     faculty = models.CharField(
         max_length=50, choices=FACULTIES, default="Not a Student", null=True, blank=True

@@ -1,5 +1,5 @@
 from django.db import models
-from .Users import StudentUser
+from .User import StudentUser
 
 contacts = {
     "website": "",
@@ -17,9 +17,7 @@ contacts = {
 
 class StudentProfile(models.Model):
     student = models.ForeignKey(
-        StudentUser,
-        related_name="student_idStudentProfile",
-        on_delete=models.CASCADE
+        StudentUser, related_name="student_idStudentProfile", on_delete=models.CASCADE
     )  # Switch one-to-one
     intro = models.TextField(null=True, blank=True)
     image = models.ImageField(blank=True, upload_to="students_picture", null=True)
