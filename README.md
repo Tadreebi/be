@@ -32,21 +32,7 @@ You may find full app documantation on [Introductory Repo](https://github.com/Ta
 - Remember to create a to-do card for the fix to be done, so no one try to do what you're doing n have double works.
 - There is probably an error that will occur, which is resulted by not adding permissions to models' views, so you might wanna start with that fix.
 
-## Minor Fixes to Do
-
-- Add permissions to api/views.
-- Redirect landing page.
-- Redirect all modules' URLs.
-- Unify naming conventions of files, classes and properties.
-- Give clearer and more meaningful names to files, classes, properties and URLs.
-- Option lists into independent models.
-- Do the one-to-many relations.
-- Update "how to build" documentation (split into first-time, branching, module addition, push to deployment).
-- Update the features list [here](https://github.com/Tadreebi/app)
-- Update the technical & future technical features lists [below](https://github.com/Tadreebi/be#technical-features)
-- Update class diagram
-- Update general 3D diagram
-- Create per-module diagram
+## [Minor Fixes to Do](https://github.com/Tadreebi/be/projects/2)
 
 ## Development Instructions & Notes
 
