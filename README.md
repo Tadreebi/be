@@ -32,6 +32,10 @@ Deployed App (Soon...)
 
 Soon...
 
+## Update a Model Instructions
+
+Soon...
+
 ## Testing Steps
 
 - Switch to dev branch with following CLI command
