@@ -14,7 +14,7 @@ from app.models import (
     StudentReport,
     StudentReportSkill,
     StudentReportAchievement,
-    UniStuFeedback,
+    UniversityFeedback,
     UniversityTip,
     StudentUser,
     CompanyUser,
@@ -79,5 +79,5 @@ admin.site.register(StudentUniProposal)
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
-admin.site.register(UniStuFeedback)
+admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)

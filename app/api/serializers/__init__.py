@@ -26,7 +26,7 @@ from .StudentReport import (
     StudentReportSkillsSerializer,
     StudentReportAchievementsSerializer,
 )
-from .UniStuFeedback import UniStuFeedback
+from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTipsSerializer
 
 from .User import (

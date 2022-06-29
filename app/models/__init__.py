@@ -7,7 +7,7 @@ from .StudentGoal import StudentGoal, StudentGoalIndicator
 from .StudentProfile import StudentProfile
 from .StudentProposal import StudentUniProposal
 from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
-from .UniStuFeedback import UniStuFeedback
+from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTip
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
 

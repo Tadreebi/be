@@ -79,7 +79,10 @@ from .StudentReport import (
     StudentReportAchievementsUpdate,
     StudentReportAchievementsDelete,
 )
-from .UniStuFeedback import UniStuFeedbackListView, UniStuFeedbackDetailsView
+from .UniversityFeedback import (
+    UniversityFeedbackListView,
+    UniversityFeedbackDetailsView,
+)
 
 from .UniversityTip import (
     UniversityTipsList,
