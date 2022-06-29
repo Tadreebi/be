@@ -1,16 +1,17 @@
 from django.db import models
-from .Users import StudentUser
+from .User import StudentUser
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
 
-class UniStuFeedback(models.Model):
+class UniversityFeedback(models.Model):
 
     student = models.ForeignKey(
         StudentUser,
-        related_name="student_idUniStuFeedback",
+        related_name="student_idUniversityFeedback",
         on_delete=models.CASCADE,
     )
+    title = models.CharField(max_length=256)
     feedback = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)

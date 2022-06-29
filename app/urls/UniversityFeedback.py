@@ -1,18 +1,18 @@
 from django.urls import path
 from app.api.views import (
-    UniStuFeedbackListView,
-    UniStuFeedbackDetailsView,
+    UniversityFeedbackListView,
+    UniversityFeedbackDetailsView,
 )
 
 urlpatterns = [
     path(
         "",
-        UniStuFeedbackListView.as_view(),
+        UniversityFeedbackListView.as_view(),
         name="uni_stu_feedback_list",
     ),
     path(
         "<int:pk>",
-        UniStuFeedbackDetailsView.as_view(),
+        UniversityFeedbackDetailsView.as_view(),
         name="uni_stu_feedback_detail",
     ),
 ]

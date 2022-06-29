@@ -3,7 +3,7 @@ from django.db import models
 from location_field.models.plain import PlainLocationField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
-from .Users import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser
 
 
 class InternshipType(models.TextChoices):
@@ -46,8 +46,7 @@ def return_date_time():
 
 class InternshipPost(models.Model):
     company = models.ForeignKey(
-        CompanyUser,
-        on_delete=models.CASCADE, related_name="company_idInternshipPost"
+        CompanyUser, on_delete=models.CASCADE, related_name="company_idInternshipPost"
     )
     position = models.CharField(max_length=255, null=True)
     type = models.CharField(

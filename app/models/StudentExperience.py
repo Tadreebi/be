@@ -1,14 +1,18 @@
 from time import time
 from django.db import models
-from .Users import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser
 
 
 class StudentExperience(models.Model):
-    student = models.ForeignKey(StudentUser,
-                                on_delete=models.CASCADE, related_name="student_idStudentExperience"
-                                )
+    student = models.ForeignKey(
+        StudentUser,
+        on_delete=models.CASCADE,
+        related_name="student_idStudentExperience",
+    )
     company = models.ForeignKey(
-        CompanyUser, on_delete=models.CASCADE, related_name="company_idStudentExperience"
+        CompanyUser,
+        on_delete=models.CASCADE,
+        related_name="company_idStudentExperience",
     )
     # ForeignKey to student application to oppertunity ##################
     improved_aspects = models.TextField(max_length=5000, null=True, blank=True)

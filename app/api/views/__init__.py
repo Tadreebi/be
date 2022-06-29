@@ -5,7 +5,6 @@ from .ComapnyRating import (
     ComapnyRatingUpdate,
     ComapnyRatingDelete,
 )
-from .comp_uni_feedback import CompUniFeedbackListView, CompUniFeedbackDetailsView
 
 from .CompanyReport import (
     CompanyReportList,
@@ -24,7 +23,7 @@ from .InternshipPost import (
 )
 
 
-from .StudentApplications import (
+from .StudentApplication import (
     StudentApplicationsList,
     StudentApplicationsRetrieveUpdateDestroy,
     ApplicationsViewSets,
@@ -36,7 +35,7 @@ from .StudentExperience import (
     StudentExperienceList,
     StudentExperienceUpdate,
 )
-from .StudentGoals import (
+from .StudentGoal import (
     StudentGoalsList,
     StudentGoalsCreate,
     StudentGoalsDetail,
@@ -63,7 +62,7 @@ from .StudentProposal import (
     proposal_delete,
 )
 
-from .StudentReports import (
+from .StudentReport import (
     StudentReportsList,
     StudentReportsCreate,
     StudentReportsDetail,
@@ -80,16 +79,19 @@ from .StudentReports import (
     StudentReportAchievementsUpdate,
     StudentReportAchievementsDelete,
 )
-from .uni_stu_feedback import UniStuFeedbackListView, UniStuFeedbackDetailsView
+from .UniversityFeedback import (
+    UniversityFeedbackListView,
+    UniversityFeedbackDetailsView,
+)
 
-from .UniversityTips import (
+from .UniversityTip import (
     UniversityTipsList,
     UniversityTipsCreate,
     UniversityTipsDetail,
     UniversityTipsUpdate,
     UniversityTipsDelete,
 )
-from .Users import (
+from .User import (
     StudentSignUpView,
     UniversitySignUpView,
     CompanySignUpView,

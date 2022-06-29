@@ -1,2 +1,2 @@
-from .studentProfile import urlpatterns
-from .studentReports import urlpatterns
+from .StudentProfile import urlpatterns
+from .StudentReport import urlpatterns

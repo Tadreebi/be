@@ -3,10 +3,9 @@ from django.contrib import admin
 from app.models import (
     AppUser,
     ComapnyRating,
-    CompUniFeedback,
     CompanyReport,
     InternshipPost,
-    StudentApplications,
+    StudentApplication,
     StudentExperience,
     StudentGoal,
     StudentGoalIndicator,
@@ -15,7 +14,7 @@ from app.models import (
     StudentReport,
     StudentReportSkill,
     StudentReportAchievement,
-    UniStuFeedback,
+    UniversityFeedback,
     UniversityTip,
     StudentUser,
     CompanyUser,
@@ -69,10 +68,9 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 admin.site.register(ComapnyRating)
-admin.site.register(CompUniFeedback)
 admin.site.register(CompanyReport)
 admin.site.register(InternshipPost)
-admin.site.register(StudentApplications)
+admin.site.register(StudentApplication)
 admin.site.register(StudentExperience)
 admin.site.register(StudentGoal)
 admin.site.register(StudentGoalIndicator)
@@ -81,5 +79,5 @@ admin.site.register(StudentUniProposal)
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
-admin.site.register(UniStuFeedback)
+admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
