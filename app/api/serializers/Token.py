@@ -6,6 +6,7 @@ from rest_framework_simplejwt.serializers import (
 )
 from django.core import serializers
 from app.models.User import StudentUser, UniversityEmployeeUser, CompanyUser
+from .User import StudentSerializer, UniversitySerializer, CompanySerializer
 
 
 class TokenSerializer(TokenObtainSerializer):
@@ -21,25 +22,25 @@ class TokenSerializer(TokenObtainSerializer):
         data["refresh"] = str(refresh)
         data["access"] = str(refresh.access_token)
 
-        serialized_student_user = serializers.serialize("json", StudentUser)
-        student_user = serialized_student_user.objects.filter(pk=self.user.id).first()
+        # serialized_student_user = serializers.serialize("json", StudentUser)
+        student_user = StudentUser.objects.filter(pk=self.user.id).first()
 
-        serialized_university_employee_user = serializers.serialize(
-            "json", UniversityEmployeeUser
-        )
-        university_employee_user = serialized_university_employee_user.objects.filter(
+        # serialized_university_employee_user = serializers.serialize(
+        #     "json", UniversityEmployeeUser
+        # )
+        university_employee_user = UniversityEmployeeUser.objects.filter(
             pk=self.user.id
         ).first()
 
-        serialized_company_user = serializers.serialize("json", CompanyUser)
-        company_user = serialized_company_user.objects.filter(pk=self.user.id).first()
+        # serialized_company_user = serializers.serialize("json", CompanyUser)
+        company_user = CompanyUser.objects.filter(pk=self.user.id).first()
 
         if student_user:
-            data["user"] = student_user
+            data["user"] = StudentSerializer(student_user).data
         elif university_employee_user:
-            data["user"] = university_employee_user
+            data["user"] = UniversitySerializer(university_employee_user).data
         elif company_user:
-            data["user"] = company_user
+            data["user"] = CompanySerializer(company_user).data
         else:
             data["user"] = None
 
