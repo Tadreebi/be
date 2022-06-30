@@ -22,17 +22,10 @@ class TokenSerializer(TokenObtainSerializer):
         data["refresh"] = str(refresh)
         data["access"] = str(refresh.access_token)
 
-        # serialized_student_user = serializers.serialize("json", StudentUser)
         student_user = StudentUser.objects.filter(pk=self.user.id).first()
-
-        # serialized_university_employee_user = serializers.serialize(
-        #     "json", UniversityEmployeeUser
-        # )
         university_employee_user = UniversityEmployeeUser.objects.filter(
             pk=self.user.id
         ).first()
-
-        # serialized_company_user = serializers.serialize("json", CompanyUser)
         company_user = CompanyUser.objects.filter(pk=self.user.id).first()
 
         if student_user:
