@@ -99,3 +99,5 @@ from .User import (
     UniversitySignUpDetail,
     CompanySignUpDetail,
 )
+
+from .Token import TokenView

@@ -34,3 +34,5 @@ from .User import (
     UniversitySerializer,
     CompanySerializer,
 )
+
+from .Token import TokenSerializer
