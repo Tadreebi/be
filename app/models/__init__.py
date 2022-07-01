@@ -10,6 +10,4 @@ from .StudentReport import StudentReport, StudentReportAchievement, StudentRepor
 from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTip
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
-
-# from .Faculties import FacultiesChoices
-# from .Faculties import Faculty
+from .Faculty import Faculty

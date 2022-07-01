@@ -19,6 +19,7 @@ from app.models import (
     StudentUser,
     CompanyUser,
     UniversityEmployeeUser,
+    Faculty,
 )
 
 
@@ -81,3 +82,4 @@ admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
+admin.site.register(Faculty)

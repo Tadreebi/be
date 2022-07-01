@@ -99,3 +99,8 @@ from .User import (
     UniversitySignUpDetail,
     CompanySignUpDetail,
 )
+
+from .Faculty import (
+    FacultyListView,
+    FacultyDetailsView,
+)
