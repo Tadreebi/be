@@ -3,9 +3,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
-
-# from .Faculties import FacultiesChoices
-# from .Faculties import Faculty
+from .Faculty import Faculty
 
 
 class MyUserManager(BaseUserManager):
@@ -92,22 +90,6 @@ class AppUser(AbstractBaseUser):
         ("Ajloun", "Ajloun"),
     ]
 
-    FACULTIES = [
-        ("Not a Student", "Not a Student"),
-        ("IT", "IT"),
-        ("Engineering", "Engineering"),
-        ("Science", "Science"),
-        ("Business", "Business"),
-        ("Medicine", "Medicine"),
-        ("Nursing", "Nursing"),
-        ("Pharmacy", "Pharmacy"),
-        ("Law", "Law"),
-        ("Letreture", "Letreture"),
-        ("Arts", "Arts"),
-        ("Humanities", "Humanities"),
-        ("Religions", "Religions"),
-    ]
-
     username = UserNameField(
         help_text="If you are a (student/university Employee) use the university ID number. If you are a company use the comapany name and replace the spaces with dash (-)",
         max_length=64,
@@ -138,17 +120,8 @@ class AppUser(AbstractBaseUser):
         null=True,
         blank=True,
     )
-    # faculty = models.ForeignKey(
-    #     Faculty, on_delete=models.CASCADE, null=True, blank=True
-    # )
-    # faculty = models.CharField(
-    #     ("Faculty"),
-    #     max_length=64,
-    #     choices=FacultyChoices.choices,
-    #     default=FacultyChoices.not_a_student,
-    # )
-    faculty = models.CharField(
-        max_length=50, choices=FACULTIES, default="Not a Student", null=True, blank=True
+    faculty = models.ForeignKey(
+        Faculty, on_delete=models.CASCADE, blank=True, null=True, default=None
     )
     about = models.TextField(default=None, null=True, blank=True)
 
