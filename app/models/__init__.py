@@ -1,4 +1,4 @@
-from .ComapnyRating import ComapnyRating
+from .CompanyRating import CompanyRating
 from .CompanyReport import CompanyReport
 from .InternshipPost import InternshipPost, InternshipRequirements
 from .StudentApplication import StudentApplication

@@ -3,21 +3,21 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
-class ComapnyRating(models.Model):
+class CompanyRating(models.Model):
     student = models.ForeignKey(
         StudentUser,
         on_delete=models.CASCADE,
         unique=True,
         blank=True,
         null=True,
-        related_name="student_idComapnyRating",
+        related_name="student_idCompanyRating",
     )
     company = models.ForeignKey(
         CompanyUser,
         on_delete=models.CASCADE,
         blank=True,
         null=True,
-        related_name="company_idComapnyRating",
+        related_name="company_idCompanyRating",
     )
     '''
     This is a calculated score that will represent the company rating 
