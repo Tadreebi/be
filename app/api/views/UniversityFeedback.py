@@ -1,17 +1,15 @@
 from rest_framework import generics, permissions
-from app.models import UniversityFeedback as UniversityFeedbackModel
-from app.api.serializers import UniversityFeedback
+from app.models import UniversityFeedback
+from app.api.serializers import UniversityFeedbackSerializer
 
 
 class UniversityFeedbackListView(generics.ListCreateAPIView):
-    queryset = UniversityFeedbackModel.objects.all()
-    serializer_class = UniversityFeedback
-
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 
 class UniversityFeedbackDetailsView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = UniversityFeedbackModel.objects.all()
-    serializer_class = UniversityFeedback
-
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
     permission_classes = [permissions.IsAuthenticated]

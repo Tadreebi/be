@@ -19,11 +19,13 @@ from app.models import (
     StudentUser,
     CompanyUser,
     UniversityEmployeeUser,
+    Faculty,
+    SupervisedBy,
 )
 
 
 @admin.register(UniversityEmployeeUser)
-class AdminAppUser(admin.ModelAdmin):
+class AdminUniversityEmployeeUser(admin.ModelAdmin):
     list_display = (
         "username",
         "email",
@@ -38,7 +40,7 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 @admin.register(CompanyUser)
-class AdminAppUser(admin.ModelAdmin):
+class AdminCompanyUser(admin.ModelAdmin):
     list_display = (
         "username",
         "email",
@@ -53,7 +55,7 @@ class AdminAppUser(admin.ModelAdmin):
 
 
 @admin.register(StudentUser)
-class AdminAppUser(admin.ModelAdmin):
+class AdminStudentUser(admin.ModelAdmin):
     list_display = (
         "username",
         "email",
@@ -81,3 +83,5 @@ admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
+admin.site.register(Faculty)
+admin.site.register(SupervisedBy)

@@ -1,11 +1,13 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import (
+    AbstractBaseUser,
+    BaseUserManager,
+    PermissionsMixin,
+)
 from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
-
-# from .Faculties import FacultiesChoices
-# from .Faculties import Faculty
+from .Faculty import Faculty
 
 
 class MyUserManager(BaseUserManager):
@@ -24,7 +26,6 @@ class MyUserManager(BaseUserManager):
             username=username,
             password=password,
         )
-        # user.set_password(password)
         user.save(using=self._db)
         return user
 
@@ -69,11 +70,11 @@ class UserNameField(models.SlugField):
         return str(value).lower()
 
 
-class AppUser(AbstractBaseUser):
+class AppUser(AbstractBaseUser, PermissionsMixin):
     class Types(models.TextChoices):
-        student = "STUDENT", "Student"
+        student = "Student", "Student"
         university_employee = "University Employee", "University Employee"
-        company = "COMPANY", "Company"
+        company = "Company", "Company"
 
     objects = MyUserManager()
 
@@ -92,24 +93,8 @@ class AppUser(AbstractBaseUser):
         ("Ajloun", "Ajloun"),
     ]
 
-    FACULTIES = [
-        ("Not a Student", "Not a Student"),
-        ("IT", "IT"),
-        ("Engineering", "Engineering"),
-        ("Science", "Science"),
-        ("Business", "Business"),
-        ("Medicine", "Medicine"),
-        ("Nursing", "Nursing"),
-        ("Pharmacy", "Pharmacy"),
-        ("Law", "Law"),
-        ("Letreture", "Letreture"),
-        ("Arts", "Arts"),
-        ("Humanities", "Humanities"),
-        ("Religions", "Religions"),
-    ]
-
     username = UserNameField(
-        help_text="If you are a (student/university Employee) use the university ID number. If you are a company use the comapany name and replace the spaces with dash (-)",
+        help_text="Student: use the university ID number. University Employee: use your name. Company: use the comapany name. Replace the spaces with dash (-)",
         max_length=64,
         unique=True,
     )
@@ -125,32 +110,8 @@ class AppUser(AbstractBaseUser):
     is_active = models.BooleanField(default=True, editable=False)
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
-    phone = PhoneNumberField(
-        unique=True, help_text="+962*********", null=True, blank=True
-    )
-    address = models.CharField(
-        help_text="city", max_length=32, choices=CITIES, null=True, blank=True
-    )
-    GPA = models.DecimalField(
-        help_text="out of 4.00, If You are not a student leave it",
-        max_digits=4,
-        decimal_places=2,
-        null=True,
-        blank=True,
-    )
-    # faculty = models.ForeignKey(
-    #     Faculty, on_delete=models.CASCADE, null=True, blank=True
-    # )
-    # faculty = models.CharField(
-    #     ("Faculty"),
-    #     max_length=64,
-    #     choices=FacultyChoices.choices,
-    #     default=FacultyChoices.not_a_student,
-    # )
-    faculty = models.CharField(
-        max_length=50, choices=FACULTIES, default="Not a Student", null=True, blank=True
-    )
-    about = models.TextField(default=None, null=True, blank=True)
+    phone = PhoneNumberField(unique=True, help_text="+962*********")
+    address = models.CharField(help_text="city", max_length=32, choices=CITIES)
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"
@@ -170,11 +131,31 @@ class AppUser(AbstractBaseUser):
         return True
 
 
+class UniversityEmployeeUser(AppUser):
+    objects = UneversityEmployManager()
+
+    def save(self, *args, **kwargs):
+        self.password = make_password(self.password)
+        self.type = AppUser.Types.university_employee
+        self.is_staff = True
+        self.is_admin = True
+        return super().save(*args, **kwargs)
+
+    def __str__(self):
+        return self.username
+
+    def get_absolute_url(self):
+        return reverse("university_detail", kwargs={"slug": self.username})
+
+
 class StudentUser(AppUser):
     objects = StudentManager()
 
-    class Meta:
-        proxy = True
+    GPA = models.DecimalField(help_text="out of 4.00", max_digits=4, decimal_places=2)
+    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    # supervisor = models.ForeignKey(
+    #     UniversityEmployeeUser, on_delete=models.CASCADE, blank=True, null=True
+    # )
 
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)
@@ -188,39 +169,14 @@ class StudentUser(AppUser):
         return reverse("student_detail", kwargs={"slug": self.username})
 
 
-class UniversityEmployeeUser(AppUser):
-    objects = UneversityEmployManager()
-
-    class Meta:
-        proxy = True
-
-    def save(self, *args, **kwargs):
-        self.password = make_password(self.password)
-        self.type = AppUser.Types.university_employee
-        self.is_staff = True
-        self.is_admin = True
-        self.faculty = "Not a Student"
-        self.GPA = None
-        return super().save(*args, **kwargs)
-
-    def __str__(self):
-        return self.username
-
-    def get_absolute_url(self):
-        return reverse("university_detail", kwargs={"slug": self.username})
-
-
 class CompanyUser(AppUser):
     objects = CompanyManager()
 
-    class Meta:
-        proxy = True
+    about = models.TextField(help_text="about the company")
 
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)
         self.type = AppUser.Types.company
-        self.faculty = "Not a Student"
-        self.GPA = None
         return super().save(*args, **kwargs)
 
     def __str__(self):
