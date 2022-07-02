@@ -46,7 +46,7 @@ class StudentApplication(models.Model):
     )
     expected_salary = models.IntegerField(default=0)
     coverletter = models.TextField(max_length=1400, null=True)
-    resume = models.FileField(blank=True, upload_to="resumes_images")
+    resume = models.FileField(blank=True, upload_to="resumes")
 
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)

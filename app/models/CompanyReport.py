@@ -6,11 +6,12 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 TYPES = [
     ("Periodical Report", "Periodical Report"),
     ("Final Report", "Final Report"),
-    ("Complain", "Complain"),
+    ("Complain Report", "Complain Report"),
 ]
 
 
 class CompanyReport(models.Model):
+    # Keys of the comany and the student that it intendeds to make a report about
     student = models.ForeignKey(
         StudentUser,
         related_name="student_idCompanyReport",
@@ -21,6 +22,19 @@ class CompanyReport(models.Model):
         related_name="company_idCompanyReport",
         on_delete=models.CASCADE,
     )
+
+    # Report Title
+    title = models.CharField(max_length=256, null=True, blank=True)
+    # Report date
+    date = models.DateField()
+    # Report type, wether it's periodical, complain or final
+    type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
+
+
+     # Report intro & conclusion paragraphs
+    intro = models.TextField(null=True, blank=True)
+    conclusion = models.TextField(null=True, blank=True)
+
     type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
     report = models.TextField()
     attendace = models.IntegerField(

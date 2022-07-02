@@ -16,6 +16,12 @@ from .StudentExperience import (
 from .StudentGoal import StudentGoalsSerializer, StudentGoalIndicatorsSerializer
 from .StudentProfile import (
     StudentProfileSerializer,
+    StudentProfileExperiencesSerializer,
+    StudentProfileSkillsSerializer,
+    StudentProfileEducationsSerializer,
+    StudentProfileLanguagesSerializer,
+    StudentProfileContactsSerializer,
+    StudentProfileWorksSerializer,
 )
 from .StudentProposal import (
     StudentprposalSerializer,
@@ -28,7 +34,7 @@ from .StudentReport import (
     StudentReportRemarksSerializer,
 )
 from .UniversityFeedback import UniversityFeedbackSerializer
-from .UniversityTip import UniversityTipsSerializer
+from .UniversityTip import UniversityTipsSerializer, UniversityTipTopicsSerializer
 
 from .User import (
     StudentSerializer,
