@@ -24,11 +24,18 @@ class StudentUniProposal(models.Model):
         default=1,
     )  # Double check of default neccssaty
     # Uni Supervisor notes
-    remarks = models.TextField(null=True, blank=True)
-    accepted = models.BooleanField(default=False)
+    
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.student.username
+        return str(self.id)
+
+class UniProposalResponse(models.Model):
+    proposal= models.OneToOneField(StudentUniProposal,on_delete=models.CASCADE,unique=True)
+    remarks = models.TextField(null=True, blank=True)
+    accepted = models.BooleanField(default=False)
+
+    def __str__(self) -> str:
+        return f'{self.proposal.student.username} proposal'

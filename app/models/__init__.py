@@ -5,7 +5,7 @@ from .StudentApplication import StudentApplication
 from .StudentExperience import StudentExperience
 from .StudentGoal import StudentGoal, StudentGoalIndicator
 from .StudentProfile import StudentProfile
-from .StudentProposal import StudentUniProposal
+from .StudentProposal import StudentUniProposal,UniProposalResponse
 from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
 from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTip
