@@ -26,6 +26,7 @@ class StudentUniProposal(models.Model):
     # Uni Supervisor notes
     
     # Timestamps
+    remarks = models.TextField(null=True,blank=True)
     timestamp = models.DateTimeField(auto_now_add=True, null=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -39,3 +40,4 @@ class UniProposalResponse(models.Model):
 
     def __str__(self) -> str:
         return f'{self.proposal.student.username} proposal'
+

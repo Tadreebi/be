@@ -19,6 +19,7 @@ from .StudentProfile import (
 )
 from .StudentProposal import (
     StudentprposalSerializer,
+    UniProposalResponseSerializer
 )
 
 from .StudentReport import (
