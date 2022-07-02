@@ -146,11 +146,8 @@ STATIC_URL = "static/"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Resumes
-MEDIA_URL = "app/assets/resumes_images/"
-MEDIA_ROOT = BASE_DIR / "app/assets/resumes_images/"
-
-MEDIA_URL = "app/assets/students_pictures/"
-MEDIA_ROOT = BASE_DIR / "app/assets/students_pictures/"
+MEDIA_URL = "app/assets/uploads/"
+MEDIA_ROOT = BASE_DIR / "app/assets/uploads/"
 
 LOCATION_FIELD_PATH = STATIC_URL + "location_field"
 LOCATION_FIELD = {
