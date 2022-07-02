@@ -111,5 +111,13 @@ from .SupervisedBy import (
     SupervisedByDetailsView,
 )
 
+from .Cities import (
+    CitiesCreate,
+    CitiesDetail,
+    CitiesList,
+    CitiesUpdate,
+    CitiesDelete,
+)
+
 from .Token import TokenView
 

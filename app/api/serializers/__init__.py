@@ -35,6 +35,8 @@ from .User import (
     CompanySerializer,
 )
 
+from .Cities import CitiesSerializer
+
 
 from .Faculty import FacultySerializer
 from .SupervisedBy import SupervisedBySerializer

@@ -50,6 +50,7 @@ urlpatterns = [
     path("faculty-major/", include("app.urls.Faculty")),
     path("supervised-by/", include("app.urls.SupervisedBy")),
     path("univeristy-tips/", include("app.urls.UniversityTip")),
+    path("cities/", include("app.urls.Cities")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("the-token/", include("app.urls.Token")),
