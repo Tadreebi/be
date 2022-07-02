@@ -7,7 +7,7 @@ from app.models import (
     CompanyUser,
     Faculty,
     InternshipPost,
-    StudentApplication,
+    StudentApplication,z
     StudentExperience,
     StudentGoal,
     StudentGoalIndicator,
@@ -19,8 +19,9 @@ from app.models import (
     StudentProfileSkill,
     StudentProfileWork,
     StudentReport,
-    StudentReportAchievement,
+    StudentReportRemark,
     StudentReportSkill,
+    StudentReportAchievement,
     StudentUniProposal,
     StudentUser,
     SupervisedBy,
@@ -91,6 +92,7 @@ admin.site.register(StudentProfileContact)
 admin.site.register(StudentProfileWork)
 admin.site.register(StudentUniProposal)
 admin.site.register(StudentReport)
+admin.site.register(StudentReportRemark)
 admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(UniversityFeedback)
