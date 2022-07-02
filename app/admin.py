@@ -21,6 +21,7 @@ from app.models import (
     UniversityEmployeeUser,
     Faculty,
     SupervisedBy,
+    Cities,
 )
 
 
@@ -85,3 +86,4 @@ admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
 admin.site.register(Faculty)
 admin.site.register(SupervisedBy)
+admin.site.register(Cities)
