@@ -18,6 +18,7 @@ from app.models import (
     StudentProfileLanguage,
     StudentProfileSkill,
     StudentProfileWork,
+    StudentReportType,
     StudentReport,
     StudentReportRemark,
     StudentReportSkill,
