@@ -1,10 +1,21 @@
 from rest_framework import serializers
-from app.models import StudentReport, StudentReportSkill, StudentReportAchievement
+from app.models import (
+    StudentReport,
+    StudentReportSkill,
+    StudentReportAchievement,
+    StudentReportRemark,
+)
 
 
 class StudentReportsSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentReport
+        fields = "__all__"
+
+
+class StudentReportRemarksSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StudentReportRemark
         fields = "__all__"
 
 
