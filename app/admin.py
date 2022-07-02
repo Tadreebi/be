@@ -4,23 +4,29 @@ from app.models import (
     AppUser,
     ComapnyRating,
     CompanyReport,
+    CompanyUser,
+    Faculty,
     InternshipPost,
     StudentApplication,
     StudentExperience,
     StudentGoal,
     StudentGoalIndicator,
     StudentProfile,
-    StudentUniProposal,
+    StudentProfileContact,
+    StudentProfileEducation,
+    StudentProfileExperience,
+    StudentProfileLanguage,
+    StudentProfileSkill,
+    StudentProfileWork,
     StudentReport,
-    StudentReportSkill,
     StudentReportAchievement,
+    StudentReportSkill,
+    StudentUniProposal,
+    StudentUser,
+    SupervisedBy,
+    UniversityEmployeeUser,
     UniversityFeedback,
     UniversityTip,
-    StudentUser,
-    CompanyUser,
-    UniversityEmployeeUser,
-    Faculty,
-    SupervisedBy,
 )
 
 
@@ -77,6 +83,12 @@ admin.site.register(StudentExperience)
 admin.site.register(StudentGoal)
 admin.site.register(StudentGoalIndicator)
 admin.site.register(StudentProfile)
+admin.site.register(StudentProfileExperience)
+admin.site.register(StudentProfileSkill)
+admin.site.register(StudentProfileEducation)
+admin.site.register(StudentProfileLanguage)
+admin.site.register(StudentProfileContact)
+admin.site.register(StudentProfileWork)
 admin.site.register(StudentUniProposal)
 admin.site.register(StudentReport)
 admin.site.register(StudentReportSkill)
