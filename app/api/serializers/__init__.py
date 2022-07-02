@@ -35,5 +35,8 @@ from .User import (
     CompanySerializer,
 )
 
+
 from .Faculty import FacultySerializer
 from .SupervisedBy import SupervisedBySerializer
+from .Token import TokenSerializer
+
