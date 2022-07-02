@@ -8,7 +8,7 @@ from .StudentProfile import StudentProfile
 from .StudentProposal import StudentUniProposal
 from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
 from .UniversityFeedback import UniversityFeedback
-from .UniversityTip import UniversityTip
+from .UniversityTip import UniversityTip, UniversityTipTopic
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
 from .Faculty import Faculty
 from .SupervisedBy import SupervisedBy
