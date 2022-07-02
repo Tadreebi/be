@@ -1,10 +1,10 @@
-from rest_framework import serializers
 from app.models import (
     StudentReport,
-    StudentReportSkill,
     StudentReportAchievement,
     StudentReportRemark,
+    StudentReportSkill,
 )
+from rest_framework import serializers
 
 
 class StudentReportsSerializer(serializers.ModelSerializer):

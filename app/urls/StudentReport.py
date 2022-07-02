@@ -4,6 +4,13 @@ from app.api.views import (
     StudentReportAchievementsDetail,
     StudentReportAchievementsList,
     StudentReportAchievementsUpdate,
+    StudentReportRemarksCreate,
+    StudentReportRemarksDelete,
+    StudentReportRemarksDetail,
+    StudentReportRemarksList,
+    StudentReportRemarksUpdate,
+    StudentReportsList,
+    StudentReportsUpdate,
     StudentReportsCreate,
     StudentReportsDelete,
     StudentReportsDetail,
@@ -12,13 +19,6 @@ from app.api.views import (
     StudentReportSkillsDetail,
     StudentReportSkillsList,
     StudentReportSkillsUpdate,
-    StudentReportsList,
-    StudentReportsUpdate,
-    StudentReportRemarksList,
-    StudentReportRemarksCreate,
-    StudentReportRemarksDetail,
-    StudentReportRemarksUpdate,
-    StudentReportRemarksDelete,
 )
 from django.urls import path, re_path
 from django.views.generic.base import RedirectView

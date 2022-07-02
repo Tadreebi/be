@@ -1,6 +1,7 @@
 from django.db import models
-from .User import StudentUser
+
 from .StudentReportRemark import StudentReportRemark
+from .User import StudentUser
 
 choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 

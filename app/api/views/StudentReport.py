@@ -1,26 +1,25 @@
-from app.models import (
-    StudentReportAchievement,
-    StudentReport,
-    StudentReportSkill,
-    StudentReportRemark,
+from app.api.permissions import IsOwnerOrReadOnly
+from app.api.serializers import (
+    StudentReportAchievementsSerializer,
+    StudentReportRemarksSerializer,
+    StudentReportSkillsSerializer,
+    StudentReportsSerializer,
 )
+from app.models import (
+    StudentReport,
+    StudentReportAchievement,
+    StudentReportRemark,
+    StudentReportSkill,
+)
+from rest_framework import generics, permissions
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
     RetrieveAPIView,
-    RetrieveUpdateAPIView,
     RetrieveDestroyAPIView,
+    RetrieveUpdateAPIView,
 )
 
-from app.api.serializers import (
-    StudentReportAchievementsSerializer,
-    StudentReportSkillsSerializer,
-    StudentReportsSerializer,
-    StudentReportRemarksSerializer,
-)
-
-from app.api.permissions import IsOwnerOrReadOnly
-from rest_framework import generics, permissions
 
 # Student Reports #########################################################
 class StudentReportsList(ListAPIView):
