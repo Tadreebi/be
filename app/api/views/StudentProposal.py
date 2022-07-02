@@ -1,9 +1,9 @@
-from app.models import StudentUniProposal,UniProposalResponse
+from app.models import StudentUniProposal
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from app.api.serializers import (
     StudentprposalSerializer,
-    UniProposalResponseSerializer
+
     
 )
 
@@ -52,40 +52,4 @@ class proposal_delete(RetrieveDestroyAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
 
-
-# Uni Response Views
-
-class UniResponse_List_View(ListAPIView):
-    queryset = UniProposalResponse.objects.all()
-    serializer_class = UniProposalResponseSerializer
-
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class UniResponse_create(ListCreateAPIView):
-    queryset = UniProposalResponse.objects.all()
-    serializer_class = UniProposalResponseSerializer
-
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class UniResponse_detail_view(RetrieveAPIView):
-    queryset = UniProposalResponse.objects.all()
-    serializer_class = UniProposalResponseSerializer
-
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class UniResponse_Update(RetrieveUpdateAPIView):
-    queryset = UniProposalResponse.objects.all()
-    serializer_class = UniProposalResponseSerializer
-
-    permission_classes = [permissions.IsAuthenticated]
-
-
-class UniResponse_delete(RetrieveDestroyAPIView):
-    queryset = UniProposalResponse.objects.all()
-    serializer_class = UniProposalResponseSerializer
-
-    permission_classes = [permissions.IsAuthenticated]
 
