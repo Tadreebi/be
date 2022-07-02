@@ -78,6 +78,11 @@ from .StudentReport import (
     StudentReportAchievementsDetail,
     StudentReportAchievementsUpdate,
     StudentReportAchievementsDelete,
+    StudentReportRemarksList,
+    StudentReportRemarksCreate,
+    StudentReportRemarksDetail,
+    StudentReportRemarksUpdate,
+    StudentReportRemarksDelete,
 )
 from .UniversityFeedback import (
     UniversityFeedbackListView,
@@ -112,4 +117,3 @@ from .SupervisedBy import (
 )
 
 from .Token import TokenView
-

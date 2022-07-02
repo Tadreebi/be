@@ -1,4 +1,9 @@
-from app.models import StudentReportAchievement, StudentReport, StudentReportSkill
+from app.models import (
+    StudentReportAchievement,
+    StudentReport,
+    StudentReportSkill,
+    StudentReportRemark,
+)
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
@@ -11,6 +16,7 @@ from app.api.serializers import (
     StudentReportAchievementsSerializer,
     StudentReportSkillsSerializer,
     StudentReportsSerializer,
+    StudentReportRemarksSerializer,
 )
 
 from app.api.permissions import IsOwnerOrReadOnly
@@ -48,6 +54,42 @@ class StudentReportsUpdate(RetrieveUpdateAPIView):
 class StudentReportsDelete(RetrieveDestroyAPIView):
     queryset = StudentReport.objects.all()
     serializer_class = StudentReportsSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
+
+
+# Student Remarks #########################################################
+class StudentReportRemarksList(ListAPIView):
+    queryset = StudentReportRemark.objects.all()
+    serializer_class = StudentReportRemarksSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StudentReportRemarksCreate(ListCreateAPIView):
+    queryset = StudentReportRemark.objects.all()
+    serializer_class = StudentReportRemarksSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StudentReportRemarksDetail(RetrieveAPIView):
+    queryset = StudentReportRemark.objects.all()
+    serializer_class = StudentReportRemarksSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StudentReportRemarksUpdate(RetrieveUpdateAPIView):
+    queryset = StudentReportRemark.objects.all()
+    serializer_class = StudentReportRemarksSerializer
+
+    permission_classes = [permissions.IsAuthenticated]
+
+
+class StudentReportRemarksDelete(RetrieveDestroyAPIView):
+    queryset = StudentReportRemark.objects.all()
+    serializer_class = StudentReportRemarksSerializer
 
     permission_classes = [permissions.IsAuthenticated]
 
