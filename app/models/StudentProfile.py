@@ -85,7 +85,7 @@ class StudentProfileLanguage(models.Model):
         return self.title
 
 
-class StudentProfileContacts(models.Model):
+class StudentProfileContact(models.Model):
     profile = models.ForeignKey(
         StudentProfile,
         related_name="profile_idStudentProfileContacts",
@@ -105,7 +105,7 @@ class StudentProfileContacts(models.Model):
 class StudentProfileWork(models.Model):
     profile = models.ForeignKey(
         StudentProfile,
-        related_name="profile_idStudentProfileContacts",
+        related_name="profile_idStudentProfileWork",
         on_delete=models.CASCADE,
     )
     title = models.TextField(max_length=256)

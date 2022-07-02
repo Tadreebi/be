@@ -10,8 +10,8 @@ from .StudentProfile import (
     StudentProfileSkill,
     StudentProfileEducation,
     StudentProfileLanguage,
-    StudentProfileContacts,
-    StudentProfileWorks,
+    StudentProfileContact,
+    StudentProfileWork,
 )
 from .StudentProposal import StudentUniProposal
 from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
