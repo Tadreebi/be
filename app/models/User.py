@@ -4,9 +4,6 @@ from django.contrib.auth.hashers import make_password
 from django.urls import reverse
 from phonenumber_field.modelfields import PhoneNumberField
 
-# from .Faculties import FacultiesChoices
-# from .Faculties import Faculty
-
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, username, password):
