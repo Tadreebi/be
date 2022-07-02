@@ -1,6 +1,5 @@
 from django.db import models
 
-from .StudentReportRemark import StudentReportRemark
 from .User import StudentUser
 
 choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
@@ -100,19 +99,29 @@ class StudentReport(models.Model):
     # Report intro & conclusion paragraphs
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
-    # Supervisor notes
-    remarks = models.ForeignKey(
-        StudentReportRemark,
-        related_name="report_idStudentReport",
-        on_delete=models.CASCADE,
-        unique=True,
-    )
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
+
+
+class StudentReportRemark(models.Model):
+    report = models.OneToOneField(
+        StudentReport,
+        on_delete=models.CASCADE,
+        primary_key=True,
+    )
+    # Supervisor notes
+    remarks = models.TextField(null=True, blank=True)
+    accepted = models.BooleanField(default=False)
+    # Timestamps
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.report.title
 
 
 class StudentReportSkill(models.Model):
