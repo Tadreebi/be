@@ -87,12 +87,25 @@ choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 #               .
 #            }],
 # }
+class StudentReportType(models.Model):
+    title = models.CharField(max_length=256)
+    desc = models.CharField(max_length=256, null=True, blank=True)
+    # Timestamps
+    timestamp = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
+
+
 class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(
         StudentUser, related_name="student_idStudentReport", on_delete=models.CASCADE
     )
-    type = models.CharField(max_length=256, choices=choices)
+    type = models.ForeignKey(
+        StudentReportType, related_name="type_idStudentReport", on_delete=models.CASCADE
+    )
     # Start & end of period covered by the report
     startDate = models.DateField()
     endDate = models.DateField()

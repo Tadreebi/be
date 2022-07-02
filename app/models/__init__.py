@@ -15,6 +15,7 @@ from .StudentProfile import (
 )
 from .StudentProposal import StudentUniProposal
 from .StudentReport import (
+    StudentReportType,
     StudentReport,
     StudentReportRemark,
     StudentReportAchievement,

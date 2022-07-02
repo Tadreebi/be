@@ -7,7 +7,7 @@ from app.models import (
     CompanyUser,
     Faculty,
     InternshipPost,
-    StudentApplication,z
+    StudentApplication,
     StudentExperience,
     StudentGoal,
     StudentGoalIndicator,
@@ -18,6 +18,7 @@ from app.models import (
     StudentProfileLanguage,
     StudentProfileSkill,
     StudentProfileWork,
+    StudentReportType,
     StudentReport,
     StudentReportRemark,
     StudentReportSkill,
