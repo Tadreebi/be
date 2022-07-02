@@ -11,3 +11,4 @@ from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTip
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
 from .Faculty import Faculty
+from .SupervisedBy import SupervisedBy

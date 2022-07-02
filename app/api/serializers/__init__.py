@@ -36,3 +36,4 @@ from .User import (
 )
 
 from .Faculty import FacultySerializer
+from .SupervisedBy import SupervisedBySerializer

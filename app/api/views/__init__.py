@@ -104,3 +104,8 @@ from .Faculty import (
     FacultyListView,
     FacultyDetailsView,
 )
+
+from .SupervisedBy import (
+    SupervisedByListView,
+    SupervisedByDetailsView,
+)

@@ -48,6 +48,7 @@ urlpatterns = [
     path("students/", include("app.urls.StudentReport")),
     path("univeristy-feedbacks/", include("app.urls.UniversityFeedback")),
     path("faculty-major/", include("app.urls.Faculty")),
+    path("supervised-by/", include("app.urls.SupervisedBy")),
     path("univeristy-tips/", include("app.urls.UniversityTip")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
