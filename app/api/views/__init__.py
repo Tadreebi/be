@@ -90,6 +90,11 @@ from .UniversityTip import (
     UniversityTipsDetail,
     UniversityTipsUpdate,
     UniversityTipsDelete,
+    UniversityTipTopicsList,
+    UniversityTipTopicsCreate,
+    UniversityTipTopicsDetail,
+    UniversityTipTopicsUpdate,
+    UniversityTipTopicsDelete,
 )
 from .User import (
     StudentSignUpView,
@@ -112,4 +117,3 @@ from .SupervisedBy import (
 )
 
 from .Token import TokenView
-
