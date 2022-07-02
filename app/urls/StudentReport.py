@@ -14,6 +14,11 @@ from app.api.views import (
     StudentReportSkillsUpdate,
     StudentReportsList,
     StudentReportsUpdate,
+    StudentReportRemarksList,
+    StudentReportRemarksCreate,
+    StudentReportRemarksDetail,
+    StudentReportRemarksUpdate,
+    StudentReportRemarksDelete,
 )
 from django.urls import path, re_path
 from django.views.generic.base import RedirectView
@@ -43,6 +48,31 @@ urlpatterns = [
         "reports/delete/<int:pk>",
         StudentReportsDelete.as_view(),
         name="Student Reports Delete",
+    ),
+    path(
+        "remarks/",
+        StudentReportRemarksList.as_view(),
+        name="Student Report Remarks List",
+    ),
+    path(
+        "remarks/create/",
+        StudentReportRemarksCreate.as_view(),
+        name="Student Report Remarks Create",
+    ),
+    path(
+        "remarks/<int:pk>",
+        StudentReportRemarksDetail.as_view(),
+        name="Student Report Remarks Details",
+    ),
+    path(
+        "remarks/update/<int:pk>",
+        StudentReportRemarksUpdate.as_view(),
+        name="Student Report Remarks Update",
+    ),
+    path(
+        "remarks/delete/<int:pk>",
+        StudentReportRemarksDelete.as_view(),
+        name="Student Report Remarks Delete",
     ),
     path(
         "skills/",
