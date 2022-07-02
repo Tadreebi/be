@@ -120,6 +120,11 @@ from .UniversityTip import (
     UniversityTipsDetail,
     UniversityTipsUpdate,
     UniversityTipsDelete,
+    UniversityTipTopicsList,
+    UniversityTipTopicsCreate,
+    UniversityTipTopicsDetail,
+    UniversityTipTopicsUpdate,
+    UniversityTipTopicsDelete,
 )
 from .User import (
     StudentSignUpView,
