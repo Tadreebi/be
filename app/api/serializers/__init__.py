@@ -16,6 +16,12 @@ from .StudentExperience import (
 from .StudentGoal import StudentGoalsSerializer, StudentGoalIndicatorsSerializer
 from .StudentProfile import (
     StudentProfileSerializer,
+    StudentProfileExperiencesSerializer,
+    StudentProfileSkillsSerializer,
+    StudentProfileEducationsSerializer,
+    StudentProfileLanguagesSerializer,
+    StudentProfileContactsSerializer,
+    StudentProfileWorksSerializer,
 )
 from .StudentProposal import (
     StudentprposalSerializer,
@@ -39,4 +45,3 @@ from .User import (
 from .Faculty import FacultySerializer
 from .SupervisedBy import SupervisedBySerializer
 from .Token import TokenSerializer
-

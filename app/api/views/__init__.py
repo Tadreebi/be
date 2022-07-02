@@ -53,6 +53,36 @@ from .StudentProfile import (
     StudentProfileDetail,
     StudentProfileUpdate,
     StudentProfileDelete,
+    StudentProfileExperienceList,
+    StudentProfileExperienceCreate,
+    StudentProfileExperienceDetail,
+    StudentProfileExperienceUpdate,
+    StudentProfileExperienceDelete,
+    StudentProfileSkillList,
+    StudentProfileSkillCreate,
+    StudentProfileSkillDetail,
+    StudentProfileSkillUpdate,
+    StudentProfileSkillDelete,
+    StudentProfileEducationList,
+    StudentProfileEducationCreate,
+    StudentProfileEducationDetail,
+    StudentProfileEducationUpdate,
+    StudentProfileEducationDelete,
+    StudentProfileLanguageList,
+    StudentProfileLanguageCreate,
+    StudentProfileLanguageDetail,
+    StudentProfileLanguageUpdate,
+    StudentProfileLanguageDelete,
+    StudentProfileContactList,
+    StudentProfileContactCreate,
+    StudentProfileContactDetail,
+    StudentProfileContactUpdate,
+    StudentProfileContactDelete,
+    StudentProfileWorkList,
+    StudentProfileWorkCreate,
+    StudentProfileWorkDetail,
+    StudentProfileWorkUpdate,
+    StudentProfileWorkDelete,
 )
 from .StudentProposal import (
     Proposal_List_View,
@@ -112,4 +142,3 @@ from .SupervisedBy import (
 )
 
 from .Token import TokenView
-
