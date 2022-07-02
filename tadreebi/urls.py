@@ -50,6 +50,7 @@ urlpatterns = [
     path("univeristy-tips/", include("app.urls.UniversityTip")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
+    path("the-token/", include("app.urls.Token")),
     path("", include("app.urls.User")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

@@ -15,6 +15,7 @@ class StudentSerializer(serializers.ModelSerializer):
             "address",
             "GPA",
             "faculty",
+            "type",
         )
 
 
@@ -29,6 +30,7 @@ class UniversitySerializer(serializers.ModelSerializer):
             "name",
             "phone",
             "address",
+            "type",
         )
 
 
@@ -44,4 +46,5 @@ class CompanySerializer(serializers.ModelSerializer):
             "phone",
             "address",
             "about",
+            "type",
         )
