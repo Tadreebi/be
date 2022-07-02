@@ -110,7 +110,9 @@ class StudentProfileWork(models.Model):
     )
     title = models.TextField(max_length=256)
     image = models.ImageField(
-        blank=True, upload_to="students_picture", null=True, blank=True
+        blank=True,
+        upload_to="students_picture",
+        null=True,
     )
     link = models.CharField(max_length=256, null=True, blank=True)
     details = models.CharField(max_length=256, null=True, blank=True)
