@@ -5,6 +5,8 @@ from app.api.serializers import UniversityFeedbackSerializer
 
 class PermissionUniversityFeedbackListView(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "University Employee":
             return True
         if request.user.type != "University Employee" and request.method == "GET":
@@ -20,6 +22,8 @@ class UniversityFeedbackListView(generics.ListCreateAPIView):
 
 class PermissionUniversityFeedbackDetailsView(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "University Employee":
             return True
         return False

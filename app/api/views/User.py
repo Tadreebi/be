@@ -12,6 +12,8 @@ from app.api.serializers import (
 
 class PermissionStudentSignUp(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "Student":
             return True
         return False
@@ -35,6 +37,8 @@ class StudentSignUpDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class PermissionUniversitySignUp(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "University Employee":
             return True
         return False
@@ -58,6 +62,8 @@ class UniversitySignUpDetail(generics.RetrieveUpdateDestroyAPIView):
 
 class PermissionCompanySignUp(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "Company":
             return True
         return False

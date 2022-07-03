@@ -5,6 +5,8 @@ from app.api.serializers import SupervisedBySerializer
 
 class PermissionSupervisedByListView(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "University Employee":
             return True
         if request.user.type != "University Employee" and request.method == "GET":
@@ -20,6 +22,8 @@ class SupervisedByListView(generics.ListCreateAPIView):
 
 class PermissionSupervisedByDetailsView(permissions.BasePermission):
     def has_permission(self, request, view):
+        if request.user.is_superuser:
+            return True
         if request.user.type == "University Employee":
             return True
         return False
