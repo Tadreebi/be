@@ -151,7 +151,6 @@ from .User import (
 )
 
 
-
 from .Faculty import (
     FacultyListView,
     FacultyDetailsView,
@@ -161,7 +160,6 @@ from .SupervisedBy import (
     SupervisedByListView,
     SupervisedByDetailsView,
 )
-
 
 
 from .Token import TokenView

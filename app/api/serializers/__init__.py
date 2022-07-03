@@ -1,5 +1,5 @@
-from .ComapnyRating import (
-    ComapnyRatingSerializer,
+from .CompanyRating import (
+    CompanyRatingSerializer,
 )
 
 from .CompanyReport import (

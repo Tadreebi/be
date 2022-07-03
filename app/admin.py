@@ -2,7 +2,7 @@ from django.contrib import admin
 
 from app.models import (
     AppUser,
-    ComapnyRating,
+    CompanyRating,
     CompanyReport,
     CompanyUser,
     Faculty,
@@ -79,7 +79,7 @@ class AdminStudentUser(admin.ModelAdmin):
     ordering = ("username",)
 
 
-admin.site.register(ComapnyRating)
+admin.site.register(CompanyRating)
 admin.site.register(CompanyReport)
 admin.site.register(InternshipPost)
 admin.site.register(StudentApplication)
