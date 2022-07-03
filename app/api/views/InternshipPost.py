@@ -17,7 +17,8 @@ from rest_framework import generics, permissions
 class InternshipPostList(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
+
     def list(self, request, *args, **kw):
         queries = request.query_params
 
@@ -40,33 +41,32 @@ class InternshipPostList(ListCreateAPIView):
 class InternshipPostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 # ViewSets
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 # Internship Post Requirements  #########################################################
-# GET and POST
-# class InternshipPostRequirementsList(ListCreateAPIView):
-#     queryset = InternshipRequirements.objects.all()
-#     serializer_class = InternshipRequirementsSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+class InternshipPostRequirementsList(ListCreateAPIView):
+    queryset = InternshipRequirements.objects.all()
+    serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.AllowAny]
 
 
-# # GET DELETE PUT
-# class InternshipPostRequirementsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
-#     queryset = InternshipRequirements.objects.all()
-#     serializer_class = InternshipRequirementsSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+# GET DELETE PUT
+class InternshipPostRequirementsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
+    queryset = InternshipRequirements.objects.all()
+    serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.AllowAny]
 
 
-# # ViewSets
-# class InternshipPostRequirementsViewSets(viewsets.ModelViewSet):
-#     queryset = InternshipRequirements.objects.all()
-#     serializer_class = InternshipRequirementsSerializer
-#     permission_classes = [permissions.IsAuthenticated]
+# ViewSets
+class InternshipPostRequirementsViewSets(viewsets.ModelViewSet):
+    queryset = InternshipRequirements.objects.all()
+    serializer_class = InternshipRequirementsSerializer
+    permission_classes = [permissions.AllowAny]

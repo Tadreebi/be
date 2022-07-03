@@ -51,12 +51,14 @@ INSTALLED_APPS = [
     "django_filters",
     "phonenumber_field",
     "drf_yasg",
+    "corsheaders",
     # Local apps
     "app",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -203,3 +205,12 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # SWAGGER_SETTINGS = {
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
+
+CORS_ORIGIN_WHITELIST = tuple(
+    [
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "http://localhost:8080",
+    ]
+)
+CORS_ALLOW_ALL_ORIGINS = True

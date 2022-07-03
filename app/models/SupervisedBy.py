@@ -3,7 +3,7 @@ from .User import UniversityEmployeeUser, StudentUser, CompanyUser
 
 
 class SupervisedBy(models.Model):
-    student = models.ForeignKey(StudentUser, on_delete=models.CASCADE, unique=True)
+    student = models.OneToOneField(StudentUser, on_delete=models.CASCADE)
     supervisor = models.ForeignKey(UniversityEmployeeUser, on_delete=models.CASCADE)
     company = models.ForeignKey(CompanyUser, on_delete=models.CASCADE)
 
