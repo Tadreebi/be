@@ -102,3 +102,7 @@ class CompanyRating(models.Model):
 
     def __str__(self):
         return self.company.username
+
+
+    def clac_score(self):
+        score=(self.useful_train + self.student_allowed +self.support +self.improvement +self.recomended)/10
