@@ -22,6 +22,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.views.generic.base import RedirectView
 
+from app.api.views import logout_view
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Snippets API",
@@ -45,6 +47,7 @@ urlpatterns = [
     path("students/goals/", include("app.urls.StudentGoal")),
     path("students/profile/", include("app.urls.StudentProfile")),
     path("students/proposals/", include("app.urls.StudentProposal")),
+    path("company/application-response/", include("app.urls.StudentApplicationResponse")),
     path("students/", include("app.urls.StudentReport")),
     path("univeristy-feedbacks/", include("app.urls.UniversityFeedback")),
     path("faculty-major/", include("app.urls.Faculty")),
@@ -52,7 +55,8 @@ urlpatterns = [
     path("univeristy-tips/", include("app.urls.UniversityTip")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
-    path("the-token/", include("app.urls.Token")),
+    path("accounts/logout/", logout_view, name="logout"),  # dont use it
+    path("api/the-token/", include("app.urls.Token")),
     path("", include("app.urls.User")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

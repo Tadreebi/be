@@ -15,29 +15,29 @@ from rest_framework import generics, permissions
 
 class CompanyRatingList(ListAPIView):
     queryset = CompanyRating.objects.all()
-    serializer_class =CompanyRatingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = CompanyRatingSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class CompanyRatingCreate(ListCreateAPIView):
     queryset = CompanyRating.objects.all()
-    serializer_class =CompanyRatingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = CompanyRatingSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class CompanyRatingDetail(RetrieveAPIView):
     queryset = CompanyRating.objects.all()
-    serializer_class =CompanyRatingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = CompanyRatingSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class CompanyRatingUpdate(RetrieveUpdateAPIView):
     queryset = CompanyRating.objects.all()
-    serializer_class =CompanyRatingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = CompanyRatingSerializer
+    permission_classes = [permissions.AllowAny]
 
 
 class CompanyRatingDelete(RetrieveDestroyAPIView):
     queryset = CompanyRating.objects.all()
-    serializer_class =CompanyRatingSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = CompanyRatingSerializer
+    permission_classes = [permissions.AllowAny]
