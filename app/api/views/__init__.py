@@ -161,6 +161,15 @@ from .SupervisedBy import (
     SupervisedByDetailsView,
 )
 
+from .Cities import (
+    CitiesCreate,
+    CitiesDetail,
+    CitiesList,
+    CitiesUpdate,
+    CitiesDelete,
+)
+
+from .Token import TokenView
 
 from .Token import TokenView
 from .logout import logout_view

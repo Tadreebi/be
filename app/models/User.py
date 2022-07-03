@@ -1,4 +1,5 @@
 from django.db import models
+from .Cities import Cities
 from django.contrib.auth.models import (
     AbstractBaseUser,
     BaseUserManager,
@@ -56,7 +57,6 @@ class UneversityEmployManager(MyUserManager):
             .filter(type=AppUser.Types.university_employee)
         )
 
-
 class CompanyManager(MyUserManager):
     def get_queryset(self, *args, **kwargs):
         return super().get_queryset(*args, **kwargs).filter(type=AppUser.Types.company)
@@ -78,20 +78,20 @@ class AppUser(AbstractBaseUser):
 
     objects = MyUserManager()
 
-    CITIES = [
-        ("Amman", "Amman"),
-        ("Aqaba", "Aqaba"),
-        ("Irbid", "Irbid"),
-        ("Jarash", "Jarash"),
-        ("Mafraq", "Mafraq"),
-        ("Madaba", "Madaba"),
-        ("Zarqa", "Zarqa"),
-        ("Tafilah", "Tafilah"),
-        ("Salt", "Salt"),
-        ("Maan", "Maan"),
-        ("Karak", "Karak"),
-        ("Ajloun", "Ajloun"),
-    ]
+    # CITIES = [
+    #     ("Amman", "Amman"),
+    #     ("Aqaba", "Aqaba"),
+    #     ("Irbid", "Irbid"),
+    #     ("Jarash", "Jarash"),
+    #     ("Mafraq", "Mafraq"),
+    #     ("Madaba", "Madaba"),
+    #     ("Zarqa", "Zarqa"),
+    #     ("Tafilah", "Tafilah"),
+    #     ("Salt", "Salt"),
+    #     ("Maan", "Maan"),
+    #     ("Karak", "Karak"),
+    #     ("Ajloun", "Ajloun"),
+    # ]
 
     username = UserNameField(
         help_text="Student: use the university ID number. University Employee: use your name. Company: use the comapany name. Replace the spaces with dash (-)",
@@ -111,7 +111,7 @@ class AppUser(AbstractBaseUser):
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
     phone = PhoneNumberField(unique=True, help_text="+962*********")
-    address = models.CharField(help_text="city", max_length=32, choices=CITIES)
+    address = models.ForeignKey(Cities,on_delete=models.CASCADE,null=True,blank=True) #Cities model
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"

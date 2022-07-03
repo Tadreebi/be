@@ -53,6 +53,7 @@ urlpatterns = [
     path("faculty-major/", include("app.urls.Faculty")),
     path("supervised-by/", include("app.urls.SupervisedBy")),
     path("univeristy-tips/", include("app.urls.UniversityTip")),
+    path("cities/", include("app.urls.Cities")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("accounts/logout/", logout_view, name="logout"),  # dont use it

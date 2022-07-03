@@ -29,3 +29,4 @@ from .UniversityTip import UniversityTip, UniversityTipTopic
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
 from .Faculty import Faculty
 from .SupervisedBy import SupervisedBy
+from .Cities import Cities

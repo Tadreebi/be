@@ -26,6 +26,7 @@ from app.models import (
     StudentUniProposal,
     StudentUser,
     SupervisedBy,
+    Cities,
     UniProposalResponse
     UniversityEmployeeUser,
     UniversityFeedback,
@@ -103,6 +104,7 @@ admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
 admin.site.register(Faculty)
 admin.site.register(SupervisedBy)
+admin.site.register(Cities)
 admin.site.register(UniProposalResponse)
 admin.site.register(StudentReportType)
 admin.site.register(StudentApplicationResponse)
