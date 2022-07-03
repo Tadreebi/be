@@ -6,12 +6,14 @@ from .StudentAppResponse import (
     ApplicationResponseUpdate,
 )
 
-from .ComapnyRating import (
-    ComapnyRatingList,
-    ComapnyRatingCreate,
-    ComapnyRatingDetail,
-    ComapnyRatingUpdate,
-    ComapnyRatingDelete,
+from .CompanyRating import (
+    CompanyRatingCreate,
+    CompanyRatingDelete,
+    CompanyRatingDetail,
+    CompanyRatingList,
+    CompanyRatingUpdate,
+    
+
 )
 
 from .CompanyReport import (

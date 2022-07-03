@@ -51,22 +51,4 @@ class InternshipPostsViewSets(viewsets.ModelViewSet):
     permission_classes = [permissions.AllowAny]
 
 
-# Internship Post Requirements  #########################################################
-class InternshipPostRequirementsList(ListCreateAPIView):
-    queryset = InternshipRequirements.objects.all()
-    serializer_class = InternshipRequirementsSerializer
-    permission_classes = [permissions.AllowAny]
 
-
-# GET DELETE PUT
-class InternshipPostRequirementsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
-    queryset = InternshipRequirements.objects.all()
-    serializer_class = InternshipRequirementsSerializer
-    permission_classes = [permissions.AllowAny]
-
-
-# ViewSets
-class InternshipPostRequirementsViewSets(viewsets.ModelViewSet):
-    queryset = InternshipRequirements.objects.all()
-    serializer_class = InternshipRequirementsSerializer
-    permission_classes = [permissions.AllowAny]
