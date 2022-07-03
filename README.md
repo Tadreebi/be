@@ -75,7 +75,16 @@ Soon...
 
 ## Future Techincal Features to Add
 
-Soon...
+- Build into Micro-services, each with own Docker Container & DB
 
 ## Libraries Used
+
 - Django
+- Swagger
+- Django-filter
+- Djangorestframework
+- Markdown
+- Django-phonenumber-field 
+- Djangorestframework-simplejwt
+- Django-location-field
+- Pillow

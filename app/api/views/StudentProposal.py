@@ -1,8 +1,10 @@
 from app.models import StudentUniProposal
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny
 
 from app.api.serializers import (
     StudentprposalSerializer,
+
+    
 )
 
 from rest_framework.generics import (
@@ -19,32 +21,32 @@ class Proposal_List_View(ListAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class proposal_create(ListCreateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class proposal_detail_view(RetrieveAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class proposal_Update(RetrieveUpdateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class proposal_delete(RetrieveDestroyAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]

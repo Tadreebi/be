@@ -70,7 +70,7 @@ class UserNameField(models.SlugField):
         return str(value).lower()
 
 
-class AppUser(AbstractBaseUser, PermissionsMixin):
+class AppUser(AbstractBaseUser):
     class Types(models.TextChoices):
         student = "Student", "Student"
         university_employee = "University Employee", "University Employee"
@@ -153,9 +153,6 @@ class StudentUser(AppUser):
 
     GPA = models.DecimalField(help_text="out of 4.00", max_digits=4, decimal_places=2)
     faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-    # supervisor = models.ForeignKey(
-    #     UniversityEmployeeUser, on_delete=models.CASCADE, blank=True, null=True
-    # )
 
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)

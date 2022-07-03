@@ -22,6 +22,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.views.generic.base import RedirectView
 
+from app.api.views import logout_view
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Snippets API",
@@ -37,7 +39,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("comapny-ratings/", include("app.urls.ComapnyRating")),
+    path("company-ratings/", include("app.urls.CompanyRating")),
     path("company-reports/", include("app.urls.CompanyReport")),
     path("opportunity-posts/", include("app.urls.InternshipPost")),
     path("opportunity-applications/", include("app.urls.StudentApplication")),
@@ -45,6 +47,7 @@ urlpatterns = [
     path("students/goals/", include("app.urls.StudentGoal")),
     path("students/profile/", include("app.urls.StudentProfile")),
     path("students/proposals/", include("app.urls.StudentProposal")),
+    path("company/application-response/", include("app.urls.StudentApplicationResponse")),
     path("students/", include("app.urls.StudentReport")),
     path("univeristy-feedbacks/", include("app.urls.UniversityFeedback")),
     path("faculty-major/", include("app.urls.Faculty")),
@@ -53,7 +56,8 @@ urlpatterns = [
     path("cities/", include("app.urls.Cities")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
-    path("the-token/", include("app.urls.Token")),
+    path("accounts/logout/", logout_view, name="logout"),  # dont use it
+    path("api/the-token/", include("app.urls.Token")),
     path("", include("app.urls.User")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

@@ -46,7 +46,7 @@ class StudentApplication(models.Model):
     )
     expected_salary = models.IntegerField(default=0)
     coverletter = models.TextField(max_length=1400, null=True)
-    resume = models.FileField(blank=True, upload_to="resumes_images")
+    resume = models.FileField(blank=True, upload_to="resumes")
 
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
@@ -54,3 +54,10 @@ class StudentApplication(models.Model):
 
     def __str__(self):
         return self.student.username
+
+class StudentApplicationResponse(models.Model):
+    application = models.OneToOneField(StudentApplication,on_delete=models.CASCADE,unique=True)
+    remarks=models.CharField(max_length=1000)
+    accepted= models.BooleanField(default=False)
+    
+
