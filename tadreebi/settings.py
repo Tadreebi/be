@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     # Build-in apps
     "django.contrib.admin",
     "django.contrib.auth",
+    "django.contrib.staticfiles",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
     # Location in the Post Internship Model
     "location_field.apps.DefaultConfig",
     # Third-party apps
@@ -51,12 +51,14 @@ INSTALLED_APPS = [
     "django_filters",
     "phonenumber_field",
     "drf_yasg",
+    "corsheaders",
     # Local apps
     "app",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -139,18 +141,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Resumes
-MEDIA_URL = "app/assets/resumes_images/"
-MEDIA_ROOT = BASE_DIR / "app/assets/resumes_images/"
-
-MEDIA_URL = "app/assets/students_pictures/"
-MEDIA_ROOT = BASE_DIR / "app/assets/students_pictures/"
+MEDIA_URL = "app/assets/uploads/"
+MEDIA_ROOT = BASE_DIR / "app/assets/uploads/"
 
 LOCATION_FIELD_PATH = STATIC_URL + "location_field"
 LOCATION_FIELD = {
@@ -194,8 +193,10 @@ REST_FRAMEWORK = {
 }
 
 # To change the default redirection after login/logout
-# LOGIN_REDIRECT_URL =
-# LOGOUT_REDIRECT_URL =
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/api-auth/login/"
+# ACCOUNT_LOGOUT_REDIRECT_URL = "/api-auth/login/"
+# LOGOUT_URL = "/api-auth/login/"
 
 # To save the sent emails in the database
 EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
@@ -205,3 +206,12 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # SWAGGER_SETTINGS = {
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
+
+CORS_ORIGIN_WHITELIST = tuple(
+    [
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "http://localhost:8080",
+    ]
+)
+CORS_ALLOW_ALL_ORIGINS = True
