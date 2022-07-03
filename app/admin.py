@@ -27,11 +27,11 @@ from app.models import (
     StudentUser,
     SupervisedBy,
     Cities,
-    UniProposalResponse
+    UniProposalResponse,
     UniversityEmployeeUser,
     UniversityFeedback,
     UniversityTip,
-    StudentApplicationResponse
+    StudentApplicationResponse,
 )
 
 
