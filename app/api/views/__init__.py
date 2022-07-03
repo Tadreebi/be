@@ -7,11 +7,11 @@ from .StudentAppResponse import (
 )
 
 from .CompanyRating import (
-    CompanyRatingList,
     CompanyRatingCreate,
-    CompanyRatingDetail,
-    CompanyRatingUpdate,
     CompanyRatingDelete,
+    CompanyRatingDetail,
+    CompanyRatingList,
+    CompanyRatingUpdate,
 )
 
 from .CompanyReport import (

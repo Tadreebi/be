@@ -1,5 +1,5 @@
 from app.models import StudentExperience
-from rest_framework.permissions import AllowAnyOrReadOnly
+from rest_framework.permissions import AllowAny
 from rest_framework.generics import (
     ListAPIView,
     ListCreateAPIView,
