@@ -4,6 +4,9 @@ from .InternshipPost import InternshipPost
 from .StudentApplication import StudentApplication,StudentApplicationResponse
 from .StudentExperience import StudentExperience
 from .StudentGoal import StudentGoal, StudentGoalIndicator
+from .StudentProfile import StudentProfile
+from .StudentProposal import StudentUniProposal,UniProposalResponse
+from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
 from .StudentProfile import (
     StudentProfile,
     StudentProfileExperience,
