@@ -19,32 +19,32 @@ class Proposal_List_View(ListAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class proposal_create(ListCreateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class proposal_detail_view(RetrieveAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class proposal_Update(RetrieveUpdateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
 
 
 class proposal_delete(RetrieveDestroyAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
 
-    permission_classes = [permissions.IsAuthenticated]
+    # permission_classes = [permissions.IsAuthenticated]
