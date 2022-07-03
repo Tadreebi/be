@@ -83,7 +83,7 @@ Soon...
 - Swagger
 - Django-filter
 - Djangorestframework
-- Markdown = "^3.3.7"
+- Markdown
 - Django-phonenumber-field 
 - Djangorestframework-simplejwt
 - Django-location-field
