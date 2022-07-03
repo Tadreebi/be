@@ -165,3 +165,4 @@ from .SupervisedBy import (
 
 
 from .Token import TokenView
+from .logout import logout_view

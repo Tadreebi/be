@@ -22,6 +22,8 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 from django.views.generic.base import RedirectView
 
+from app.api.views import logout_view
+
 schema_view = get_schema_view(
     openapi.Info(
         title="Snippets API",
@@ -53,6 +55,7 @@ urlpatterns = [
     path("univeristy-tips/", include("app.urls.UniversityTip")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
+    path("accounts/logout/", logout_view, name="logout"),  # dont use it
     path("api/the-token/", include("app.urls.Token")),
     path("", include("app.urls.User")),
     re_path(

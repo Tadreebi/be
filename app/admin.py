@@ -103,5 +103,5 @@ admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
 admin.site.register(Faculty)
 admin.site.register(SupervisedBy)
+admin.site.register(StudentReportType)
 admin.site.register(StudentApplicationResponse)
-
