@@ -2,9 +2,9 @@ from app.api.views import (
     InternshipPostList,
     InternshipPostRetrieveUpdateDestroy,
     InternshipPostsViewSets,
-    InternshipPostRequirementsList,
-    InternshipPostRequirementsRetrieveUpdateDestroy,
-    InternshipPostRequirementsViewSets,
+    # InternshipPostRequirementsList,
+    # InternshipPostRequirementsRetrieveUpdateDestroy,
+    # InternshipPostRequirementsViewSets,
 )
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -12,7 +12,7 @@ from rest_framework.routers import DefaultRouter
 # Viewsets Route
 router = DefaultRouter()
 router.register("posts", InternshipPostsViewSets)
-router.register("requirements", InternshipPostRequirementsViewSets)
+# router.register("requirements", InternshipPostRequirementsViewSets)
 
 
 urlpatterns = [
@@ -34,20 +34,20 @@ urlpatterns = [
         include(router.urls),
     ),
     # Post
-    path(
-        "requirements/",
-        InternshipPostRequirementsList.as_view(),
-        name="Internship Post Requirements List",
-    ),
-    # Get Put Delete
-    path(
-        "requirements/<int:pk>",
-        InternshipPostRequirementsRetrieveUpdateDestroy.as_view(),
-        name="Internship Post Requirements Delete Update Get",
-    ),
-    # Viewsets
-    path(
-        "requirements/",
-        include(router.urls),
-    ),
+    # path(
+    #     "requirements/",
+    #     InternshipPostRequirementsList.as_view(),
+    #     name="Internship Post Requirements List",
+    # ),
+    # # Get Put Delete
+    # path(
+    #     "requirements/<int:pk>",
+    #     InternshipPostRequirementsRetrieveUpdateDestroy.as_view(),
+    #     name="Internship Post Requirements Delete Update Get",
+    # ),
+    # # Viewsets
+    # path(
+    #     "requirements/",
+    #     include(router.urls),
+    # ),
 ]

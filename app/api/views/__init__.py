@@ -17,9 +17,9 @@ from .InternshipPost import (
     InternshipPostList,
     InternshipPostRetrieveUpdateDestroy,
     InternshipPostsViewSets,
-    InternshipPostRequirementsList,
-    InternshipPostRequirementsRetrieveUpdateDestroy,
-    InternshipPostRequirementsViewSets,
+    # InternshipPostRequirementsList,
+    # InternshipPostRequirementsRetrieveUpdateDestroy,
+    # InternshipPostRequirementsViewSets,
 )
 
 

@@ -6,8 +6,7 @@ from .CompanyReport import (
     CompanyReportSerializer,
 )
 
-from .InternshipPost import InternshipPostSerializer, InternshipRequirementsSerializer
-
+from .InternshipPost import InternshipPostSerializer
 from .StudentApplication import StudentApplicationSerializer
 
 from .StudentExperience import (
