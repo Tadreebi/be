@@ -1,7 +1,7 @@
 from .ComapnyRating import ComapnyRating
 from .CompanyReport import CompanyReport
-from .InternshipPost import InternshipPost, InternshipRequirements
-from .StudentApplication import StudentApplication
+from .InternshipPost import InternshipPost
+from .StudentApplication import StudentApplication,StudentApplicationResponse
 from .StudentExperience import StudentExperience
 from .StudentGoal import StudentGoal, StudentGoalIndicator
 from .StudentProfile import (

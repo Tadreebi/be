@@ -40,10 +40,10 @@ INSTALLED_APPS = [
     # Build-in apps
     "django.contrib.admin",
     "django.contrib.auth",
+    "django.contrib.staticfiles",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
-    "django.contrib.staticfiles",
     # Location in the Post Internship Model
     "location_field.apps.DefaultConfig",
     # Third-party apps
@@ -51,12 +51,14 @@ INSTALLED_APPS = [
     "django_filters",
     "phonenumber_field",
     "drf_yasg",
+    "corsheaders",
     # Local apps
     "app",
 ]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -139,7 +141,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -204,3 +206,12 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # SWAGGER_SETTINGS = {
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
+
+CORS_ORIGIN_WHITELIST = tuple(
+    [
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "http://localhost:8080",
+    ]
+)
+CORS_ALLOW_ALL_ORIGINS = True

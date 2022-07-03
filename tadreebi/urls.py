@@ -47,6 +47,7 @@ urlpatterns = [
     path("students/goals/", include("app.urls.StudentGoal")),
     path("students/profile/", include("app.urls.StudentProfile")),
     path("students/proposals/", include("app.urls.StudentProposal")),
+    path("company/application-response/", include("app.urls.StudentApplicationResponse")),
     path("students/", include("app.urls.StudentReport")),
     path("univeristy-feedbacks/", include("app.urls.UniversityFeedback")),
     path("faculty-major/", include("app.urls.Faculty")),

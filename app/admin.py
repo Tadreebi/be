@@ -29,6 +29,8 @@ from app.models import (
     UniversityEmployeeUser,
     UniversityFeedback,
     UniversityTip,
+    StudentApplicationResponse
+    
 )
 
 
@@ -85,6 +87,7 @@ admin.site.register(StudentExperience)
 admin.site.register(StudentGoal)
 admin.site.register(StudentGoalIndicator)
 admin.site.register(StudentProfile)
+admin.site.register(StudentReportType)
 admin.site.register(StudentProfileExperience)
 admin.site.register(StudentProfileSkill)
 admin.site.register(StudentProfileEducation)
@@ -101,3 +104,4 @@ admin.site.register(UniversityTip)
 admin.site.register(Faculty)
 admin.site.register(SupervisedBy)
 admin.site.register(StudentReportType)
+admin.site.register(StudentApplicationResponse)
