@@ -12,18 +12,18 @@ from rest_framework import generics, permissions
 class StudentApplicationsList(ListCreateAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 # GET DELETE PUT
 class StudentApplicationsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 # ViewSets
 class ApplicationsViewSets(viewsets.ModelViewSet):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
