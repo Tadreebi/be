@@ -85,13 +85,3 @@ class InternshipPost(models.Model):
     def __str__(self):
         return f"{self.position} - {self.company.name}"
 
-
-class InternshipRequirements(models.Model):
-    description = models.CharField(max_length=255, null=True)
-    post = models.ForeignKey(InternshipPost, on_delete=models.CASCADE)
-    # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        self.title

@@ -1,5 +1,5 @@
 from app.models import StudentUniProposal
-from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import AllowAny
 
 from app.api.serializers import (
     StudentprposalSerializer,

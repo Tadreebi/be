@@ -1,9 +1,8 @@
 from rest_framework import viewsets
 from .FilterPosts import InternshipsFilter
-from app.models import InternshipPost, InternshipRequirements
+from app.models import InternshipPost
 from app.api.serializers import (
     InternshipPostSerializer,
-    InternshipRequirementsSerializer,
 )
 from rest_framework.generics import (
     ListCreateAPIView,
@@ -53,7 +52,6 @@ class InternshipPostsViewSets(viewsets.ModelViewSet):
 
 
 # Internship Post Requirements  #########################################################
-# GET and POST
 class InternshipPostRequirementsList(ListCreateAPIView):
     queryset = InternshipRequirements.objects.all()
     serializer_class = InternshipRequirementsSerializer
