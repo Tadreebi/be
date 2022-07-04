@@ -7,7 +7,10 @@ from .CompanyReport import (
 )
 
 from .InternshipPost import InternshipPostSerializer
-from .StudentApplication import StudentApplicationSerializer,StudentApplicationResponseSerializer
+from .StudentApplication import (
+    StudentApplicationSerializer,
+    StudentApplicationResponseSerializer,
+)
 
 from .StudentExperience import (
     StudentExperienceSerializer,
@@ -22,13 +25,11 @@ from .StudentProfile import (
     StudentProfileContactsSerializer,
     StudentProfileWorksSerializer,
 )
-from .StudentProposal import (
-    StudentprposalSerializer,
-    UniProposalResponseSerializer
-)
+from .StudentProposal import StudentprposalSerializer, UniProposalResponseSerializer
 
 from .StudentReport import (
     StudentReportsSerializer,
+    StudentReportTypesSerializer,
     StudentReportSkillsSerializer,
     StudentReportAchievementsSerializer,
     StudentReportRemarksSerializer,
