@@ -27,8 +27,6 @@ class CompanyReport(models.Model):
 
     # Report Title
     title = models.CharField(max_length=256, null=True, blank=True)
-    # Report date
-    date = models.DateField()
     # Report type, wether it's periodical, complain or final
     type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
 
@@ -36,7 +34,6 @@ class CompanyReport(models.Model):
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
 
-    type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
     report = models.TextField()
     attendace = models.IntegerField(
         validators=[
