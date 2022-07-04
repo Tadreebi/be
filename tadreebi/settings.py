@@ -52,11 +52,13 @@ INSTALLED_APPS = [
     "phonenumber_field",
     "drf_yasg",
     "corsheaders",
+    # "author"
     # Local apps
     "app",
 ]
 
 MIDDLEWARE = [
+    # "author.middlewares.AuthorDefaultBackendMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "corsheaders.middleware.CorsMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
