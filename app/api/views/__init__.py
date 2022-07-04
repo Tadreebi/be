@@ -34,9 +34,17 @@ from .InternshipPost import (
 
 
 from .StudentApplication import (
-    StudentApplicationsList,
-    StudentApplicationsRetrieveUpdateDestroy,
-    ApplicationsViewSets,
+    StudentApplicationList,
+    StudentApplicationCreate,
+    StudentApplicationDetail,
+    StudentApplicationUpdate,
+    StudentApplicationDelete,
+    StudentApplicationResponseList,
+    StudentApplicationResponseCreate,
+    StudentApplicationResponseDetail,
+    StudentApplicationResponseUpdate,
+    StudentApplicationResponseDelete,
+    # ApplicationsViewSets
 )
 from .StudentExperience import (
     StudentExperienceCreate,
