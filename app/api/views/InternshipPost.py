@@ -5,16 +5,18 @@ from app.api.serializers import (
     InternshipPostSerializer,
 )
 from rest_framework.generics import (
+    ListAPIView,
     ListCreateAPIView,
-    RetrieveUpdateDestroyAPIView,
+    RetrieveAPIView,
+    RetrieveUpdateAPIView,
+    RetrieveDestroyAPIView
 )
 from rest_framework.response import Response
 from rest_framework import generics, permissions
 
 
-# Internship Post #########################################################
-# GET and POST
-class InternshipPostList(ListCreateAPIView):
+# Internship Post
+class InternshipPostList(ListAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
     permission_classes = [permissions.AllowAny]
@@ -36,14 +38,29 @@ class InternshipPostList(ListCreateAPIView):
 
         return Response({queryset.values()})
 
-
-# GET DELETE PUT
-class InternshipPostRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
+class InternshipPostCreate(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+
     permission_classes = [permissions.AllowAny]
 
+class InternshipPostDetail(RetrieveAPIView):
+    queryset = InternshipPost.objects.all()
+    serializer_class = InternshipPostSerializer
 
+    permission_classes = [permissions.AllowAny]
+
+class InternshipPostUpdate(RetrieveUpdateAPIView):
+    queryset = InternshipPost.objects.all()
+    serializer_class = InternshipPostSerializer
+
+    permission_classes = [permissions.AllowAny]
+
+class InternshipPostDelete(RetrieveDestroyAPIView):
+    queryset = InternshipPost.objects.all()
+    serializer_class = InternshipPostSerializer
+
+    permission_classes = [permissions.AllowAny]
 # ViewSets
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()

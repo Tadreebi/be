@@ -1,10 +1,10 @@
 from app.api.views import (
     InternshipPostList,
-    InternshipPostRetrieveUpdateDestroy,
-    InternshipPostsViewSets,
-    # InternshipPostRequirementsList,
-    # InternshipPostRequirementsRetrieveUpdateDestroy,
-    # InternshipPostRequirementsViewSets,
+    InternshipPostCreate,
+    InternshipPostDetail,
+    InternshipPostUpdate,
+    InternshipPostDelete,
+    InternshipPostsViewSets
 )
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
@@ -12,42 +12,37 @@ from rest_framework.routers import DefaultRouter
 # Viewsets Route
 router = DefaultRouter()
 router.register("posts", InternshipPostsViewSets)
-# router.register("requirements", InternshipPostRequirementsViewSets)
 
 
 urlpatterns = [
-    # Post
     path(
-        "",
+        "posts/",
         InternshipPostList.as_view(),
-        name="Internship Posts List",
+        name="Student Posts List",
     ),
-    # Get Put Delete
     path(
-        "<int:pk>",
-        InternshipPostRetrieveUpdateDestroy.as_view(),
-        name="Internship Posts Delete Update Get",
+        "posts/create/",
+        InternshipPostCreate.as_view(),
+        name="Student Posts Create",
+    ),
+    path(
+        "posts/<int:pk>",
+        InternshipPostDetail.as_view(),
+        name="Student Posts Details",
+    ),
+    path(
+        "posts/update/<int:pk>",
+        InternshipPostUpdate.as_view(),
+        name="Student Posts Update",
+    ),
+    path(
+        "posts/delete/<int:pk>",
+        InternshipPostDelete.as_view(),
+        name="Student Posts Delete",
     ),
     # Viewsets
     path(
         "",
         include(router.urls),
     ),
-    # Post
-    # path(
-    #     "requirements/",
-    #     InternshipPostRequirementsList.as_view(),
-    #     name="Internship Post Requirements List",
-    # ),
-    # # Get Put Delete
-    # path(
-    #     "requirements/<int:pk>",
-    #     InternshipPostRequirementsRetrieveUpdateDestroy.as_view(),
-    #     name="Internship Post Requirements Delete Update Get",
-    # ),
-    # # Viewsets
-    # path(
-    #     "requirements/",
-    #     include(router.urls),
-    # ),
 ]
