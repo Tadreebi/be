@@ -25,27 +25,27 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path(
-        "reports/",
+        "",
         StudentReportsList.as_view(),
         name="Student Reports List",
     ),
     path(
-        "reports/create/",
+        "create/",
         StudentReportsCreate.as_view(),
         name="Student Reports Create",
     ),
     path(
-        "reports/<int:pk>",
+        "<int:pk>",
         StudentReportsDetail.as_view(),
         name="Student Reports Details",
     ),
     path(
-        "reports/update/<int:pk>",
+        "update/<int:pk>",
         StudentReportsUpdate.as_view(),
         name="Student Reports Update",
     ),
     path(
-        "reports/delete/<int:pk>",
+        "delete/<int:pk>",
         StudentReportsDelete.as_view(),
         name="Student Reports Delete",
     ),
@@ -125,4 +125,4 @@ urlpatterns = [
         name="Student Report Achievements Delete",
     ),
 ]
-# 
+#
