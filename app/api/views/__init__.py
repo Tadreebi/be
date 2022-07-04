@@ -25,11 +25,11 @@ from .CompanyReport import (
 
 from .InternshipPost import (
     InternshipPostList,
-    InternshipPostRetrieveUpdateDestroy,
-    InternshipPostsViewSets,
-    # InternshipPostRequirementsList,
-    # InternshipPostRequirementsRetrieveUpdateDestroy,
-    # InternshipPostRequirementsViewSets,
+    InternshipPostCreate,
+    InternshipPostDetail,
+    InternshipPostUpdate,
+    InternshipPostDelete,
+    InternshipPostsViewSets
 )
 
 

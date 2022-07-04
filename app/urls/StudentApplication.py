@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path(
-        "",
+        "applications/",
         StudentApplicationList.as_view(),
         name="Student Applications List",
     ),
