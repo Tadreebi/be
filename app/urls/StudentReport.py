@@ -4,6 +4,11 @@ from app.api.views import (
     StudentReportAchievementsDetail,
     StudentReportAchievementsList,
     StudentReportAchievementsUpdate,
+    StudentReportTypesList,
+    StudentReportTypesCreate,
+    StudentReportTypesDetail,
+    StudentReportTypesUpdate,
+    StudentReportTypesDelete,
     StudentReportRemarksCreate,
     StudentReportRemarksDelete,
     StudentReportRemarksDetail,
@@ -47,6 +52,31 @@ urlpatterns = [
     path(
         "delete/<int:pk>",
         StudentReportsDelete.as_view(),
+        name="Student Reports Delete",
+    ),
+    path(
+        "types/",
+        StudentReportTypesList.as_view(),
+        name="Student Reports List",
+    ),
+    path(
+        "types/create/",
+        StudentReportTypesCreate.as_view(),
+        name="Student Reports Create",
+    ),
+    path(
+        "types/<int:pk>",
+        StudentReportTypesDetail.as_view(),
+        name="Student Reports Details",
+    ),
+    path(
+        "types/update/<int:pk>",
+        StudentReportTypesUpdate.as_view(),
+        name="Student Reports Update",
+    ),
+    path(
+        "types/delete/<int:pk>",
+        StudentReportTypesDelete.as_view(),
         name="Student Reports Delete",
     ),
     path(
