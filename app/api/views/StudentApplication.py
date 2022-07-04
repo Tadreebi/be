@@ -15,18 +15,25 @@ from rest_framework.generics import (
 )
 from rest_framework import generics, permissions
 
+
+from ..permissions import IsOwnerOrReadOnly, StudentPermission
+
+
 # Students Application
 class StudentApplicationList(ListAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-
     permission_classes = [permissions.AllowAny]
+
 
 class StudentApplicationCreate(ListCreateAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
 
-    permission_classes = [permissions.AllowAny]
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class StudentApplicationDetail(RetrieveAPIView):
     queryset = StudentApplication.objects.all()
@@ -37,8 +44,11 @@ class StudentApplicationDetail(RetrieveAPIView):
 class StudentApplicationUpdate(RetrieveUpdateAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
 
-    permission_classes = [permissions.AllowAny]
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class StudentApplicationDelete(RetrieveDestroyAPIView):
     queryset = StudentApplication.objects.all()
@@ -50,36 +60,48 @@ class StudentApplicationDelete(RetrieveDestroyAPIView):
 class ApplicationsViewSets(viewsets.ModelViewSet):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 # StudentApplicationResponse
 
 class StudentApplicationResponseList(ListAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-
     permission_classes = [permissions.AllowAny]
 
 class StudentApplicationResponseCreate(ListCreateAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class StudentApplicationResponseDetail(RetrieveAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class StudentApplicationResponseUpdate(RetrieveUpdateAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 class StudentApplicationResponseDelete(RetrieveDestroyAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
-    permission_classes = [permissions.AllowAny]
