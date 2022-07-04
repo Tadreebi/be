@@ -20,8 +20,8 @@ class StudentExperience(models.Model):
     get_hired = models.TextField(max_length=5000, null=True, blank=True)
     more = models.TextField(max_length=5000, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.student.username

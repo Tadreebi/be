@@ -11,8 +11,8 @@ class StudentProfile(models.Model):
     image = models.ImageField(blank=True, upload_to="profile_images", null=True)
     job_title = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.student.username
@@ -27,8 +27,8 @@ class StudentProfileExperience(models.Model):
     title = models.TextField(max_length=256)
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -43,8 +43,8 @@ class StudentProfileSkill(models.Model):
     title = models.TextField(max_length=256)
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -59,8 +59,8 @@ class StudentProfileEducation(models.Model):
     title = models.TextField(max_length=256)
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -78,8 +78,8 @@ class StudentProfileLanguage(models.Model):
     )
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -95,8 +95,8 @@ class StudentProfileContact(models.Model):
     link = models.CharField(max_length=256, null=True, blank=True)
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -117,8 +117,8 @@ class StudentProfileWork(models.Model):
     link = models.CharField(max_length=256, null=True, blank=True)
     details = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

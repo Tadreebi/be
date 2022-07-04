@@ -12,8 +12,8 @@ types = [
 class UniversityTipTopic(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -29,8 +29,8 @@ class UniversityTip(models.Model):
     type = models.CharField(max_length=256, choices=types)
     details = models.TextField(null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

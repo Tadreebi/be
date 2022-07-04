@@ -27,8 +27,8 @@ class StudentUniProposal(models.Model):
 
     # Timestamps
     remarks = models.TextField(null=True, blank=True)
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.id)
@@ -42,8 +42,8 @@ class UniProposalResponse(models.Model):
     accepted = models.BooleanField(default=False)
 
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return f"{self.proposal.student.username} proposal"

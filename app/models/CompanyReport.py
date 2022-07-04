@@ -30,8 +30,7 @@ class CompanyReport(models.Model):
     # Report type, wether it's periodical, complain or final
     type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
 
-
-     # Report intro & conclusion paragraphs
+    # Report intro & conclusion paragraphs
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
 
@@ -46,8 +45,8 @@ class CompanyReport(models.Model):
     )
 
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.student.username
