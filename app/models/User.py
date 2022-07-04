@@ -39,7 +39,8 @@ class MyUserManager(BaseUserManager):
         user.is_admin = True
         user.is_staff = True
         user.is_superuser = True
-        user.type = "University Employee"
+        user.type = "admin"
+        # user.adress = "Amman"
         user.save(using=self._db)
         return user
 
@@ -56,6 +57,7 @@ class UneversityEmployManager(MyUserManager):
             .get_queryset(*args, **kwargs)
             .filter(type=AppUser.Types.university_employee)
         )
+
 
 class CompanyManager(MyUserManager):
     def get_queryset(self, *args, **kwargs):
@@ -78,20 +80,20 @@ class AppUser(AbstractBaseUser):
 
     objects = MyUserManager()
 
-    # CITIES = [
-    #     ("Amman", "Amman"),
-    #     ("Aqaba", "Aqaba"),
-    #     ("Irbid", "Irbid"),
-    #     ("Jarash", "Jarash"),
-    #     ("Mafraq", "Mafraq"),
-    #     ("Madaba", "Madaba"),
-    #     ("Zarqa", "Zarqa"),
-    #     ("Tafilah", "Tafilah"),
-    #     ("Salt", "Salt"),
-    #     ("Maan", "Maan"),
-    #     ("Karak", "Karak"),
-    #     ("Ajloun", "Ajloun"),
-    # ]
+    CITIES = [
+        ("Amman", "Amman"),
+        ("Aqaba", "Aqaba"),
+        ("Irbid", "Irbid"),
+        ("Jarash", "Jarash"),
+        ("Mafraq", "Mafraq"),
+        ("Madaba", "Madaba"),
+        ("Zarqa", "Zarqa"),
+        ("Tafilah", "Tafilah"),
+        ("Salt", "Salt"),
+        ("Maan", "Maan"),
+        ("Karak", "Karak"),
+        ("Ajloun", "Ajloun"),
+    ]
 
     username = UserNameField(
         help_text="Student: use the university ID number. University Employee: use your name. Company: use the comapany name. Replace the spaces with dash (-)",
@@ -111,7 +113,8 @@ class AppUser(AbstractBaseUser):
     is_admin = models.BooleanField(default=False, editable=False)
     is_staff = models.BooleanField(default=False, editable=False)
     phone = PhoneNumberField(unique=True, help_text="+962*********")
-    address = models.ForeignKey(Cities,on_delete=models.CASCADE,null=True,blank=True) #Cities model
+    # address = models.ForeignKey(Cities, on_delete=models.CASCADE, null=True, blank=True)
+    adress = models.CharField(choices=CITIES, max_length=64, null=True, blank=True)
 
     # to specify which field is used for login
     USERNAME_FIELD = "username"
@@ -152,7 +155,9 @@ class StudentUser(AppUser):
     objects = StudentManager()
 
     GPA = models.DecimalField(help_text="out of 4.00", max_digits=4, decimal_places=2)
-    faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
+    faculty = models.ForeignKey(
+        Faculty, on_delete=models.CASCADE, verbose_name="Faculty - Major"
+    )
 
     def save(self, *args, **kwargs):
         self.password = make_password(self.password)
