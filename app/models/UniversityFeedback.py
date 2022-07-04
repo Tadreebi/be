@@ -1,5 +1,6 @@
 from django.db import models
 from .User import StudentUser
+from .StudentReport import StudentReport
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
@@ -10,6 +11,12 @@ class UniversityFeedback(models.Model):
         StudentUser,
         related_name="student_idUniversityFeedback",
         on_delete=models.CASCADE,
+    )
+    report = models.ForeignKey(
+        StudentReport,
+        related_name="report_idStudentReport",
+        on_delete=models.CASCADE,
+        unique=True,
     )
     title = models.CharField(max_length=256)
     feedback = models.TextField()
