@@ -1,6 +1,6 @@
 from django.db import models
 
-from .User import StudentUser
+from .User import StudentUser, AppUser
 
 choices = [("Weekly", "Weekly"), ("Monthly", "Monthly"), ("Final", "Final")]
 
@@ -94,6 +94,14 @@ class StudentReportType(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.title
 
@@ -116,6 +124,14 @@ class StudentReport(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.title
 
@@ -133,6 +149,14 @@ class StudentReportRemark(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.report.title
 
@@ -147,6 +171,14 @@ class StudentReportSkill(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.title
 
@@ -160,6 +192,14 @@ class StudentReportAchievement(models.Model):
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.title

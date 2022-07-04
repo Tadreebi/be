@@ -2,8 +2,7 @@ from django.conf import settings
 from django.db import models
 from .User import StudentUser
 from .StudentReport import StudentReport
-from .User import AppUser
-from django.contrib.auth import get_user_model
+from .User import AppUser, UniversityEmployeeUser
 
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
@@ -29,9 +28,9 @@ class UniversityFeedback(models.Model):
     author = models.ForeignKey(
         AppUser,
         on_delete=models.CASCADE,
-        # editable=False,
-        # null=True,
-        # blank=True,
+        editable=False,
+        null=True,
+        blank=True,
     )
 
     def __str__(self):

@@ -1,4 +1,5 @@
 from django.db import models
+from .User import AppUser
 
 types = [
     ("File", "File"),
@@ -14,6 +15,14 @@ class UniversityTipTopic(models.Model):
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.title
@@ -31,6 +40,14 @@ class UniversityTip(models.Model):
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.title

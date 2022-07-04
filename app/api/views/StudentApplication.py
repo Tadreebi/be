@@ -7,23 +7,34 @@ from rest_framework.generics import (
 )
 from rest_framework import generics, permissions
 
+from ..permissions import IsOwnerOrReadOnly, StudentPermission
+
 
 # GET and POST
 class StudentApplicationsList(ListCreateAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 # GET DELETE PUT
 class StudentApplicationsRetrieveUpdateDestroy(RetrieveUpdateDestroyAPIView):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 # ViewSets
 class ApplicationsViewSets(viewsets.ModelViewSet):
     queryset = StudentApplication.objects.all()
     serializer_class = StudentApplicationSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)

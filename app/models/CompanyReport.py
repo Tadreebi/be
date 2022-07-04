@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from .User import StudentUser, CompanyUser
 from django.core.validators import MaxValueValidator, MinValueValidator
+from .User import AppUser
+
 
 TYPES = [
     ("Periodical Report", "Periodical Report"),
@@ -30,8 +32,7 @@ class CompanyReport(models.Model):
     # Report type, wether it's periodical, complain or final
     type = models.CharField(max_length=64, default="Periodical Report", choices=TYPES)
 
-
-     # Report intro & conclusion paragraphs
+    # Report intro & conclusion paragraphs
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
 
@@ -48,6 +49,14 @@ class CompanyReport(models.Model):
     # Timestamps
     timestamp = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.student.username

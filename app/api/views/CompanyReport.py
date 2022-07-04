@@ -12,6 +12,8 @@ from app.api.serializers import (
 )
 from rest_framework import generics, permissions
 
+from ..permissions import IsOwnerOrReadOnly, CompanyPermission
+
 
 class CompanyReportList(ListAPIView):
     queryset = CompanyReport.objects.all()
@@ -22,22 +24,34 @@ class CompanyReportList(ListAPIView):
 class CompanyReportCreate(ListCreateAPIView):
     queryset = CompanyReport.objects.all()
     serializer_class = CompanyReportSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class CompanyReportDetail(RetrieveAPIView):
     queryset = CompanyReport.objects.all()
     serializer_class = CompanyReportSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class CompanyReportUpdate(RetrieveUpdateAPIView):
     queryset = CompanyReport.objects.all()
     serializer_class = CompanyReportSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class CompanyReportDelete(RetrieveDestroyAPIView):
     queryset = CompanyReport.objects.all()
     serializer_class = CompanyReportSerializer
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)

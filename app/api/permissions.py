@@ -10,13 +10,11 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         return obj.author == request.user
 
 
-class ReadOnlyPermission(permissions.BasePermission):
-    def has_permission(self, request, view):
-        if request.user.is_superuser:
-            return True
-        if request.method in permissions.SAFE_METHODS:
-            return True
-        return False
+class IsOwner(permissions.BasePermission):
+    """only the owner can read/create/edit/delete, for private pages"""
+
+    def has_object_permission(self, request, view, obj):
+        return obj.author == request.user
 
 
 class UniversityPermission(permissions.BasePermission):
@@ -98,6 +96,3 @@ class CompanyStrictPermission(permissions.BasePermission):
         if request.user.type == "Company":
             return True
         return False
-
-
-# and request.user.author == request.user

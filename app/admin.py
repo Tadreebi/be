@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from app.models import (
-    AppUser,
     CompanyRating,
     CompanyReport,
     CompanyUser,
@@ -107,12 +106,3 @@ admin.site.register(SupervisedBy)
 admin.site.register(Cities)
 admin.site.register(UniProposalResponse)
 admin.site.register(StudentApplicationResponse)
-
-
-# class UniversityFeedbackAdmin(admin.ModelAdmin):
-#     def save_model(self, request, obj, form, change):
-#         obj.user = self.request.user
-#         super().save_model(request, obj, form, change)
-
-
-# admin.site.register(UniversityFeedback, UniversityFeedbackAdmin)
