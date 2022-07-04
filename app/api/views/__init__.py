@@ -138,8 +138,11 @@ from .StudentReport import (
     StudentReportRemarksDelete,
 )
 from .UniversityFeedback import (
-    UniversityFeedbackListView,
-    UniversityFeedbackDetailsView,
+    UniversityFeedbackList,
+    UniversityFeedbackCreate,
+    UniversityFeedbackDetail,
+    UniversityFeedbackUpdate,
+    UniversityFeedbackDelete,
 )
 
 from .UniversityTip import (

@@ -1,6 +1,13 @@
-from rest_framework import generics, permissions
-from app.models import UniversityFeedback
 from app.api.serializers import UniversityFeedbackSerializer
+from app.models import UniversityFeedback
+from rest_framework import permissions
+from rest_framework.generics import (
+    ListAPIView,
+    ListCreateAPIView,
+    RetrieveAPIView,
+    RetrieveDestroyAPIView,
+    RetrieveUpdateAPIView,
+)
 
 
 class PermissionUniversityFeedbackListView(permissions.BasePermission):
@@ -14,9 +21,10 @@ class PermissionUniversityFeedbackListView(permissions.BasePermission):
         return False
 
 
-class UniversityFeedbackListView(generics.ListCreateAPIView):
+class UniversityFeedbackList(ListAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
+
     permission_classes = [PermissionUniversityFeedbackListView]
 
 
@@ -29,7 +37,29 @@ class PermissionUniversityFeedbackDetailsView(permissions.BasePermission):
         return False
 
 
-class UniversityFeedbackDetailsView(generics.RetrieveUpdateDestroyAPIView):
+class UniversityFeedbackCreate(ListCreateAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [PermissionUniversityFeedbackDetailsView]
+
+
+class UniversityFeedbackDetail(RetrieveAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [PermissionUniversityFeedbackDetailsView]
+
+
+class UniversityFeedbackUpdate(RetrieveUpdateAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [PermissionUniversityFeedbackDetailsView]
+
+
+class UniversityFeedbackDelete(RetrieveDestroyAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
     permission_classes = [PermissionUniversityFeedbackDetailsView]
