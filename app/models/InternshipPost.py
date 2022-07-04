@@ -74,6 +74,7 @@ class InternshipPost(models.Model):
     location = PlainLocationField(based_fields=["city"], zoom=7, null=True)
     vacancies = models.IntegerField(default=1)
     description = models.TextField(max_length=500, null=True)
+    endDate = models.DateField()
     # Company Supervisor Data
     supervisor_Name = models.CharField(max_length=256)
     supervisor_phone_number = models.CharField(max_length=256)
