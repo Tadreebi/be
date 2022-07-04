@@ -55,9 +55,13 @@ class StudentApplication(models.Model):
     def __str__(self):
         return self.student.username
 
-class StudentApplicationResponse(models.Model):
-    application = models.OneToOneField(StudentApplication,on_delete=models.CASCADE,unique=True)
-    remarks=models.CharField(max_length=1000)
-    accepted= models.BooleanField(default=False)
-    
 
+class StudentApplicationResponse(models.Model):
+    application = models.OneToOneField(
+        StudentApplication, on_delete=models.CASCADE, unique=True
+    )
+    remarks = models.CharField(max_length=1000)
+    accepted = models.BooleanField(default=False)
+    # Timestamps
+    timestamp = models.DateTimeField(auto_now_add=True, null=True)
+    updated = models.DateTimeField(auto_now=True)
