@@ -29,7 +29,7 @@ from .InternshipPost import (
     InternshipPostDetail,
     InternshipPostUpdate,
     InternshipPostDelete,
-    InternshipPostsViewSets
+    InternshipPostsViewSets,
 )
 
 
@@ -116,6 +116,11 @@ from .StudentReport import (
     StudentReportsDetail,
     StudentReportsUpdate,
     StudentReportsDelete,
+    StudentReportTypesList,
+    StudentReportTypesCreate,
+    StudentReportTypesDetail,
+    StudentReportTypesUpdate,
+    StudentReportTypesDelete,
     StudentReportSkillsList,
     StudentReportSkillsCreate,
     StudentReportSkillsDetail,
