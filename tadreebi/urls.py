@@ -54,11 +54,11 @@ urlpatterns = [
     path("faculty-major/", include("app.urls.Faculty")),
     path("supervised-by/", include("app.urls.SupervisedBy")),
     path("univeristy-tips/", include("app.urls.UniversityTip")),
-    path("cities/", include("app.urls.Cities")),
+    path("cities/", include("app.urls.Cities")),  # no need for it
     path("accounts/", include("django.contrib.auth.urls")),
     path("api-auth/", include("rest_framework.urls")),
     path("accounts/logout/", logout_view, name="logout"),  # dont use it
-    path("api/the-token/", include("app.urls.Token")),
+    path("token/", include("app.urls.Token")),
     path("", include("app.urls.User")),
     re_path(
         r"^swagger(?P<format>\.json|\.yaml)$",

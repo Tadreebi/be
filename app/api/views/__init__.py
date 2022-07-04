@@ -12,8 +12,6 @@ from .CompanyRating import (
     CompanyRatingDetail,
     CompanyRatingList,
     CompanyRatingUpdate,
-    
-
 )
 
 from .CompanyReport import (
