@@ -9,7 +9,7 @@ from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveAPIView,
     RetrieveUpdateAPIView,
-    RetrieveDestroyAPIView
+    RetrieveDestroyAPIView,
 )
 from rest_framework.response import Response
 from rest_framework import generics, permissions
@@ -43,11 +43,15 @@ class InternshipPostList(ListAPIView):
 
         return Response({queryset.values()})
 
+
 class InternshipPostCreate(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-
     permission_classes = [permissions.AllowAny]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class InternshipPostDetail(RetrieveAPIView):
     queryset = InternshipPost.objects.all()
@@ -61,14 +65,21 @@ class InternshipPostDetail(RetrieveAPIView):
 class InternshipPostUpdate(RetrieveUpdateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-
     permission_classes = [permissions.AllowAny]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
 
 class InternshipPostDelete(RetrieveDestroyAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-
     permission_classes = [permissions.AllowAny]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
 # ViewSets
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()
