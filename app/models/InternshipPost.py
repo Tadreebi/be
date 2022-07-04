@@ -3,7 +3,7 @@ from django.db import models
 from location_field.models.plain import PlainLocationField
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
-from .User import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser, AppUser
 
 
 class InternshipType(models.TextChoices):
@@ -81,6 +81,14 @@ class InternshipPost(models.Model):
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return f"{self.position} - {self.company.name}"

@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from app.models import InternshipPost
 from django.core.validators import RegexValidator
-from .User import StudentUser, CompanyUser
+from .User import StudentUser, CompanyUser, AppUser
 
 
 class InternshipType(models.TextChoices):
@@ -52,6 +52,14 @@ class StudentApplication(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
+
     def __str__(self):
         return self.student.username
 
@@ -65,3 +73,11 @@ class StudentApplicationResponse(models.Model):
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )

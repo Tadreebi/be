@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.db import models
 from .User import StudentUser
 from .StudentReport import StudentReport
+from .User import AppUser, UniversityEmployeeUser
+
 
 RATING_MARKS = [(1, 1), (2, 2), (3, 3), (4, 4), (5, 5)]
 
@@ -12,11 +15,10 @@ class UniversityFeedback(models.Model):
         related_name="student_idUniversityFeedback",
         on_delete=models.CASCADE,
     )
-    report = models.ForeignKey(
+    report = models.OneToOneField(
         StudentReport,
         related_name="report_idStudentReport",
         on_delete=models.CASCADE,
-        unique=True,
     )
     title = models.CharField(max_length=256)
     feedback = models.TextField()
@@ -24,6 +26,13 @@ class UniversityFeedback(models.Model):
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now=True)
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return self.student.username
