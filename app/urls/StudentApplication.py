@@ -1,31 +1,77 @@
 from app.api.views import (
-    StudentApplicationsList,
-    StudentApplicationsRetrieveUpdateDestroy,
-    ApplicationsViewSets,
+    StudentApplicationList,
+    StudentApplicationCreate,
+    StudentApplicationDetail,
+    StudentApplicationUpdate,
+    StudentApplicationDelete,
+    StudentApplicationResponseList,
+    StudentApplicationResponseCreate,
+    StudentApplicationResponseDetail,
+    StudentApplicationResponseUpdate,
+    StudentApplicationResponseDelete,
+    # ApplicationsViewSets,
 )
 from django.urls import path, include
-from rest_framework.routers import DefaultRouter
+# from rest_framework.routers import DefaultRouter
 
-# Viewsets Route
-router = DefaultRouter()
-router.register("applied", ApplicationsViewSets)
+# # Viewsets Route
+# router = DefaultRouter()
+# router.register("applied", ApplicationsViewSets)
 
 urlpatterns = [
-    # Post
     path(
-        "",
-        StudentApplicationsList.as_view(),
-        name="Apllications List",
+        "applications/",
+        StudentApplicationList.as_view(),
+        name="Student Applications List",
     ),
-    # Get Put Delete
     path(
-        "<int:pk>",
-        StudentApplicationsRetrieveUpdateDestroy.as_view(),
-        name="Applications Delete Update Get",
+        "applications/create/",
+        StudentApplicationCreate.as_view(),
+        name="Student Applications Create",
     ),
-    # Viewsets
     path(
-        "",
-        include(router.urls),
+        "applications/<int:pk>",
+        StudentApplicationDetail.as_view(),
+        name="Student Applications Details",
+    ),
+    path(
+        "applications/update/<int:pk>",
+        StudentApplicationUpdate.as_view(),
+        name="Student Applications Update",
+    ),
+    path(
+        "applications/delete/<int:pk>",
+        StudentApplicationDelete.as_view(),
+        name="Student Applications Delete",
+    ),
+    # # Viewsets
+    # path(
+    #     "",
+    #     include(router.urls),
+    # ),
+    path(
+        "responses/",
+        StudentApplicationResponseList.as_view(),
+        name="Student Responses List",
+    ),
+    path(
+        "responses/create/",
+        StudentApplicationResponseCreate.as_view(),
+        name="Student Responses Create",
+    ),
+    path(
+        "responses/<int:pk>",
+        StudentApplicationResponseDetail.as_view(),
+        name="Student Responses Details",
+    ),
+    path(
+        "responses/update/<int:pk>",
+        StudentApplicationResponseUpdate.as_view(),
+        name="Student Responses Update",
+    ),
+    path(
+        "responses/delete/<int:pk>",
+        StudentApplicationResponseDelete.as_view(),
+        name="Student Responses Delete",
     ),
 ]

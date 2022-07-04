@@ -105,7 +105,7 @@ class StudentReportType(models.Model):
     def __str__(self):
         return self.title
 
-
+# 
 class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(

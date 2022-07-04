@@ -18,7 +18,7 @@ from ..permissions import IsOwnerOrReadOnly, UniversityPermission
 class UniResponse_List_View(ListAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class UniResponse_create(ListCreateAPIView):

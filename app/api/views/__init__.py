@@ -25,18 +25,26 @@ from .CompanyReport import (
 
 from .InternshipPost import (
     InternshipPostList,
-    InternshipPostRetrieveUpdateDestroy,
-    InternshipPostsViewSets,
-    # InternshipPostRequirementsList,
-    # InternshipPostRequirementsRetrieveUpdateDestroy,
-    # InternshipPostRequirementsViewSets,
+    InternshipPostCreate,
+    InternshipPostDetail,
+    InternshipPostUpdate,
+    InternshipPostDelete,
+    InternshipPostsViewSets
 )
 
 
 from .StudentApplication import (
-    StudentApplicationsList,
-    StudentApplicationsRetrieveUpdateDestroy,
-    ApplicationsViewSets,
+    StudentApplicationList,
+    StudentApplicationCreate,
+    StudentApplicationDetail,
+    StudentApplicationUpdate,
+    StudentApplicationDelete,
+    StudentApplicationResponseList,
+    StudentApplicationResponseCreate,
+    StudentApplicationResponseDetail,
+    StudentApplicationResponseUpdate,
+    StudentApplicationResponseDelete,
+    # ApplicationsViewSets
 )
 from .StudentExperience import (
     StudentExperienceCreate,
@@ -169,6 +177,13 @@ from .Cities import (
     CitiesDelete,
 )
 
+from .UniproposalResponse import (
+    UniResponse_create,
+    UniResponse_delete,
+    UniResponse_detail_view,
+    UniResponse_List_View,
+    UniResponse_Update,
+)
 from .Token import TokenView
 
 from .Token import TokenView
