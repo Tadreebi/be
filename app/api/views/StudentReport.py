@@ -4,12 +4,14 @@ from app.api.serializers import (
     StudentReportRemarksSerializer,
     StudentReportSkillsSerializer,
     StudentReportsSerializer,
+    StudentReportTypesSerializer,
 )
 from app.models import (
     StudentReport,
     StudentReportAchievement,
     StudentReportRemark,
     StudentReportSkill,
+    StudentReportType,
 )
 from rest_framework import generics, permissions
 from rest_framework.generics import (
@@ -62,6 +64,42 @@ class StudentReportsDelete(RetrieveDestroyAPIView):
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
+
+
+# Student Report Types #########################################################
+class StudentReportTypesList(ListAPIView):
+    queryset = StudentReportType.objects.all()
+    serializer_class = StudentReportTypesSerializer
+
+    permission_classes = [permissions.AllowAny]
+
+
+class StudentReportTypesCreate(ListCreateAPIView):
+    queryset = StudentReportType.objects.all()
+    serializer_class = StudentReportTypesSerializer
+
+    permission_classes = [permissions.AllowAny]
+
+
+class StudentReportTypesDetail(RetrieveAPIView):
+    queryset = StudentReportType.objects.all()
+    serializer_class = StudentReportTypesSerializer
+
+    permission_classes = [permissions.AllowAny]
+
+
+class StudentReportTypesUpdate(RetrieveUpdateAPIView):
+    queryset = StudentReportType.objects.all()
+    serializer_class = StudentReportTypesSerializer
+
+    permission_classes = [permissions.AllowAny]
+
+
+class StudentReportTypesDelete(RetrieveDestroyAPIView):
+    queryset = StudentReportType.objects.all()
+    serializer_class = StudentReportTypesSerializer
+
+    permission_classes = [permissions.AllowAny]
 
 
 # Student Remarks #########################################################

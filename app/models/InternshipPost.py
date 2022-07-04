@@ -79,8 +79,8 @@ class InternshipPost(models.Model):
     supervisor_phone_number = models.CharField(max_length=256)
     subervisor_position = models.CharField(max_length=256)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,

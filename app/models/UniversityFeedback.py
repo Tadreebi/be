@@ -22,9 +22,10 @@ class UniversityFeedback(models.Model):
     )
     title = models.CharField(max_length=256)
     feedback = models.TextField()
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
     rating = models.IntegerField(choices=RATING_MARKS)
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
         AppUser,
         on_delete=models.CASCADE,

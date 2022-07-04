@@ -96,8 +96,8 @@ class CompanyRating(models.Model):
     """
     comments = models.TextField(max_length=480, blank=True, null=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,

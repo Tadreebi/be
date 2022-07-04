@@ -27,8 +27,8 @@ class StudentUniProposal(models.Model):
 
     # Timestamps
     remarks = models.TextField(null=True, blank=True)
-    timestamp = models.DateTimeField(auto_now_add=True, null=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -49,6 +49,9 @@ class UniProposalResponse(models.Model):
     remarks = models.TextField(null=True, blank=True)
     accepted = models.BooleanField(default=False)
 
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(
         AppUser,
         on_delete=models.CASCADE,

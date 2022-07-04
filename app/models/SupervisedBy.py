@@ -8,6 +8,9 @@ class SupervisedBy(models.Model):
     company = models.ForeignKey(
         CompanyUser, on_delete=models.CASCADE, null=True, blank=True
     )
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.student.username

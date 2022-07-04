@@ -91,8 +91,8 @@ class StudentReportType(models.Model):
     title = models.CharField(max_length=256)
     desc = models.CharField(max_length=256, null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -105,7 +105,8 @@ class StudentReportType(models.Model):
     def __str__(self):
         return self.title
 
-# 
+
+#
 class StudentReport(models.Model):
     title = models.CharField(max_length=256, null=True, blank=True)
     student = models.ForeignKey(
@@ -121,8 +122,8 @@ class StudentReport(models.Model):
     intro = models.TextField(null=True, blank=True)
     conclusion = models.TextField(null=True, blank=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -146,8 +147,8 @@ class StudentReportRemark(models.Model):
     remarks = models.TextField(null=True, blank=True)
     accepted = models.BooleanField(default=False)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -168,8 +169,8 @@ class StudentReportSkill(models.Model):
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -190,8 +191,8 @@ class StudentReportAchievement(models.Model):
     # For student profile customization (to decide is this is to include in the profile)
     profile = models.BooleanField(default=True)
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,

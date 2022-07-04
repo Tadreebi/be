@@ -48,8 +48,10 @@ urlpatterns = [
     path("students/profile/", include("app.urls.StudentProfile")),
     path("students/proposals/", include("app.urls.StudentProposal")),
     path("university/proposals-response/", include("app.urls.UniProposalResponse")),
-    path("company/application-response/", include("app.urls.StudentApplicationResponse")),
-    path("students/", include("app.urls.StudentReport")),
+    path(
+        "company/application-response/", include("app.urls.StudentApplicationResponse")
+    ),
+    path("students/reports/", include("app.urls.StudentReport")),
     path("univeristy-feedbacks/", include("app.urls.UniversityFeedback")),
     path("faculty-major/", include("app.urls.Faculty")),
     path("supervised-by/", include("app.urls.SupervisedBy")),

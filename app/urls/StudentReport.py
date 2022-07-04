@@ -4,6 +4,11 @@ from app.api.views import (
     StudentReportAchievementsDetail,
     StudentReportAchievementsList,
     StudentReportAchievementsUpdate,
+    StudentReportTypesList,
+    StudentReportTypesCreate,
+    StudentReportTypesDetail,
+    StudentReportTypesUpdate,
+    StudentReportTypesDelete,
     StudentReportRemarksCreate,
     StudentReportRemarksDelete,
     StudentReportRemarksDetail,
@@ -25,28 +30,53 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path(
-        "reports/",
+        "",
         StudentReportsList.as_view(),
         name="Student Reports List",
     ),
     path(
-        "reports/create/",
+        "create/",
         StudentReportsCreate.as_view(),
         name="Student Reports Create",
     ),
     path(
-        "reports/<int:pk>",
+        "<int:pk>",
         StudentReportsDetail.as_view(),
         name="Student Reports Details",
     ),
     path(
-        "reports/update/<int:pk>",
+        "update/<int:pk>",
         StudentReportsUpdate.as_view(),
         name="Student Reports Update",
     ),
     path(
-        "reports/delete/<int:pk>",
+        "delete/<int:pk>",
         StudentReportsDelete.as_view(),
+        name="Student Reports Delete",
+    ),
+    path(
+        "types/",
+        StudentReportTypesList.as_view(),
+        name="Student Reports List",
+    ),
+    path(
+        "types/create/",
+        StudentReportTypesCreate.as_view(),
+        name="Student Reports Create",
+    ),
+    path(
+        "types/<int:pk>",
+        StudentReportTypesDetail.as_view(),
+        name="Student Reports Details",
+    ),
+    path(
+        "types/update/<int:pk>",
+        StudentReportTypesUpdate.as_view(),
+        name="Student Reports Update",
+    ),
+    path(
+        "types/delete/<int:pk>",
+        StudentReportTypesDelete.as_view(),
         name="Student Reports Delete",
     ),
     path(
@@ -125,4 +155,4 @@ urlpatterns = [
         name="Student Report Achievements Delete",
     ),
 ]
-# 
+#

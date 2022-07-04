@@ -1,32 +1,29 @@
+from .Cities import Cities
 from .CompanyRating import CompanyRating
 from .CompanyReport import CompanyReport
+from .Faculty import Faculty
 from .InternshipPost import InternshipPost
-from .StudentApplication import StudentApplication,StudentApplicationResponse
+from .StudentApplication import StudentApplication, StudentApplicationResponse
 from .StudentExperience import StudentExperience
 from .StudentGoal import StudentGoal, StudentGoalIndicator
-from .StudentProfile import StudentProfile
-from .StudentProposal import StudentUniProposal,UniProposalResponse
-from .StudentReport import StudentReport, StudentReportAchievement, StudentReportSkill
 from .StudentProfile import (
     StudentProfile,
-    StudentProfileExperience,
-    StudentProfileSkill,
-    StudentProfileEducation,
-    StudentProfileLanguage,
     StudentProfileContact,
+    StudentProfileEducation,
+    StudentProfileExperience,
+    StudentProfileLanguage,
+    StudentProfileSkill,
     StudentProfileWork,
 )
-from .StudentProposal import StudentUniProposal
+from .StudentProposal import StudentUniProposal, UniProposalResponse
 from .StudentReport import (
-    StudentReportType,
     StudentReport,
-    StudentReportRemark,
     StudentReportAchievement,
+    StudentReportRemark,
     StudentReportSkill,
+    StudentReportType,
 )
+from .SupervisedBy import SupervisedBy
 from .UniversityFeedback import UniversityFeedback
 from .UniversityTip import UniversityTip, UniversityTipTopic
 from .User import AppUser, CompanyUser, StudentUser, UniversityEmployeeUser
-from .Faculty import Faculty
-from .SupervisedBy import SupervisedBy
-from .Cities import Cities

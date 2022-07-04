@@ -49,8 +49,8 @@ class StudentApplication(models.Model):
     resume = models.FileField(blank=True, upload_to="resumes")
 
     # Timestamps
-    timestamp = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,
@@ -70,6 +70,9 @@ class StudentApplicationResponse(models.Model):
     )
     remarks = models.CharField(max_length=1000)
     accepted = models.BooleanField(default=False)
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     author = models.ForeignKey(
         AppUser,

@@ -1,14 +1,49 @@
+from app.api.serializers import UniversityFeedbackSerializer
+from app.models import UniversityFeedback
 from django.forms import ModelForm
 from rest_framework import generics, permissions
-from app.models import UniversityFeedback
-from app.api.serializers import UniversityFeedbackSerializer
-from ..permissions import (
-    IsOwnerOrReadOnly,
-    UniversityPermission,
+from rest_framework.generics import (
+    ListAPIView,
+    ListCreateAPIView,
+    RetrieveAPIView,
+    RetrieveDestroyAPIView,
+    RetrieveUpdateAPIView,
 )
 
+from ..permissions import IsOwnerOrReadOnly, UniversityPermission
 
-class UniversityFeedbackListView(generics.ListCreateAPIView):
+
+class UniversityFeedbackList(ListAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class UniversityFeedbackCreate(ListCreateAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class UniversityFeedbackDetail(RetrieveAPIView):
+    queryset = UniversityFeedback.objects.all()
+    serializer_class = UniversityFeedbackSerializer
+
+    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class UniversityFeedbackUpdate(RetrieveUpdateAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
     permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
@@ -17,7 +52,7 @@ class UniversityFeedbackListView(generics.ListCreateAPIView):
         serializer.save(author=self.request.user)
 
 
-class UniversityFeedbackDetailsView(generics.RetrieveUpdateDestroyAPIView):
+class UniversityFeedbackDelete(RetrieveDestroyAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
     permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
