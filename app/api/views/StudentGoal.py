@@ -20,43 +20,52 @@ from ..permissions import IsOwner, StudentStrictPermission
 class StudentGoalsList(ListAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
+
     permission_classes = [permissions.AllowAny]
 
 
 class StudentGoalsCreate(ListCreateAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalsDetail(RetrieveAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalsUpdate(RetrieveUpdateAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalsDelete(RetrieveDestroyAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 # Student Report Skills ###################################################
@@ -69,34 +78,42 @@ class StudentGoalIndicatorsList(ListAPIView):
 class StudentGoalIndicatorsCreate(ListCreateAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalIndicatorsDetail(RetrieveAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalIndicatorsUpdate(RetrieveUpdateAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class StudentGoalIndicatorsDelete(RetrieveDestroyAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    
+    # permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)

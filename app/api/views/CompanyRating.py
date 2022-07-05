@@ -18,43 +18,52 @@ from ..permissions import IsOwnerOrReadOnly, StudentPermission
 class CompanyRatingList(ListAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
+
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class CompanyRatingCreate(ListCreateAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class CompanyRatingDetail(RetrieveAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class CompanyRatingUpdate(RetrieveUpdateAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class CompanyRatingDelete(RetrieveDestroyAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    
+    # permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)

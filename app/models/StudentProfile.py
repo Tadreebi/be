@@ -14,13 +14,13 @@ class StudentProfile(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.student.username
@@ -38,13 +38,13 @@ class StudentProfileExperience(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -62,13 +62,13 @@ class StudentProfileSkill(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -86,13 +86,13 @@ class StudentProfileEducation(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -113,13 +113,13 @@ class StudentProfileLanguage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -138,13 +138,13 @@ class StudentProfileContact(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title
@@ -168,13 +168,13 @@ class StudentProfileWork(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    author = models.ForeignKey(
-        AppUser,
-        on_delete=models.CASCADE,
-        editable=False,
-        null=True,
-        blank=True,
-    )
+    # author = models.ForeignKey(
+    #     AppUser,
+    #     on_delete=models.CASCADE,
+    #     editable=False,
+    #     null=True,
+    #     blank=True,
+    # )
 
     def __str__(self):
         return self.title

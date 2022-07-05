@@ -23,8 +23,8 @@ class InternshipPostList(ListAPIView):
     serializer_class = InternshipPostSerializer
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
     def list(self, request, *args, **kw):
         queries = request.query_params
@@ -47,44 +47,51 @@ class InternshipPostList(ListAPIView):
 class InternshipPostCreate(ListCreateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class InternshipPostDetail(RetrieveAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class InternshipPostUpdate(RetrieveUpdateAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class InternshipPostDelete(RetrieveDestroyAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
+    
     permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 # ViewSets
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)

@@ -14,43 +14,52 @@ from ..permissions import IsOwnerOrReadOnly, UniversityPermission
 class UniversityTipsList(ListAPIView):
     queryset = UniversityTip.objects.all()
     serializer_class = UniversityTipsSerializer
+
     permission_classes = [permissions.AllowAny]
 
 
 class UniversityTipsCreate(ListCreateAPIView):
     queryset = UniversityTip.objects.all()
     serializer_class = UniversityTipsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipsDetail(RetrieveAPIView):
     queryset = UniversityTip.objects.all()
     serializer_class = UniversityTipsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipsUpdate(RetrieveUpdateAPIView):
     queryset = UniversityTip.objects.all()
     serializer_class = UniversityTipsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipsDelete(RetrieveDestroyAPIView):
     queryset = UniversityTip.objects.all()
     serializer_class = UniversityTipsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 # University Topic Tips #########################################################
@@ -63,34 +72,42 @@ class UniversityTipTopicsList(ListAPIView):
 class UniversityTipTopicsCreate(ListCreateAPIView):
     queryset = UniversityTipTopic.objects.all()
     serializer_class = UniversityTipTopicsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipTopicsDetail(RetrieveAPIView):
     queryset = UniversityTipTopic.objects.all()
     serializer_class = UniversityTipTopicsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipTopicsUpdate(RetrieveUpdateAPIView):
     queryset = UniversityTipTopic.objects.all()
     serializer_class = UniversityTipTopicsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniversityTipTopicsDelete(RetrieveDestroyAPIView):
     queryset = UniversityTipTopic.objects.all()
     serializer_class = UniversityTipTopicsSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)

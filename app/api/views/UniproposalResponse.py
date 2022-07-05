@@ -18,40 +18,49 @@ from ..permissions import IsOwnerOrReadOnly, UniversityPermission
 class UniResponse_List_View(ListAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
+
     permission_classes = [permissions.AllowAny]
 
 
 class UniResponse_create(ListCreateAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
+
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniResponse_detail_view(RetrieveAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniResponse_Update(RetrieveUpdateAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
 
 
 class UniResponse_delete(RetrieveDestroyAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    
+    # permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
-    def perform_create(self, serializer):
-        serializer.save(author=self.request.user)
+    # def perform_create(self, serializer):
+    #     serializer.save(author=self.request.user)
