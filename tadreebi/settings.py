@@ -218,11 +218,9 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
 
-CORS_ORIGIN_WHITELIST = tuple(
-    [
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "http://localhost:8080",
-    ]
-)
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST")
+CORS_ALLOW_ALL_ORIGINS = os.environ.get("CORS_ALLOW_ALL_ORIGINS")
+CORS_ALLOW_METHODS = os.environ.get("ALLOW_METHODS")
+CORS_ALLOW_HEADERS = os.environ.get("ALLOW_HEADERS")
+
+CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS")
