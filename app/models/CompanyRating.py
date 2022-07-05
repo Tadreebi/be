@@ -5,10 +5,9 @@ from .User import AppUser
 
 
 class CompanyRating(models.Model):
-    student = models.ForeignKey(
+    student = models.OneToOneField(
         StudentUser,
         on_delete=models.CASCADE,
-        unique=True,
         blank=True,
         null=True,
         related_name="student_idCompanyRating",

@@ -5,6 +5,8 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
     """anyone can read but only the auther can add/edit/delete"""
 
     def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
         if request.method in permissions.SAFE_METHODS:
             return True
         return obj.author == request.user
@@ -14,6 +16,8 @@ class IsOwner(permissions.BasePermission):
     """only the owner can read/create/edit/delete, for private pages"""
 
     def has_object_permission(self, request, view, obj):
+        if request.user.is_superuser:
+            return True
         return obj.author == request.user
 
 

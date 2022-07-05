@@ -21,7 +21,7 @@ from ..permissions import IsOwnerOrReadOnly, CompanyPermission
 class InternshipPostList(ListAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

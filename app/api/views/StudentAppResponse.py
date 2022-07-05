@@ -19,7 +19,7 @@ from ..permissions import IsOwnerOrReadOnly, CompanyPermission
 class ApplicationResponseList(ListAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
 
 class ApplicationResponseCreate(ListCreateAPIView):

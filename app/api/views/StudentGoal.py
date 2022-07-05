@@ -20,7 +20,7 @@ from ..permissions import IsOwner, StudentStrictPermission
 class StudentGoalsList(ListAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
 
 class StudentGoalsCreate(ListCreateAPIView):
@@ -63,7 +63,7 @@ class StudentGoalsDelete(RetrieveDestroyAPIView):
 class StudentGoalIndicatorsList(ListAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
 
 class StudentGoalIndicatorsCreate(ListCreateAPIView):
