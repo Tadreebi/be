@@ -20,10 +20,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 env = environ.Env(
+    ALLOWED_HOSTS=(list, []),
     DEBUG=(bool, False),
     ENVIRONMENT=(str, "PRODUCTION"),
+    SECRET_KEY=(str, ""),
     ALLOW_ALL_ORIGINS=(bool, False),
-    ALLOWED_HOSTS=(list, []),
     ALLOWED_ORIGINS=(list, []),
     DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
     DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
@@ -34,6 +35,8 @@ env = environ.Env(
     CSRF_TRUSTED_ORIGINS=(list, []),
     ALLOW_METHODS=(list, []),
     ALLOW_HEADERS=(list, []),
+    CORS_ORIGIN_WHITELIST=(list, []),
+    CORS_ALLOW_ALL_ORIGINS=(bool, False),
 )
 
 environ.Env.read_env()
@@ -51,9 +54,10 @@ ENVIRONMENT = env.str("ENVIRONMENT")
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
+ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
 DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
+
 
 
 # Application definition
@@ -240,7 +244,7 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
 
-CORS_ORIGIN_WHITELIST = tuple(env.list("CORS_ORIGIN_WHITELIST"))
+
 CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
 CORS_ALLOW_METHODS = env.list("ALLOW_METHODS")
 CORS_ALLOW_HEADERS = env.list("ALLOW_HEADERS")
