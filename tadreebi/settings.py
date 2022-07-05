@@ -241,13 +241,7 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # }
 
 
-CORS_ORIGIN_WHITELIST = tuple(
-    [
-        "http://localhost:3000",
-        "http://localhost:8000",
-        "http://localhost:8080",
-    ]
-)
+CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST")
 
 CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
 
