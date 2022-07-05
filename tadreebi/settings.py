@@ -12,26 +12,48 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
-import dotenv
+import environ
 from django.conf import settings
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+env = environ.Env(
+    DEBUG=(bool, False),
+    ENVIRONMENT=(str, "PRODUCTION"),
+    ALLOW_ALL_ORIGINS=(bool, False),
+    ALLOWED_HOSTS=(list, []),
+    ALLOWED_ORIGINS=(list, []),
+    DATABASE_ENGINE=(str, "django.db.backends.sqlite3"),
+    DATABASE_NAME=(str, BASE_DIR / "db.sqlite3"),
+    DATABASE_USER=(str, ""),
+    DATABASE_PASSWORD=(str, ""),
+    DATABASE_HOST=(str, ""),
+    DATABASE_PORT=(int, 5432),
+    CSRF_TRUSTED_ORIGINS=(list, []),
+    ALLOW_METHODS=(list, []),
+    ALLOW_HEADERS=(list, []),
+)
+
+environ.Env.read_env()
+
+ENVIRONMENT = env.str("ENVIRONMENT")
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # To read the .env file
-dotenv.load_dotenv()
+# dotenv.load_dotenv()
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG") == "True"
+DEBUG = env.bool("DEBUG")
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
 
 
 # Application definition
@@ -98,12 +120,12 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     },
     # "postgresql": {
-    #     "DATABASE_ENGINE": os.environ.get("DATABASE_ENGINE"),
-    #     "DATABASE_NAME": os.environ.get("DATABASE_NAME"),
-    #     "DATABASE_USER": os.environ.get("DATABASE_USER"),
-    #     "DATABASE_PASSWORD": os.environ.get("DATABASE_PASSWORD"),
-    #     "DATABASE_HOST": os.environ.get("DATABASE_HOST"),
-    #     "DATABASE_PORT": os.environ.get("DATABASE_PORT"),
+    #     "DATABASE_ENGINE": env.str("DATABASE_ENGINE"),
+    #     "DATABASE_NAME": env.str("DATABASE_NAME"),
+    #     "DATABASE_USER": env.str("DATABASE_USER"),
+    #     "DATABASE_PASSWORD": env.str("DATABASE_PASSWORD"),
+    #     "DATABASE_HOST": env.str("DATABASE_HOST"),
+    #     "DATABASE_PORT": env.str("DATABASE_PORT"),
     # },
 }
 
@@ -218,9 +240,9 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 #     "VALIDATOR_URL": "http://localhost:8000",
 # }
 
-CORS_ORIGIN_WHITELIST = os.environ.get("CORS_ORIGIN_WHITELIST")
-CORS_ALLOW_ALL_ORIGINS = os.environ.get("CORS_ALLOW_ALL_ORIGINS")
-CORS_ALLOW_METHODS = os.environ.get("ALLOW_METHODS")
-CORS_ALLOW_HEADERS = os.environ.get("ALLOW_HEADERS")
+CORS_ORIGIN_WHITELIST = tuple(env.list("CORS_ORIGIN_WHITELIST"))
+CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
+CORS_ALLOW_METHODS = env.list("ALLOW_METHODS")
+CORS_ALLOW_HEADERS = env.list("ALLOW_HEADERS")
 
-CSRF_TRUSTED_ORIGINS = os.environ.get("CSRF_TRUSTED_ORIGINS")
+CSRF_TRUSTED_ORIGINS = tuple(env.list("CSRF_TRUSTED_ORIGINS"))
