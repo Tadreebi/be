@@ -49,11 +49,12 @@ class InternshipPost(models.Model):
         CompanyUser, on_delete=models.CASCADE, related_name="company_idInternshipPost"
     )
     position = models.CharField(max_length=255, null=True)
+    paid = models.BooleanField(default=False)
     type = models.CharField(
         max_length=50, choices=InternshipType.choices, default=InternshipType.Full_Time
     )
-    location = models.CharField(
-        max_length=50, choices=Location.choices, default=Location.On_Site
+    experience = models.CharField(
+        max_length=50, choices=Experience.choices, default=Experience.No_Experience
     )
     education = models.CharField(
         max_length=50, choices=Education.choices, default=Education.Bachelors
@@ -61,24 +62,22 @@ class InternshipPost(models.Model):
     industry = models.CharField(
         max_length=50, choices=Industry.choices, default=Industry.Business
     )
+    salary = models.IntegerField(default=0, validators=[MinValueValidator(0)])
+    city = models.CharField(max_length=255, null=True)
+    location = models.CharField(
+        max_length=50, choices=Location.choices, default=Location.On_Site
+    )
+    vacancies = models.IntegerField(default=1)
+    description = models.TextField(max_length=500, null=True)
     # To pick industry out of uni faculties / majors
     # industry = models.ForeignKey(
     #     MajorOrFaculty, on_delete=models.CASCADE, related_name="company_id"
     # )
-    experience = models.CharField(
-        max_length=50, choices=Experience.choices, default=Experience.No_Experience
-    )
-    paid = models.BooleanField(default=False)
-    salary = models.IntegerField(default=0, validators=[MinValueValidator(0)])
-    city = models.CharField(max_length=255, null=True)
-    location = PlainLocationField(based_fields=["city"], zoom=7, null=True)
-    vacancies = models.IntegerField(default=1)
-    description = models.TextField(max_length=500, null=True)
-    endDate = models.DateField()
     # Company Supervisor Data
     supervisor_Name = models.CharField(max_length=256)
-    supervisor_phone_number = models.CharField(max_length=256)
     subervisor_position = models.CharField(max_length=256)
+    supervisor_phone_number = models.CharField(max_length=256)
+    endDate = models.DateField()
     # Timestamps
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
