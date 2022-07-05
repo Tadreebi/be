@@ -22,17 +22,13 @@ class PermissionStudentSignUp(permissions.BasePermission):
 class StudentSignUpView(generics.ListCreateAPIView):
     queryset = StudentUser.objects.all()
     serializer_class = StudentSerializer
-    
-    # permission_classes = [PermissionStudentSignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionStudentSignUp]
 
 
 class StudentSignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = StudentUser.objects.all()
     serializer_class = StudentSerializer
-    
-    # permission_classes = [PermissionStudentSignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionStudentSignUp]
     lookup_field = "username"
 
 
@@ -51,17 +47,13 @@ class PermissionUniversitySignUp(permissions.BasePermission):
 class UniversitySignUpView(generics.ListCreateAPIView):
     queryset = UniversityEmployeeUser.objects.all()
     serializer_class = UniversitySerializer
-    
-    # permission_classes = [PermissionUniversitySignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionUniversitySignUp]
 
 
 class UniversitySignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UniversityEmployeeUser.objects.all()
     serializer_class = UniversitySerializer
-    
-    # permission_classes = [PermissionUniversitySignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionUniversitySignUp]
     lookup_field = "username"
 
 
@@ -80,15 +72,11 @@ class PermissionCompanySignUp(permissions.BasePermission):
 class CompanySignUpView(generics.ListCreateAPIView):
     queryset = CompanyUser.objects.all()
     serializer_class = CompanySerializer
-    
-    # permission_classes = [PermissionCompanySignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionCompanySignUp]
 
 
 class CompanySignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CompanyUser.objects.all()
     serializer_class = CompanySerializer
-    
-    # permission_classes = [PermissionCompanySignUp]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionCompanySignUp]
     lookup_field = "username"

@@ -17,9 +17,7 @@ class PermissionFacultyListView(permissions.BasePermission):
 class FacultyListView(generics.ListCreateAPIView):
     queryset = Faculty.objects.all()
     serializer_class = FacultySerializer
-    
-    # permission_classes = [PermissionFacultyListView]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionFacultyListView]
 
 
 class PermissionFacultyDetailsView(permissions.BasePermission):
@@ -34,6 +32,4 @@ class PermissionFacultyDetailsView(permissions.BasePermission):
 class FacultyDetailsView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Faculty.objects.all()
     serializer_class = FacultySerializer
-    
-    # permission_classes = [PermissionFacultyDetailsView]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionFacultyDetailsView]

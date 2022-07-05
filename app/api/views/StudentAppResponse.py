@@ -19,49 +19,40 @@ from ..permissions import IsOwnerOrReadOnly, CompanyPermission
 class ApplicationResponseList(ListAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-
     permission_classes = [permissions.AllowAny]
 
 
 class ApplicationResponseCreate(ListCreateAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-    
-    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
 
-    # def perform_create(self, serializer):
-    #     serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class ApplicationResponseDetail(RetrieveAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-    
-    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
 
-    # def perform_create(self, serializer):
-    #     serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class ApplicationResponseUpdate(RetrieveUpdateAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-    
-    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
 
-    # def perform_create(self, serializer):
-    #     serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
 
 
 class ApplicationResponseDelete(RetrieveDestroyAPIView):
     queryset = StudentApplicationResponse.objects.all()
     serializer_class = StudentApplicationResponseSerializer
-    
-    # permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
 
-    # def perform_create(self, serializer):
-    #     serializer.save(author=self.request.user)
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)

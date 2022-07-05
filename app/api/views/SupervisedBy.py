@@ -17,9 +17,7 @@ class PermissionSupervisedByListView(permissions.BasePermission):
 class SupervisedByListView(generics.ListCreateAPIView):
     queryset = SupervisedBy.objects.all()
     serializer_class = SupervisedBySerializer
-    
-    # permission_classes = [PermissionSupervisedByListView]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionSupervisedByListView]
 
 
 class PermissionSupervisedByDetailsView(permissions.BasePermission):
@@ -34,6 +32,4 @@ class PermissionSupervisedByDetailsView(permissions.BasePermission):
 class SupervisedByDetailsView(generics.RetrieveUpdateDestroyAPIView):
     queryset = SupervisedBy.objects.all()
     serializer_class = SupervisedBySerializer
-    
-    # permission_classes = [PermissionSupervisedByDetailsView]
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [PermissionSupervisedByDetailsView]

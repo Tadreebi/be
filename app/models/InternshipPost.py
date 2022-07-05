@@ -82,13 +82,13 @@ class InternshipPost(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    # author = models.ForeignKey(
-    #     AppUser,
-    #     on_delete=models.CASCADE,
-    #     editable=False,
-    #     null=True,
-    #     blank=True,
-    # )
+    author = models.ForeignKey(
+        AppUser,
+        on_delete=models.CASCADE,
+        editable=False,
+        null=True,
+        blank=True,
+    )
 
     def __str__(self):
         return f"{self.position} - {self.company.name}"
