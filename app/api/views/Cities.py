@@ -16,7 +16,7 @@ from rest_framework import generics, permissions
 class CitiesList(ListAPIView):
     queryset = Cities.objects.all()
     serializer_class = CitiesSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    permission_classes = [permissions.AllowAny]
 
 
 class CitiesCreate(ListCreateAPIView):
