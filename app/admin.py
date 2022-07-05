@@ -30,6 +30,7 @@ from app.models import (
     UniversityEmployeeUser,
     UniversityFeedback,
     UniversityTip,
+    UniversityTipTopic,
     StudentApplicationResponse,
 )
 
@@ -101,6 +102,7 @@ admin.site.register(StudentReportSkill)
 admin.site.register(StudentReportAchievement)
 admin.site.register(UniversityFeedback)
 admin.site.register(UniversityTip)
+admin.site.register(UniversityTipTopic)
 admin.site.register(Faculty)
 admin.site.register(SupervisedBy)
 admin.site.register(Cities)
