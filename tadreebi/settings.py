@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
-import os
 import environ
 from django.conf import settings
 
@@ -21,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
     ALLOWED_HOSTS=(list, []),
-    DEBUG=(bool, False),
+    DEBUG=(bool, True),
     ENVIRONMENT=(str, "PRODUCTION"),
     SECRET_KEY=(str, ""),
     ALLOW_ALL_ORIGINS=(bool, False),
@@ -54,10 +53,8 @@ ENVIRONMENT = env.str("ENVIRONMENT")
 SECRET_KEY = env.str("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-ALLOWED_HOSTS = tuple(env.list("ALLOWED_HOSTS"))
+ALLOWED_HOSTS = ['*']
 DEBUG = env.bool("DEBUG")
-
-
 
 
 # Application definition
@@ -244,8 +241,14 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # }
 
 
+CORS_ORIGIN_WHITELIST = tuple(
+    [
+        "http://localhost:3000",
+        "http://localhost:8000",
+        "http://localhost:8080",
+    ]
+)
+
 CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
-CORS_ALLOW_METHODS = env.list("ALLOW_METHODS")
-CORS_ALLOW_HEADERS = env.list("ALLOW_HEADERS")
 
 CSRF_TRUSTED_ORIGINS = tuple(env.list("CSRF_TRUSTED_ORIGINS"))
