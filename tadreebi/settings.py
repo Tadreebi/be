@@ -121,12 +121,12 @@ DATABASES = {
     #     "NAME": BASE_DIR / "db.sqlite3",
     # },
     "default": {
-        "DATABASE_ENGINE": env.str("DATABASE_ENGINE"),
-        "DATABASE_NAME": env.str("DATABASE_NAME"),
-        "DATABASE_USER": env.str("DATABASE_USER"),
-        "DATABASE_PASSWORD": env.str("DATABASE_PASSWORD"),
-        "DATABASE_HOST": env.str("DATABASE_HOST"),
-        "DATABASE_PORT": env.str("DATABASE_PORT"),
+        "ENGINE": env.str("DATABASE_ENGINE"),
+        "NAME": env.str("DATABASE_NAME"),
+        "USER": env.str("DATABASE_USER"),
+        "PASSWORD": env.str("DATABASE_PASSWORD"),
+        "HOST": env.str("DATABASE_HOST"),
+        "PORT": env.str("DATABASE_PORT"),
     },
 }
 
@@ -241,7 +241,7 @@ EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
 # }
 
 
-CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST")
+# CORS_ORIGIN_WHITELIST = env.list("CORS_ORIGIN_WHITELIST")
 
 CORS_ALLOW_ALL_ORIGINS = env.bool("CORS_ALLOW_ALL_ORIGINS")
 
