@@ -116,11 +116,11 @@ WSGI_APPLICATION = "tadreebi.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
 DATABASES = {
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # },
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    },
-    "postgresql": {
         "DATABASE_ENGINE": env.str("DATABASE_ENGINE"),
         "DATABASE_NAME": env.str("DATABASE_NAME"),
         "DATABASE_USER": env.str("DATABASE_USER"),
