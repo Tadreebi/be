@@ -26,7 +26,7 @@ class StudentGoalsList(ListAPIView):
 class StudentGoalsCreate(ListCreateAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -35,7 +35,7 @@ class StudentGoalsCreate(ListCreateAPIView):
 class StudentGoalsDetail(RetrieveAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -44,7 +44,7 @@ class StudentGoalsDetail(RetrieveAPIView):
 class StudentGoalsUpdate(RetrieveUpdateAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -53,7 +53,7 @@ class StudentGoalsUpdate(RetrieveUpdateAPIView):
 class StudentGoalsDelete(RetrieveDestroyAPIView):
     queryset = StudentGoal.objects.all()
     serializer_class = StudentGoalsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -69,7 +69,7 @@ class StudentGoalIndicatorsList(ListAPIView):
 class StudentGoalIndicatorsCreate(ListCreateAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -78,7 +78,7 @@ class StudentGoalIndicatorsCreate(ListCreateAPIView):
 class StudentGoalIndicatorsDetail(RetrieveAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -87,7 +87,7 @@ class StudentGoalIndicatorsDetail(RetrieveAPIView):
 class StudentGoalIndicatorsUpdate(RetrieveUpdateAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -96,7 +96,7 @@ class StudentGoalIndicatorsUpdate(RetrieveUpdateAPIView):
 class StudentGoalIndicatorsDelete(RetrieveDestroyAPIView):
     queryset = StudentGoalIndicator.objects.all()
     serializer_class = StudentGoalIndicatorsSerializer
-    permission_classes = [IsOwner, StudentStrictPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

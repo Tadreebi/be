@@ -7,6 +7,9 @@ from app.api.views import (
     StudentSignUpDetail,
     UniversitySignUpDetail,
     CompanySignUpDetail,
+    StudentUserListView,
+    UniversityEmployeeUserListView,
+    CompanyUserListView,
 )
 
 
@@ -39,4 +42,7 @@ urlpatterns = [
         CompanySignUpDetail.as_view(),
         name="company_detail",
     ),
+    path("accounts/student-list", StudentUserListView.as_view(), name="student_list"),
+    path("accounts/university-list", UniversityEmployeeUserListView.as_view(), name="university_list"),
+    path("accounts/company-list", CompanyUserListView.as_view(), name="company_list"),
 ]

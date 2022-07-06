@@ -36,7 +36,7 @@ class Proposal_List_View(ListAPIView):
 class proposal_create(ListCreateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -45,7 +45,7 @@ class proposal_create(ListCreateAPIView):
 class proposal_detail_view(RetrieveAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -54,7 +54,7 @@ class proposal_detail_view(RetrieveAPIView):
 class proposal_Update(RetrieveUpdateAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -63,7 +63,7 @@ class proposal_Update(RetrieveUpdateAPIView):
 class proposal_delete(RetrieveDestroyAPIView):
     queryset = StudentUniProposal.objects.all()
     serializer_class = StudentprposalSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

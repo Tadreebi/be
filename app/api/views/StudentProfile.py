@@ -39,7 +39,7 @@ class StudentProfileList(ListAPIView):
 class StudentProfileCreate(ListCreateAPIView):
     queryset = StudentProfile.objects.all()
     serializer_class = StudentProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -48,7 +48,7 @@ class StudentProfileCreate(ListCreateAPIView):
 class StudentProfileDetail(RetrieveAPIView):
     queryset = StudentProfile.objects.all()
     serializer_class = StudentProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -57,7 +57,7 @@ class StudentProfileDetail(RetrieveAPIView):
 class StudentProfileUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfile.objects.all()
     serializer_class = StudentProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -66,7 +66,7 @@ class StudentProfileUpdate(RetrieveUpdateAPIView):
 class StudentProfileDelete(RetrieveDestroyAPIView):
     queryset = StudentProfile.objects.all()
     serializer_class = StudentProfileSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -82,7 +82,7 @@ class StudentProfileExperienceList(ListAPIView):
 class StudentProfileExperienceCreate(ListCreateAPIView):
     queryset = StudentProfileExperience.objects.all()
     serializer_class = StudentProfileExperiencesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -91,7 +91,7 @@ class StudentProfileExperienceCreate(ListCreateAPIView):
 class StudentProfileExperienceDetail(RetrieveAPIView):
     queryset = StudentProfileExperience.objects.all()
     serializer_class = StudentProfileExperiencesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -100,7 +100,7 @@ class StudentProfileExperienceDetail(RetrieveAPIView):
 class StudentProfileExperienceUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileExperience.objects.all()
     serializer_class = StudentProfileExperiencesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -109,7 +109,7 @@ class StudentProfileExperienceUpdate(RetrieveUpdateAPIView):
 class StudentProfileExperienceDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileExperience.objects.all()
     serializer_class = StudentProfileExperiencesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -125,7 +125,7 @@ class StudentProfileSkillList(ListAPIView):
 class StudentProfileSkillCreate(ListCreateAPIView):
     queryset = StudentProfileSkill.objects.all()
     serializer_class = StudentProfileSkillsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -134,7 +134,7 @@ class StudentProfileSkillCreate(ListCreateAPIView):
 class StudentProfileSkillDetail(RetrieveAPIView):
     queryset = StudentProfileSkill.objects.all()
     serializer_class = StudentProfileSkillsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -143,7 +143,7 @@ class StudentProfileSkillDetail(RetrieveAPIView):
 class StudentProfileSkillUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileSkill.objects.all()
     serializer_class = StudentProfileSkillsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -152,7 +152,7 @@ class StudentProfileSkillUpdate(RetrieveUpdateAPIView):
 class StudentProfileSkillDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileSkill.objects.all()
     serializer_class = StudentProfileSkillsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -168,7 +168,7 @@ class StudentProfileEducationList(ListAPIView):
 class StudentProfileEducationCreate(ListCreateAPIView):
     queryset = StudentProfileEducation.objects.all()
     serializer_class = StudentProfileEducationsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -177,7 +177,7 @@ class StudentProfileEducationCreate(ListCreateAPIView):
 class StudentProfileEducationDetail(RetrieveAPIView):
     queryset = StudentProfileEducation.objects.all()
     serializer_class = StudentProfileEducationsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -186,7 +186,7 @@ class StudentProfileEducationDetail(RetrieveAPIView):
 class StudentProfileEducationUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileEducation.objects.all()
     serializer_class = StudentProfileEducationsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -195,7 +195,7 @@ class StudentProfileEducationUpdate(RetrieveUpdateAPIView):
 class StudentProfileEducationDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileEducation.objects.all()
     serializer_class = StudentProfileEducationsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -211,7 +211,7 @@ class StudentProfileLanguageList(ListAPIView):
 class StudentProfileLanguageCreate(ListCreateAPIView):
     queryset = StudentProfileLanguage.objects.all()
     serializer_class = StudentProfileLanguagesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -220,7 +220,7 @@ class StudentProfileLanguageCreate(ListCreateAPIView):
 class StudentProfileLanguageDetail(RetrieveAPIView):
     queryset = StudentProfileLanguage.objects.all()
     serializer_class = StudentProfileLanguagesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -229,7 +229,7 @@ class StudentProfileLanguageDetail(RetrieveAPIView):
 class StudentProfileLanguageUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileLanguage.objects.all()
     serializer_class = StudentProfileLanguagesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -238,7 +238,7 @@ class StudentProfileLanguageUpdate(RetrieveUpdateAPIView):
 class StudentProfileLanguageDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileLanguage.objects.all()
     serializer_class = StudentProfileLanguagesSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -254,7 +254,7 @@ class StudentProfileContactList(ListAPIView):
 class StudentProfileContactCreate(ListCreateAPIView):
     queryset = StudentProfileContact.objects.all()
     serializer_class = StudentProfileContactsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -263,7 +263,7 @@ class StudentProfileContactCreate(ListCreateAPIView):
 class StudentProfileContactDetail(RetrieveAPIView):
     queryset = StudentProfileContact.objects.all()
     serializer_class = StudentProfileContactsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -272,7 +272,7 @@ class StudentProfileContactDetail(RetrieveAPIView):
 class StudentProfileContactUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileContact.objects.all()
     serializer_class = StudentProfileContactsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -281,7 +281,7 @@ class StudentProfileContactUpdate(RetrieveUpdateAPIView):
 class StudentProfileContactDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileContact.objects.all()
     serializer_class = StudentProfileContactsSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -297,7 +297,7 @@ class StudentProfileWorkList(ListAPIView):
 class StudentProfileWorkCreate(ListCreateAPIView):
     queryset = StudentProfileWork.objects.all()
     serializer_class = StudentProfileWorksSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -306,7 +306,7 @@ class StudentProfileWorkCreate(ListCreateAPIView):
 class StudentProfileWorkDetail(RetrieveAPIView):
     queryset = StudentProfileWork.objects.all()
     serializer_class = StudentProfileWorksSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -315,7 +315,7 @@ class StudentProfileWorkDetail(RetrieveAPIView):
 class StudentProfileWorkUpdate(RetrieveUpdateAPIView):
     queryset = StudentProfileWork.objects.all()
     serializer_class = StudentProfileWorksSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -324,7 +324,7 @@ class StudentProfileWorkUpdate(RetrieveUpdateAPIView):
 class StudentProfileWorkDelete(RetrieveDestroyAPIView):
     queryset = StudentProfileWork.objects.all()
     serializer_class = StudentProfileWorksSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

@@ -24,7 +24,7 @@ class UniResponse_List_View(ListAPIView):
 class UniResponse_create(ListCreateAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -33,7 +33,7 @@ class UniResponse_create(ListCreateAPIView):
 class UniResponse_detail_view(RetrieveAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -42,7 +42,7 @@ class UniResponse_detail_view(RetrieveAPIView):
 class UniResponse_Update(RetrieveUpdateAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -51,7 +51,7 @@ class UniResponse_Update(RetrieveUpdateAPIView):
 class UniResponse_delete(RetrieveDestroyAPIView):
     queryset = UniProposalResponse.objects.all()
     serializer_class = UniProposalResponseSerializer
-    permission_classes = [IsOwnerOrReadOnly, UniversityPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

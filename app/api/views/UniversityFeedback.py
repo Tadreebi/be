@@ -25,7 +25,7 @@ class UniversityFeedbackList(ListAPIView):
 class UniversityFeedbackCreate(ListCreateAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
-    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -34,7 +34,7 @@ class UniversityFeedbackCreate(ListCreateAPIView):
 class UniversityFeedbackDetail(RetrieveAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
-    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -43,7 +43,7 @@ class UniversityFeedbackDetail(RetrieveAPIView):
 class UniversityFeedbackUpdate(RetrieveUpdateAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
-    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -52,7 +52,7 @@ class UniversityFeedbackUpdate(RetrieveUpdateAPIView):
 class UniversityFeedbackDelete(RetrieveDestroyAPIView):
     queryset = UniversityFeedback.objects.all()
     serializer_class = UniversityFeedbackSerializer
-    permission_classes = [UniversityPermission, IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

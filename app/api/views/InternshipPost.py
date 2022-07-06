@@ -56,7 +56,7 @@ class InternshipPostCreate(ListCreateAPIView):
 class InternshipPostDetail(RetrieveAPIView):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -84,7 +84,7 @@ class InternshipPostDelete(RetrieveDestroyAPIView):
 class InternshipPostsViewSets(viewsets.ModelViewSet):
     queryset = InternshipPost.objects.all()
     serializer_class = InternshipPostSerializer
-    permission_classes = [IsOwnerOrReadOnly, CompanyPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

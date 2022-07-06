@@ -27,7 +27,7 @@ class CompanyRatingList(ListAPIView):
 class CompanyRatingCreate(ListCreateAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -36,7 +36,7 @@ class CompanyRatingCreate(ListCreateAPIView):
 class CompanyRatingDetail(RetrieveAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -45,7 +45,7 @@ class CompanyRatingDetail(RetrieveAPIView):
 class CompanyRatingUpdate(RetrieveUpdateAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly, StudentPermission]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)
@@ -54,7 +54,7 @@ class CompanyRatingUpdate(RetrieveUpdateAPIView):
 class CompanyRatingDelete(RetrieveDestroyAPIView):
     queryset = CompanyRating.objects.all()
     serializer_class = CompanyRatingSerializer
-    permission_classes = [IsOwnerOrReadOnly]
+    permission_classes = [permissions.AllowAny]
 
     def perform_create(self, serializer):
         serializer.save(author=self.request.user)

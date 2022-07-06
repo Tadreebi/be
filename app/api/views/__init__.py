@@ -164,6 +164,9 @@ from .User import (
     StudentSignUpDetail,
     UniversitySignUpDetail,
     CompanySignUpDetail,
+    StudentUserListView,
+    UniversityEmployeeUserListView,
+    CompanyUserListView,
 )
 
 

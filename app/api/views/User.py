@@ -18,17 +18,21 @@ class PermissionStudentSignUp(permissions.BasePermission):
             return True
         return False
 
+class StudentUserListView(generics.ListAPIView):
+    permission_classes = [permissions.AllowAny]
+    queryset = StudentUser.objects.all()
+    serializer_class = StudentSerializer
 
 class StudentSignUpView(generics.ListCreateAPIView):
     queryset = StudentUser.objects.all()
     serializer_class = StudentSerializer
-    permission_classes = [PermissionStudentSignUp]
+    permission_classes = [permissions.AllowAny]
 
 
 class StudentSignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = StudentUser.objects.all()
     serializer_class = StudentSerializer
-    permission_classes = [PermissionStudentSignUp]
+    permission_classes = [permissions.AllowAny]
     lookup_field = "username"
 
 
@@ -43,17 +47,21 @@ class PermissionUniversitySignUp(permissions.BasePermission):
             return True
         return False
 
+class UniversityEmployeeUserListView(generics.ListAPIView):
+    queryset = UniversityEmployeeUser.objects.all()
+    serializer_class = UniversitySerializer
+    permission_classes = [permissions.AllowAny]
 
 class UniversitySignUpView(generics.ListCreateAPIView):
     queryset = UniversityEmployeeUser.objects.all()
     serializer_class = UniversitySerializer
-    permission_classes = [PermissionUniversitySignUp]
+    permission_classes = [permissions.AllowAny]
 
 
 class UniversitySignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = UniversityEmployeeUser.objects.all()
     serializer_class = UniversitySerializer
-    permission_classes = [PermissionUniversitySignUp]
+    permission_classes = [permissions.AllowAny]
     lookup_field = "username"
 
 
@@ -68,15 +76,19 @@ class PermissionCompanySignUp(permissions.BasePermission):
             return True
         return False
 
+class CompanyUserListView(generics.ListAPIView):
+    queryset = CompanyUser.objects.all()
+    serializer_class = CompanySerializer
+    permission_classes = [permissions.AllowAny]
 
 class CompanySignUpView(generics.ListCreateAPIView):
     queryset = CompanyUser.objects.all()
     serializer_class = CompanySerializer
-    permission_classes = [PermissionCompanySignUp]
+    permission_classes = [permissions.AllowAny]
 
 
 class CompanySignUpDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = CompanyUser.objects.all()
     serializer_class = CompanySerializer
-    permission_classes = [PermissionCompanySignUp]
+    permission_classes = [permissions.AllowAny]
     lookup_field = "username"
