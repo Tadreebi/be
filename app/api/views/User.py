@@ -4,6 +4,9 @@ from app.api.serializers import (
     StudentSerializer,
     UniversitySerializer,
     CompanySerializer,
+    StudentUsersListSerializer,
+    UniversityEmployee1UsersListSerializer,
+    CompanyUsersListSerializer,
 )
 
 
@@ -21,7 +24,7 @@ class PermissionStudentSignUp(permissions.BasePermission):
 class StudentUserListView(generics.ListAPIView):
     permission_classes = [permissions.AllowAny]
     queryset = StudentUser.objects.all()
-    serializer_class = StudentSerializer
+    serializer_class = StudentUsersListSerializer
 
 class StudentSignUpView(generics.ListCreateAPIView):
     queryset = StudentUser.objects.all()
@@ -49,7 +52,7 @@ class PermissionUniversitySignUp(permissions.BasePermission):
 
 class UniversityEmployeeUserListView(generics.ListAPIView):
     queryset = UniversityEmployeeUser.objects.all()
-    serializer_class = UniversitySerializer
+    serializer_class = UniversityEmployee1UsersListSerializer
     permission_classes = [permissions.AllowAny]
 
 class UniversitySignUpView(generics.ListCreateAPIView):
@@ -78,7 +81,7 @@ class PermissionCompanySignUp(permissions.BasePermission):
 
 class CompanyUserListView(generics.ListAPIView):
     queryset = CompanyUser.objects.all()
-    serializer_class = CompanySerializer
+    serializer_class = CompanyUsersListSerializer
     permission_classes = [permissions.AllowAny]
 
 class CompanySignUpView(generics.ListCreateAPIView):

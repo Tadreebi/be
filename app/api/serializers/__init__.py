@@ -41,6 +41,9 @@ from .User import (
     StudentSerializer,
     UniversitySerializer,
     CompanySerializer,
+    StudentUsersListSerializer,
+    UniversityEmployee1UsersListSerializer,
+    CompanyUsersListSerializer,
 )
 
 from .Cities import CitiesSerializer
