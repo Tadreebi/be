@@ -120,14 +120,14 @@ DATABASES = {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     },
-    # "postgresql": {
-    #     "DATABASE_ENGINE": env.str("DATABASE_ENGINE"),
-    #     "DATABASE_NAME": env.str("DATABASE_NAME"),
-    #     "DATABASE_USER": env.str("DATABASE_USER"),
-    #     "DATABASE_PASSWORD": env.str("DATABASE_PASSWORD"),
-    #     "DATABASE_HOST": env.str("DATABASE_HOST"),
-    #     "DATABASE_PORT": env.str("DATABASE_PORT"),
-    # },
+    "postgresql": {
+        "DATABASE_ENGINE": env.str("DATABASE_ENGINE"),
+        "DATABASE_NAME": env.str("DATABASE_NAME"),
+        "DATABASE_USER": env.str("DATABASE_USER"),
+        "DATABASE_PASSWORD": env.str("DATABASE_PASSWORD"),
+        "DATABASE_HOST": env.str("DATABASE_HOST"),
+        "DATABASE_PORT": env.str("DATABASE_PORT"),
+    },
 }
 
 
