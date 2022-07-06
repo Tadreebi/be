@@ -11,7 +11,7 @@ class StudentSerializer(serializers.ModelSerializer):
 class StudentUsersListSerializer(serializers.ModelSerializer):
     class Meta:
         model = StudentUser
-        fields = "username"
+        fields = "[username,]"
 
 
 class UniversitySerializer(serializers.ModelSerializer):
@@ -24,7 +24,7 @@ class UniversitySerializer(serializers.ModelSerializer):
 class UniversityEmployee1UsersListSerializer(serializers.ModelSerializer):
     class Meta:
         model = UniversityEmployeeUser
-        fields = "username"
+        fields = "[username,]"
 
 
 class CompanySerializer(serializers.ModelSerializer):
@@ -37,4 +37,4 @@ class CompanySerializer(serializers.ModelSerializer):
 class CompanyUsersListSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompanyUser
-        fields = "username"
+        fields = "[username,]"
